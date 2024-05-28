@@ -18,7 +18,7 @@
 --katedraID int,
 --smjerID int,
 --naziv varchar(100),
---predavaè varchar(50),
+--predavac varchar(50),
 --obavezni bit
 --);
 

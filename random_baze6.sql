@@ -65,3 +65,35 @@ krajPosudbe datetime
 alter table Knjige add foreign key (vlasnik) references Citatelji(citateljID);
 alter table Posudba add foreign key (citateljID) references Citatelji(citateljID);
 alter table Posudba add foreign key (knjigaID) references Knjige(knjigaID);
+
+
+create table osobe(
+sifra int not null primary key identity(1,1),
+ime varchar(50),
+prezime varchar(50),
+adresa varchar(50),
+email varchar(50)
+);
+
+create table clan(
+sifra int not null primary key identity(1,1),
+clbroj int not null
+);
+
+create table vlasnik(
+sifra int not null primary key identity(1,1),
+knjiga int
+);
+
+create table knjiga(
+sifra int not null primary key identity(1,1),
+naslov varchar(50) not null,
+pisac varchar(50) not null,
+vlasnik int not null,
+clan int not null,
+datumpos datetime,
+datumvrac datetime
+);
+
+alter table knjiga add foreign key (vlasnik) references vlasnik(sifra);
+alter table knjiga add foreign key (clan) references clan(sifra);

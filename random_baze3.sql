@@ -154,7 +154,7 @@ create table Uciteljice(
 uciteljicaID int not null primary key identity(1,1),
 ime varchar(30) not null,
 prezime varchar(30) not null,
-datumRodenja datetime,
+datumRodenja date,
 kontakt varchar(30)
 );
 
@@ -162,16 +162,37 @@ create table Djeca(
 dijeteID int not null primary key identity(1,1),
 ime varchar(30) not null,
 prezime varchar(30) not null,
-datumRodenja datetime,
+datumRodenja date,
 razred varchar(10)
 );
 
 create table Sudionici(
 dijeteID int not null,
 radionicaID int not null,
-datumPristupanja datetime
+datumPristupanja date
 );
 
 alter table Radionice add foreign key (uciteljicaID) references Uciteljice(uciteljicaID);
 alter table Sudionici add foreign key (dijeteID) references Djeca(dijeteID);
 alter table Sudionici add foreign key (radionicaID) references Radionice(radionicaID);
+
+insert into Uciteljice (ime,prezime,datumRodenja,kontakt) values
+('Sonja','Sonjiæ','1980-06-10','0915558887'),
+('Hajdi','Hajdiæ','1988-03-07','0912225556'),
+('Ivana','Iviæ','1968-10-27','0984445553');
+
+insert into Radionice (naziv,vrijemePocetka,brojDjece,uciteljicaID) values
+('Izrada božiænih ukrasa','2024-12-05 14:00',20,2),
+('Vrtna radionica','2024-05-10 9:00',10,3),
+('Informatièka radionica','2024-04-22 10:00',15,2);
+
+insert into Djeca (ime,prezime,datumRodenja,razred) values
+('Ivan','Ivièeviæ',null,'3.A'),
+('Pero','Periæ',null,'3.B'),
+('Goran','Grkiæ',null,'3.A'),
+('Marko','Markiæ',null,'4.A'),
+('Ivan','Iviæ',null,'4.C');
+
+insert into Sudionici (dijeteID,radionicaID,datumPristupanja) values
+(1,3,'2024-04-24'),(1,2,'2024-05-10'),(3,3,'2024-04-22'),(2,1,'2024-12-08'),(4,1,'2024-12-06');
+

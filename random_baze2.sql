@@ -308,3 +308,30 @@ alter table Vozila add foreign key (vozacID) references Vozaci(vozacID);
 alter table Voznja add foreign key (voziloID) references Vozila(voziloID);
 alter table VoznjaPutnika add foreign key (voznjaID) references Voznja(voznjaID);
 alter table VoznjaPutnika add foreign key (putnikID) references Putnici(putnikID);
+
+insert into Vozaci (ime,prezime,kontakt) values
+('Pero','Periæ',null),
+('Goran','Grgiæ',null),
+('Ivan','Iviæ',null),
+('Ivan','Ivièeviæ',null);
+
+insert into Vozila (naziv,registracija,vozacID) values
+('Vozilo 1','AB777',4),
+('Vozilo 2','SD888',3),
+('Vozilo 3','AS555',2),
+('Vozilo 4','FG222',1);
+
+insert into Putnici (ime,prezime,cijenaVoznje) values
+('Hajdi','Hajdiæ',3.99),
+('Marko','Markiæ',4.99),
+('Ivana','Iviæ',4.99),
+('Petra','Periæ',4.49);
+
+insert into Voznja (voziloID,brojPutnika,vrijemePocetka,vrijemeZavrsetka) values
+(2,2,'2024-06-03 10:23','2024-06-03 10:50'),
+(3,1,'2024-06-04 13:05','2024-06-04 13:20'),
+(1,1,'2024-06-04 17:17','2024-06-04 17:37');
+
+insert into voznjaPutnika (voznjaID,putnikID) values
+(1,2),(1,3),(2,1),(3,4);
+

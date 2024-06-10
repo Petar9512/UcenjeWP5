@@ -52,3 +52,46 @@ insert into Mjesto (opcina,naziv) values
 (2,'Draèe'),(2,'Osobjava'),(2,'Popova Luka'),
 (1,'Topolo'),(1,'Imotica'),(1,'Visoèani');
 
+
+update Mjesto set naziv='Smokovljani' where sifra=10;
+update Mjesto set naziv='Stupa' where sifra=11;
+update Mjesto set naziv='Èepikuæe' where sifra=12;
+update Mjesto set naziv='Donja Suvaja' where sifra=1;
+update Mjesto set naziv='Sreser' where sifra=7;
+
+delete from Opcina where sifra=4;
+delete from Opcina where sifra=5;
+
+
+create table Zaposlenici (
+sifra int not null primary key identity(1,1),
+ime varchar(30) not null,
+prezime varchar(30) not null,
+datumRodenja date not null,
+placa decimal(10,2),
+invalid bit not null
+);
+
+create table Slike (
+sifra int not null primary key identity(1,1),
+zaposlenik int not null,
+redniBroj int not null,
+putanja varchar(150) not null
+);
+
+alter table Slike add foreign key (zaposlenik) references Zaposlenici(sifra);
+
+
+insert into Zaposlenici (ime,prezime,datumRodenja,placa,invalid) values
+('Ivan','Iviæ','1976-05-10',null,0),
+('Goran','Grkiæ','1978-06-15',null,0),
+('Hajdi','Hajdiæ','1988-03-05',null,0);
+
+insert into Slike (zaposlenik,redniBroj,putanja) values
+(1,1,'https://www.pexels.com/photo/two-deer-grazing-in-a-field-with-trees-in-the-background-21820922/'),
+(1,2,'https://www.pexels.com/photo/kiz-kulesi-in-istanbul-at-sunset-23731698/'),
+(2,3,'https://www.pexels.com/photo/a-mountain-with-trees-and-clouds-in-the-background-20875403/'),
+(2,4,'https://www.pexels.com/video/sunflower-in-rural-setting-at-sunset-in-summer-20712217/'),
+(3,5,'https://www.pexels.com/photo/diamond-cut-24778046/'),
+(3,6,'https://www.pexels.com/video/light-city-man-love-25559507/');
+

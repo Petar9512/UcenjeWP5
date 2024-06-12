@@ -55,6 +55,17 @@ insert into Profesori (ime,prezime) values
 insert into Predavaci (profesorID,razredID) values
 (1,3),(2,1),(3,2);
 
+--update Ucenici set oib='22679846557' where ucenikID=1;
+--update Ucenici set oib='68945762476' where ucenikID=2;
+--update Ucenici set oib='20906879351' where ucenikID=3;
+--update Ucenici set oib='40078922682' where ucenikID=4;
+--update Ucenici set oib='98074632514' where ucenikID=5;
+--update Razredi set brojUcenika=21 where razredID=1;
+--alter table Profesori add kontakt varchar(30);
+--update Profesori set kontakt='0985557774' where profesorID=2;
+--update Profesori set kontakt='0912225554' where profesorID=1;
+--update Profesori set kontakt='0982223331' where profesorID=3;
+
 
 
 create table Trgovine(
@@ -99,8 +110,17 @@ insert into Trgovine (naziv,brojZaposlenika,opisDjelatnosti,sef) values
 insert into Zaposlenici (osobaID,trgovinaID,pocetakRV,krajRV) values
 (1,2,'7:00','14:00'),
 (2,3,'8:00','15:00'),
-(3,4,'7:00','7:00'),
-(4,1,'7:00','7:00');
+(3,4,'7:00','14:00'),
+(4,1,'7:00','14:00');
+
+--update Osoblje set datumRodenja='1988-03-16' where osobaID=1;
+--update Osoblje set datumRodenja='1980-06-10' where osobaID=2;
+--update Osoblje set datumRodenja='1972-03-04' where osobaID=3;
+--update Osoblje set datumRodenja='1987-05-21' where osobaID=4;
+--update Trgovine set opisDjelatnosti='Supermarket' where trgovinaID=1;
+--update Trgovine set opisDjelatnosti='Trgovina odjeæom' where trgovinaID=2;
+--update Trgovine set opisDjelatnosti='Trgovina uredskim priborom' where trgovinaID=3;
+--update Trgovine set opisDjelatnosti='Trgovina kuæanskim aparatima i elektronièkom opremom' where trgovinaID=4;
 
 
 
@@ -150,6 +170,11 @@ insert into Pice (naziv,sastojci,cijena) values
 
 insert into Prilozi (jeloID,piceID) values
 (1,1),(1,3),(2,1),(2,2),(2,3),(3,2);
+
+--update Jelo set cijena = cijena * 0.9;
+--update Pice set cijena = cijena * 0.9;
+--update Kategorije set opis='Jela s morskim plodovima' where kategorijaID=1;
+--update Kategorije set opis='Tjestenine' where kategorijaID=2;
 
 
 
@@ -201,4 +226,15 @@ insert into Sirovine (naziv,vrsta,kolicina) values
 
 insert into ProizvodiOdSirovina (proizvodID,sirovinaID) values
 (1,1),(1,3),(2,2),(2,3),(3,4),(3,3);
+
+--update Djelatnici set oib='87661143564' where djelatnikID=1;
+--update Djelatnici set oib='38798698453' where djelatnikID=2;
+--update Djelatnici set oib='24377895643' where djelatnikID=3;
+--update Proizvodi set opis='Obièna stolica' where proizvodID=1;
+--update Proizvodi set opis='Aluminijska stolna lampa' where proizvodID=2;
+--update Proizvodi set opis='Televizor 80x50' where proizvodID=3;
+--update Sirovine set kolicina='50kg' where sirovinaID=1;
+--update Sirovine set kolicina='20kg' where sirovinaID=2;
+--update Sirovine set kolicina='20kg' where sirovinaID=3;
+--update Sirovine set kolicina='30kg' where sirovinaID=4;
 

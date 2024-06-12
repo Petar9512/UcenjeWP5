@@ -65,6 +65,13 @@ insert into Posjet (djelatnikID,korisnikID,uslugaID,vrijeme) values
 (4,1,1,null),
 (1,3,3,'2024-07-16 9:55');
 
+--delete from Posjet where djelatnikID=5 and korisnikID=5;
+--delete from Djelatnici where djelatnikID=5;
+--delete from Korisnici where korisnikID=5;
+
+--update Korisnici set prezime='Ivièeviæ', tipKose ='dugaèka' where korisnikID=3;
+--update Djelatnici set brojTelefona='0985558889' where djelatnikID=2;
+--update Djelatnici set brojTelefona='0912225557' where djelatnikID=3;
 
 
 create table Zaposlenici(
@@ -114,6 +121,15 @@ insert into Sticenici (zaposlenikID,prostorID,ime,vrsta,prehrana) values
 (5,2,'Nevis','papiga','sjemenke'),
 (3,1,null,'majmun','voæe');
 
+--update Zaposlenici set brojTelefona='0975553334', email='ivanivicevic@gmail.com' where zaposlenikID=2;
+--update Zaposlenici set brojTelefona='0974447778', email='hajdihajdic@gmail.com' where zaposlenikID=5;
+--delete from Zaposlenici where zaposlenikID=4;
+
+--update Sticenici set zaposlenikID=1 where sticenikID=1;
+--delete from Sticenici where sticenikID=2;
+
+--update Prostori set visina='0.7m', duzina='2.5m', sirina='2.5m' where prostorID=3;
+--update Prostori set visina='0.5m', duzina='1m', sirina='0.6m' where prostorID=4;
 
 
 create table OdgojneSkupine(
@@ -124,6 +140,7 @@ brojDjece int
 );
 
 create table Djeca(
+dijeteID int not null primary key identity(1,1),
 ime varchar(30) not null,
 prezime varchar(30) not null,
 dob int not null,
@@ -168,6 +185,16 @@ insert into Djeca (ime,prezime,dob,kontaktRoditelja,odgojnaSkupinaID) values
 ('Ivan','Iviæ',8,'0912224443',3),
 ('Ivan','Ivièeviæ',7,'0983334445',3),
 ('Marko','Markiæ',8,'0985554446',3);
+
+--update Odgajateljice set brojTelefona='0957778882' where odgajateljicaID=2;
+--update Odgajateljice set brojTelefona='0954445553' where odgajateljicaID=3;
+
+--update OdgojneSkupine set brojDjece=20 where odgojnaSkupinaID=1;
+--update OdgojneSkupine set brojDjece=15 where odgojnaSkupinaID=2;
+--update OdgojneSkupine set brojDjece=15 where odgojnaSkupinaID=3;
+
+--update Djeca set odgojnaSkupinaID=2 where dijeteID=2;
+--update Djeca set odgojnaSkupinaID=2 where dijeteID=3;
 
 
 
@@ -223,6 +250,14 @@ insert into Djela (naziv,autor,stil,izlozbaID) values
 ('Mona Lisa','Leonardo da Vinci',null,1),
 ('Futurizam 2050','Pero Periæ',null,3),
 ('Srednji vijek 1000','Goran Grkiæ',null,2);
+
+--update Sponzori set kontakt='www.microsoft.com' where sponzorID=1;
+--update Sponzori set kontakt='www.facebook.com' where sponzorID=2;
+--update Sponzori set kontakt='www.amazon.com' where sponzorID=3;
+
+--update Djela set stil='renesansa' where naziv='Mona Lisa';
+--update Djela set stil='futurizam' where naziv='Futurizam 2050';
+--update Djela set stil='gotika' where naziv='Srednji vijek 1000';
 
 
 
@@ -334,4 +369,9 @@ insert into Voznja (voziloID,brojPutnika,vrijemePocetka,vrijemeZavrsetka) values
 
 insert into voznjaPutnika (voznjaID,putnikID) values
 (1,2),(1,3),(2,1),(3,4);
+
+--update Vozaci set kontakt='peroperic@gmail.com' where vozacID=1;
+--update Vozaci set kontakt='gorangrgic@gmail.com' where vozacID=2;
+--update Vozaci set kontakt='ivanivic@gmail.com' where vozacID=3;
+--update Vozaci set kontakt='ivanivicevic@gmail.com' where vozacID=4;
 

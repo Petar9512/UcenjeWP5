@@ -65,6 +65,11 @@ insert into PopravakObuce (popravakID,obucaID,vrijemePopravka,opisPopravka,cijen
 (2,5,'2024-06-03 9:00','popravio papuèe',10.00,1),
 (2,4,'2024-06-04 10:20','popravio cipele',12.00,1);
 
+--update Korisnici set kontakt='gorangrkic@gmail.com' where korisnikID=2;
+--update Korisnici set kontakt='hajdihajdic@gmail.com' where korisnikID=3;
+--update Obuca set broj='43' where korisnikID=4;
+--update Obuca set opisKvara='rasparano dno' where obucaID=2;
+
 
 
 create table Pacijenti(
@@ -97,6 +102,9 @@ insert into Lijecenje (pacijentID,opisTretmana,lijekovi,pocetakLijecenja,krajLij
 (2,'sirup za kašalj',null,'2024-03-20','2024-03-25',null),
 (3,'antibiotik',null,'2024-04-10','2024-04-15',null),
 (4,'antibiotik',null,'2024-05-22','2024-05-29',null);
+
+--delete from Lijecenje where pacijentID=4;
+--delete from Pacijenti where pacijentID=4;
 
 
 
@@ -139,6 +147,11 @@ insert into IspitniRokovi (kolegij,vrstaIspita,vrijeme) values
 
 insert into Prijava (studentID,ispitniRokID,pristupio) values
 (2,3,1),(2,1,1),(1,2,0),(3,5,1);
+
+--update Studenti set oib='55476834587', datumRodenja='1999-07-31' where studentID=1;
+--update Studenti set oib='91436778453', datumRodenja='2000-01-16' where studentID=2;
+--update Studenti set oib='35499872335', datumRodenja='2002-03-21' where studentID=3;
+--update Prijava set pristupio=0 where studentID=3 and IspitniRokID=5;
 
 
 
@@ -195,4 +208,11 @@ insert into Djeca (ime,prezime,datumRodenja,razred) values
 
 insert into Sudionici (dijeteID,radionicaID,datumPristupanja) values
 (1,3,'2024-04-24'),(1,2,'2024-05-10'),(3,3,'2024-04-22'),(2,1,'2024-12-08'),(4,1,'2024-12-06');
+
+--update Djeca set datumRodenja='2009-11-22' where dijeteID=1;
+--update Djeca set datumRodenja='2010-02-06' where dijeteID=2;
+--update Djeca set datumRodenja='2010-01-21' where dijeteID=3;
+--update Djeca set datumRodenja='2008-09-17' where dijeteID=4;
+--update Djeca set datumRodenja='2008-10-10' where dijeteID=5;
+--update Sudionici set datumPristupanja='2024-04-25' where dijeteID=1 and radionicaID=3;
 

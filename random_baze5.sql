@@ -30,7 +30,7 @@ segrt bit
 alter table PopravakKvara add foreign key (popravakID) references Popravci(popravakID);
 alter table PopravakKvara add foreign key (kvarID) references Kvarovi(kvarID);
 
-insert into Kvarovi ( naziv,opisKvara,tipInstalacije) values
+insert into Kvarovi (naziv,opisKvara,tipInstalacije) values
 (null,'probušena cijev','klasièna vodovodna cijev'),
 (null,'pokvaren ventil','ventil'),
 (null,'pokvaren brojaè','vodovodni brojaè');
@@ -43,6 +43,10 @@ insert into PopravakKvara (popravakID,kvarID,opisPopravka,cijena,segrt) values
 (1,2,'popravio ventil',7.99,0),
 (1,3,'popravio brojaè',6.99,0),
 (2,1,'popravio cijev',5.99,1);
+
+--update Kvarovi set naziv='kvar tip 1' where kvarID=1;
+--update Kvarovi set naziv='kvar tip 2' where kvarID=2;
+--update Kvarovi set naziv='kvar tip 2' where kvarID=3;
 
 
 
@@ -94,6 +98,9 @@ insert into Obrane (klijentID,nazivSlucaja,nazivSuda) values
 
 insert into SuradniciUObranama (obranaID,suradnikID) values
 (1,1),(1,3),(2,3),(3,1),(4,2);
+
+--update Obrane set nazivSuda='Županijski sud Split' where obranaID=3;
+--update Obrane set nazivSuda='Županijski sud Split' where obranaID=4;
 
 
 
@@ -147,6 +154,10 @@ insert into Djela (naziv,autor,zanr) values
 insert into Izdanje (nakladnikID,djeloID,godinaIzdanja) values
 (1,1,'2002'),(1,3,'1998'),(2,1,'2000'),(3,2,'1990'),(3,3,'1999');
 
+--update Nakladnici set adresa='Iva Vojnoviæa 20', kontakt='0912225554' where nakladnikID=3;
+--update Nakladnici set adresa='Ilica 36', kontakt='0985556667' where nakladnikID=1;
+--update Nakladnici set adresa='Savarska 47', kontakt='0987774443' where nakladnikID=2;
+
 
 
 create table Clanovi(
@@ -198,4 +209,10 @@ insert into Nastupi (mjestoID,naziv,vrijeme) values
 
 insert into SudioniciNastupa (nastupID,clanID) values
 (1,1),(1,3),(1,4),(2,1),(2,3),(2,4),(2,5),(3,1),(3,2),(3,3),(3,4),(3,5);
+
+--update Clanovi set oib='01978897564' where clanID=1;
+--update Clanovi set oib='88769656136' where clanID=2;
+--update Clanovi set oib='54789182937' where clanID=3;
+--update Clanovi set oib='29718459234' where clanID=4;
+--update Clanovi set oib='48557623889' where clanID=5;
 

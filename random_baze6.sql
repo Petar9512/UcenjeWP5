@@ -18,7 +18,7 @@ create table Djeca(
 dijeteID int not null primary key identity(1,1),
 ime varchar(30) not null,
 prezime varchar(30) not null,
-datumRodenja datetime,
+datumRodenja date,
 kontaktRoditelja varchar(50) not null
 );
 
@@ -58,6 +58,12 @@ insert into Skupine (tetaID,naziv,brojDjece) values
 insert into Clanovi (skupinaID,dijeteID,datumPristupanja) values
 (1,2,'2024-04-10'),(1,4,'2024-04-10'),(1,5,'2024-04-12'),(2,1,'2024-04-18'),(2,3,'2024-04-19'),(2,5,'2024-04-21'),
 (3,1,'2024-05-13'),(3,2,'2024-05-13'),(3,4,'2024-05-14');
+
+--update Djeca set datumRodenja='2018-09-30' where dijeteID=1;
+--update Djeca set datumRodenja='2019-03-10' where dijeteID=2;
+--update Djeca set datumRodenja='2018-06-22' where dijeteID=3;
+--update Djeca set datumRodenja='2019-04-12' where dijeteID=4;
+--update Djeca set datumRodenja='2019-03-27' where dijeteID=5;
 
 
 
@@ -102,6 +108,13 @@ insert into Knjige (naziv,autor,vlasnik) values
 insert into Posudba (citateljID,knjigaID,pocetakPosudbe,krajPosudbe) values
 (1,2,'2024-02-03','2024-02-17'),(5,2,'2024-03-12','2024-03-30'),
 (4,1,'2024-03-01','2024-03-22'),(5,3,'2024-05-30',null);
+
+--update Citatelji set oib='75863348698' where citateljID=1;
+--update Citatelji set oib='91345873345' where citateljID=2;
+--update Citatelji set kontakt='markomarkic@gmail.com', oib='06787979453' where citateljID=3;
+--update Citatelji set oib='24658498712' where citateljID=4;
+--update Citatelji set kontakt='ivanaivic@gmail.com', oib='75735545879' where citateljID=5;
+--update Posudba set krajPosudbe='2024-06-14' where citateljID=5 and knjigaID=3;
 
 
 

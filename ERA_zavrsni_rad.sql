@@ -1,4 +1,4 @@
-use master;
+ï»¿use master;
 go
 drop database if exists fakultet;
 go
@@ -56,20 +56,20 @@ insert into Smjerovi (naziv,brojStudenata) values
 ('Kroatistika',50);
 
 insert into Kolegiji (smjerID,naziv,predavac,obavezni) values
-(1,'Uvod u englesku knjievnost',null,1),
+(1,'Uvod u englesku knjiÅ¾evnost',null,1),
 (1,'Suvremeni engleski jezik',null,1),
-(2,'Jeziène vjebe 1',null,1),
-(2,'Povijest njemaèkog jezika',null,0),
-(3,'Jeziène vjebe 1',null,1),
+(2,'JeziÄne vjeÅ¾be 1',null,1),
+(2,'Povijest njemaÄkog jezika',null,0),
+(3,'JeziÄne vjeÅ¾be 1',null,1),
 (4,'Staroslavenski jezik',null,1),
 (4,'Teorija jezika',null,1);
 
 insert into Studenti (smjerID,ime,prezime,oib) values
-(4,'Ivan','Iviæ','47457409385'),
-(4,'Hajdi','Hajdiæ','15797970162'),
-(1,'Goran','Grkiæ','20437329240'),
-(1,'Marko','Markiæ','22353796851'),
-(2,'Ivan','Ivièeviæ','24088017749');
+(4,'Ivan','IviÄ‡','47457409385'),
+(4,'Hajdi','HajdiÄ‡','15797970162'),
+(1,'Goran','GrkiÄ‡','20437329240'),
+(1,'Marko','MarkiÄ‡','22353796851'),
+(2,'Ivan','IviÄeviÄ‡','24088017749');
 
 insert into ispitniRok (kolegijID,vrstaIspita,datum) values
 (6,'pismeni','2024-06-10 12:00'),

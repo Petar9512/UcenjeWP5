@@ -82,3 +82,29 @@ insert into ispitniRok (kolegijID,vrstaIspita,datum) values
 insert into Prijava (studentID,ispitniRokID,pristupio) values
 (2,1,1),(2,2,1),(1,1,1),(1,2,0),(3,3,1),(3,4,0),(4,3,1),(4,4,1),(5,5,null);
 
+
+
+--select Studenti.ime, Studenti.prezime, Smjerovi.naziv as smjer
+--from Studenti inner join Smjerovi 
+--on Studenti.smjerID = Smjerovi.smjerID;
+
+--select Smjerovi.naziv as Smjer, count(Studenti.studentID) as BrojStudenata
+--from Studenti inner join Smjerovi
+--on Studenti.smjerID = Smjerovi.smjerID
+--group by Smjerovi.naziv
+--order by count(Studenti.studentID) desc;
+
+--select Studenti.ime, Studenti.prezime, Kolegiji.naziv as kolegij, Smjerovi.naziv as smjer, IspitniRok.vrstaIspita, IspitniRok.datum as vrijeme
+--from IspitniRok inner join Kolegiji 
+--on IspitniRok.kolegijID = Kolegiji.kolegijID inner join Smjerovi
+--on Kolegiji.smjerID = Smjerovi.smjerID inner join Studenti 
+--on Studenti.smjerID = Smjerovi.smjerID;
+
+--select Kolegiji.naziv as kolegij, Smjerovi.naziv as smjer, IspitniRok.vrstaIspita, IspitniRok.datum as vrijeme
+--from Kolegiji inner join Smjerovi
+--on Kolegiji.smjerID = Smjerovi.smjerID left join IspitniRok
+--on Kolegiji.kolegijID = IspitniRok.kolegijID;
+
+--select Kolegiji.naziv as kolegij, Smjerovi.naziv as smjer
+--from Kolegiji inner join Smjerovi
+--on Kolegiji.smjerID = Smjerovi.smjerID;

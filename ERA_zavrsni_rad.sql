@@ -82,7 +82,9 @@ insert into ispitniRok (kolegijID,vrstaIspita,datum) values
 insert into Prijava (studentID,ispitniRokID,pristupio) values
 (2,1,1),(2,2,1),(1,1,1),(1,2,0),(3,3,1),(3,4,0),(4,3,1),(4,4,1),(5,5,null);
 
+--select prezime from Studenti where oib like '%1%';
 
+--select kolegijID, naziv from Kolegiji where Kolegiji.kolegijID not in (select kolegijID from IspitniRok);
 
 --select Studenti.ime, Studenti.prezime, Smjerovi.naziv as smjer
 --from Studenti inner join Smjerovi 

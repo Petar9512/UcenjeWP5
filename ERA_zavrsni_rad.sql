@@ -86,6 +86,10 @@ insert into Prijava (studentID,ispitniRokID,pristupio) values
 
 --select kolegijID, naziv from Kolegiji where Kolegiji.kolegijID not in (select kolegijID from IspitniRok);
 
+--select Kolegiji.kolegijID, Kolegiji.naziv
+--from Kolegiji left join IspitniRok on Kolegiji.kolegijID=IspitniRok.kolegijID
+--where IspitniRok.kolegijID is null;
+
 --select Studenti.ime, Studenti.prezime, Smjerovi.naziv as smjer
 --from Studenti inner join Smjerovi 
 --on Studenti.smjerID = Smjerovi.smjerID;

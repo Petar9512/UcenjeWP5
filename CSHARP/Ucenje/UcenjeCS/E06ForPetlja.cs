@@ -10,7 +10,7 @@ namespace UcenjeCS
     {
 
         public static void Izvedi()
-        {
+        {  /*
 
             for (int i = 0; i < 10; i++)
             {
@@ -58,9 +58,72 @@ namespace UcenjeCS
                 {
                     Console.WriteLine(niz[i]);
                 }
+            }  
+            */
+
+            int[,] tablica =
+            {
+                {1,2,30 },
+                {4,5,6},
+                {7,8,9 }
+            };
+
+            for (int i = 0; i < tablica.GetLength(0); i++)
+            {
+                for (int j = 0; j < tablica.GetLength(1); j++)
+                    if (j == 1 && i != 0)
+                    {
+                        Console.Write(tablica[i, j] + "  ");
+                    }
+                    else
+                    {
+                        Console.Write(tablica[i, j] + " ");
+                    }
+                Console.WriteLine();
+            }
+            /*
+
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    Console.Write((i + 1) * (j + 1) + "\t");
+                }
+                Console.WriteLine();
+            }  
+
+
+            int ukupno = 0;
+            for (int i = 0; i < 10; i++)
+            {
+                if (i == 1 || i == 3)
+                {
+                    continue;
+                }
+                if (++ukupno > 5)
+                {
+                    break;
+                }
+                Console.WriteLine(i);
             }
 
+
+            int broj = 0;
+            for (; ; )
+            {
+                Console.Write("Unesite broj između 10 i 20: ");
+                broj = int.Parse(Console.ReadLine());
+                if (broj>=10 && broj <=20)
+                {
+                    break;
+                }
+                Console.WriteLine("Neispravan unos");
+            }
+
+            Console.WriteLine("Unijeli ste {0}", broj);
+            */
         }
 
-    }
-}
+    } 
+        }
+   

@@ -17,13 +17,20 @@ namespace UcenjeCS
 
             int[,] tablica = new int[x, x];
 
-            int y = x - (x - 1);
+            // int y = x - (x - 1);
+
+
+            Console.WriteLine("Unesite broj: ");
+
+            int k = int.Parse(Console.ReadLine());
+
+
 
             for (int i = x - 1; i < x; i++)
             {
                 for (int j = x - 1; j > -1; j--)
                 {
-                    tablica[i, j] = y++;
+                    tablica[i, j] = k++;
                 }
             }
 
@@ -31,7 +38,7 @@ namespace UcenjeCS
             {
                 for (int j = 0; j < 1; j++)
                 {
-                    tablica[i, j] = y++;
+                    tablica[i, j] = k++;
                 }
             }
 
@@ -39,14 +46,14 @@ namespace UcenjeCS
             {
                 for (int j = 1; j < x; j++)
                 {
-                    tablica[i, j] = y++;
+                    tablica[i, j] = k++;
                 }
             }
 
             for (int i = 1; i < x - 1; i++)
             {
               for (int j = x - 1; j < x; j++) {
-                    tablica[i, j] = y++;
+                    tablica[i, j] = k++;
             }
             }
 
@@ -54,7 +61,7 @@ namespace UcenjeCS
             {
                 for (int j = x - 2; j > 0; j--)
                 {
-                    tablica[i, j] = y++;
+                    tablica[i, j] = k++;
                 }
             }
 
@@ -62,7 +69,7 @@ namespace UcenjeCS
             {
                 for (int j = 1; j < 2; j++)
                 {
-                    tablica[i, j] = y++;
+                    tablica[i, j] = k++;
                 }
             }
 
@@ -70,7 +77,7 @@ namespace UcenjeCS
             {
                 for (int j = 2; j < x - 1; j++)
                 {
-                    tablica[i, j] = y++;
+                    tablica[i, j] = k++;
                 }
             }
 
@@ -78,7 +85,7 @@ namespace UcenjeCS
             {
                 for (int j = x - 2; j > 1; j--)
                 {
-                    tablica[i, j] = y++;
+                    tablica[i, j] = k++;
                 }
             }
 

@@ -14,4 +14,5 @@ using UcenjeCS;
 //E04Z1.Izvedi();
 //E05Nizovi.Izvedi();
 //E06ForPetlja.Izvedi();
-ECiklicnaTablica5x5.Izvedi();
+//ECiklicnaTablica5x5.Izvedi();
+CiklicnaTablicaNeparniBroj.Izvedi();

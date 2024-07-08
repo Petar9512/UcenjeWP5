@@ -20,4 +20,5 @@ using UcenjeCS;
 //E10TryCatch.Izvedi();
 //E07Z1.Izvedi();
 //EZadatci.Izvedi();
-EZadatci2.Izvedi();
+//EZadatci2.Izvedi();
+EZadatci3.Izvedi();

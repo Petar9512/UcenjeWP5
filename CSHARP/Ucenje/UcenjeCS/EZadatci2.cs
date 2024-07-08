@@ -52,9 +52,54 @@ namespace UcenjeCS
                     Console.WriteLine("Niste unijeli grad");
                 }
             }
+            char c = Char.ToUpper(grad2[0]);
+            grad2 = c + grad2.Substring(1);
             Console.WriteLine();
-            Console.WriteLine(grad2);
+            
+            switch (grad2)
+            {
+                case "Osijek":
+                    Console.WriteLine("Slavonija");
+                    break;
+                case "Zadar":
+                    Console.WriteLine("Dalmacija");
+                    break;
+                case "Čakovec":
+                    Console.WriteLine("Međimurje");
+                    break;
+                case "Pula":
+                    Console.WriteLine("Istra");
+                    break;
+                default:
+                    Console.WriteLine("Ne znam koja je to regija");
+                    break;
+            }
 
+
+
+            Console.WriteLine();
+            string x;
+            string y = "";
+
+            Console.WriteLine("Unesite riječ: ");
+            x = Console.ReadLine().Trim().ToLower();
+
+            for (int i = x.Length - 1; i > -1; i--)
+            {
+                y += x[i];
+            }
+
+            Console.WriteLine(y);
+            Console.WriteLine();
+
+            if (x == y)
+            {
+                Console.WriteLine("Palindrom");
+            }
+            else
+            {
+                Console.WriteLine("Nije palindrom");
+            }
         }
     }
 }

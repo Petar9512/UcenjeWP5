@@ -19,3 +19,4 @@ using UcenjeCS;
 //E07WhileDoWhileForeachPetlje.Izvedi();
 //E10TryCatch.Izvedi();
 //E07Z1.Izvedi();
+EZadatci.Izvedi();

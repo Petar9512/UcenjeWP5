@@ -22,4 +22,6 @@ using UcenjeCS;
 //EZadatci.Izvedi();
 //EZadatci2.Izvedi();
 //EZadatci3.Izvedi();
-E11Metode.Izvedi();
+//E11Metode.Izvedi();
+//E11Z1.Izvedi();
+E12Rekurzija.Izvedi();

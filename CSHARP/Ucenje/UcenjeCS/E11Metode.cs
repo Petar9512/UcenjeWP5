@@ -72,7 +72,7 @@ namespace UcenjeCS
             var r = new Random();
             for (int i = 0; i < niz.Length; i++)
             {
-                niz[i] = (char)r.Next();
+                niz[i] = (char)r.Next(70,100);
             }
             return string.Join("", niz);
         }

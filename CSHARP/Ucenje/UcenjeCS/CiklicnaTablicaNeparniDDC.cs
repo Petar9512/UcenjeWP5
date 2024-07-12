@@ -16,11 +16,18 @@ namespace UcenjeCS
 
             while (true)
             {
-                Console.WriteLine("Unesite neparni broj: ");
+                Console.WriteLine("Unesite neparni broj veći od nule: ");
 
                 try
                 {
                     x = int.Parse(Console.ReadLine());
+
+                    if (x < 0)
+                    {
+                        Console.WriteLine("Broj mora biti veći od nule");
+                        continue;
+                    }
+
                     if (x % 2 == 0)
                     {
                         Console.WriteLine("Broj mora biti neparan");

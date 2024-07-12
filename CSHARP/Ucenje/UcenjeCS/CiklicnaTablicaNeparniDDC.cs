@@ -6,15 +6,35 @@ using System.Threading.Tasks;
 
 namespace UcenjeCS
 {
-    internal class CiklicnaTablicaNeparniBroj
+    internal class CiklicnaTablicaNeparniDDC
     {
 
         public static void Izvedi()
         {
 
-            Console.WriteLine("Unesite neparni broj: ");
+            int x;
 
-            int x = int.Parse(Console.ReadLine());
+            while (true)
+            {
+                Console.WriteLine("Unesite neparni broj: ");
+
+                try
+                {
+                    x = int.Parse(Console.ReadLine());
+                    if (x % 2 == 0)
+                    {
+                        Console.WriteLine("Broj mora biti neparan");
+                        continue;
+                    }
+                    break;
+                }
+                catch
+                {
+                    Console.WriteLine("Niste unijeli broj");
+                }
+            }
+
+
             int y = x * x;
 
             int[,] tablica = new int[x, x];

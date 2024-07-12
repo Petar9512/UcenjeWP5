@@ -28,30 +28,30 @@ namespace UcenjeCS
 
             for (int a = brojOkretaja; a > 0; a--)
             {
-                for (int i = 2+k; i > 0-k; i--)
+                for (int i = m+k; i > m-2-k; i--)
                 {
-                    for (int j = 3+k; j > 2+k; j--)
+                    for (int j = m+1+k; j > m+k; j--)
                     {
                         tablica[i, j] = y--;
                     }
                 }
-                for (int i = 1-k; i > 0-k; i--)
+                for (int i = m-1-k; i > m-2-k; i--)
                 {
-                    for (int j = 2+k; j > 0-k; j--)
+                    for (int j = m+k; j > m-2-k; j--)
                     {
                         tablica[i, j] = y--;
                     }
                 }
-                for (int i = 2-k; i < 4+k; i++)
+                for (int i = m-k; i < m+2+k; i++)
                 {
-                    for (int j = 1-k; j > 0-k; j--)
+                    for (int j = m-1-k; j > m-2-k; j--)
                     {
                         tablica[i, j] = y--;
                     }
                 }
-                for (int i = 3+k; i > 2+k; i--)
+                for (int i = m+1+k; i > m+k; i--)
                 {
-                    for (int j = 2-k; j < 4+k; j++)
+                    for (int j = m-k; j < m+2+k; j++)
                     {
                         tablica[i, j] = y--;
                     }
@@ -59,9 +59,11 @@ namespace UcenjeCS
                 ++k;
             }
 
-            for (int i = 0; i < x; i++)
+            Console.WriteLine();
+
+            for (int i = 0; i < tablica.GetLength(0); i++)
             {
-                for (int j = 0; j < x; j++)
+                for (int j = 0; j < tablica.GetLength(1); j++)
                 {
                     Console.Write(tablica[i,j] + "\t");
                 }

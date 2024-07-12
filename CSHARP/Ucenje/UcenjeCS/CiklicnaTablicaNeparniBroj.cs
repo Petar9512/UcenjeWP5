@@ -26,50 +26,44 @@ namespace UcenjeCS
             
 
 
-            do
+            for (int a = brojOkretaja; a > 0; a--)
             {
-                for (int i = m + k; i > m - (k + 2); i--)
+                for (int i = 2+k; i > 0-k; i--)
                 {
-                    for (int j = m + (k + 1); j > m - (k + 1); j--)
+                    for (int j = 3+k; j > 2+k; j--)
                     {
                         tablica[i, j] = y--;
                     }
                 }
-
-                for (int i = m - (k + 1); i > m - (k + 2); i--)
+                for (int i = 1-k; i > 0-k; i--)
                 {
-                    for (int j = m + k; j > m - (k + 2); j--)
+                    for (int j = 2+k; j > 0-k; j--)
                     {
                         tablica[i, j] = y--;
                     }
                 }
-
-                for (int i = m - k; i < m + (k + 2); i++)
+                for (int i = 2-k; i < 4+k; i++)
                 {
-                    for (int j = m - (k + 1); j < m + k; j++)
+                    for (int j = 1-k; j > 0-k; j--)
                     {
                         tablica[i, j] = y--;
                     }
                 }
-
-                for (int i = m + (k + 1); i > m + k; i--)
+                for (int i = 3+k; i > 2+k; i--)
                 {
-                    for (int j = m - k; j < m + (k + 2); j++)
+                    for (int j = 2-k; j < 4+k; j++)
                     {
                         tablica[i, j] = y--;
                     }
-
-
-                    brojOkretaja--;
-                    k++;
                 }
-            } while (brojOkretaja > 0);
+                ++k;
+            }
 
-            for (int i = 0; i < tablica.GetLength(0); i++)
+            for (int i = 0; i < x; i++)
             {
-                for (int j = 0; j < tablica.GetLength(1); j++)
+                for (int j = 0; j < x; j++)
                 {
-                    Console.Write(tablica[i, j] + "\t");
+                    Console.Write(tablica[i,j] + "\t");
                 }
                 Console.WriteLine();
             }

@@ -15,7 +15,7 @@ using UcenjeCS;
 //E05Nizovi.Izvedi();
 //E06ForPetlja.Izvedi();
 //ECiklicnaTablica5x5.Izvedi();
-CiklicnaTablicaNeparniDDC.Izvedi();
+CiklicnaTablicaNeparniDD.Izvedi();
 //E07WhileDoWhileForeachPetlje.Izvedi();
 //E10TryCatch.Izvedi();
 //E07Z1.Izvedi();

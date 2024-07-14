@@ -156,16 +156,8 @@ namespace UcenjeCS
                 }
                 ++k;
             }
-            Console.WriteLine();
 
-            for (int i = 0; i < tablica.GetLength(0); i++)
-            {
-                for (int j = 0; j < tablica.GetLength(1); j++)
-                {
-                    Console.Write(tablica[i, j] + "\t");
-                }
-                Console.WriteLine();
-            }
+            FunkcijaZaPrikazTablice.Tablica(tablica);
         }
 
         public static void NeparniGDAC(int x)
@@ -213,16 +205,9 @@ namespace UcenjeCS
                 }
                 ++k;
             }
-            Console.WriteLine();
 
-            for (int i = 0; i < tablica.GetLength(0); i++)
-            {
-                for (int j = 0; j < tablica.GetLength(1); j++)
-                {
-                    Console.Write(tablica[i, j] + "\t");
-                }
-                Console.WriteLine(); 
-            }
+            FunkcijaZaPrikazTablice.Tablica(tablica);
+           
         }
 
         public static void NeparniGDCos(int x)
@@ -270,16 +255,9 @@ namespace UcenjeCS
                 }
                 ++k;
             }
-            Console.WriteLine();
 
-            for (int i = 0; i < tablica.GetLength(0); i++)
-            {
-                for (int j = 0; j < tablica.GetLength(1); j++)
-                {
-                    Console.Write(tablica[i, j] + "\t");
-                }
-                Console.WriteLine();
-            }
+            FunkcijaZaPrikazTablice.Tablica(tablica);
+           
         }
 
         public static void NeparniGDACos(int x)
@@ -327,16 +305,9 @@ namespace UcenjeCS
                 }
                 ++k;
             }
-            Console.WriteLine();
 
-            for (int i = 0; i < tablica.GetLength(0); i++)
-            {
-                for (int j = 0; j < tablica.GetLength(1); j++)
-                {
-                    Console.Write(tablica[i, j] + "\t");
-                }
-                Console.WriteLine();
-            }
+            FunkcijaZaPrikazTablice.Tablica(tablica);
+           
         }
 
     }

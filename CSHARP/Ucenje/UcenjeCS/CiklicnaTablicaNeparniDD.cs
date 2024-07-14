@@ -13,6 +13,7 @@ namespace UcenjeCS
         {
             int broj;
             int smjer;
+            int odSredine;
 
             while (true)
             {
@@ -63,14 +64,50 @@ namespace UcenjeCS
                 }
             }
 
-            switch (smjer)
+            while (true)
             {
-                case 1:
-                    NeparniDDC(broj);
+                Console.WriteLine("Želite li da tablica krene od sredine? \n 1 - DA \n 2 - NE");
+
+                try
+                {
+                    odSredine = int.Parse(Console.ReadLine());
+
+                    if (odSredine != 1 && odSredine != 2)
+                    {
+                        Console.WriteLine("Niste unijeli 1 ili 2");
+                        continue;
+                    }
                     break;
-                case 2:
-                    NeparniDDAC(broj);
-                    break;
+                }
+                catch
+                {
+                    Console.WriteLine("Niste unijeli 1 ili 2");
+                }
+            }
+
+            if (smjer == 1)
+            {
+                switch (odSredine)
+                {
+                    case 1:
+                        NeparniDDCos(broj);
+                        break;
+                    case 2:
+                        NeparniDDC(broj);
+                        break;
+                }
+            }
+            else if (smjer == 2)
+            {
+                switch (odSredine)
+                {
+                    case 1:
+                        NeparniDDACos(broj);
+                        break;
+                    case 2:
+                        NeparniDDAC(broj);
+                        break;
+                }
             }
         }
 
@@ -174,6 +211,122 @@ namespace UcenjeCS
                     for (int j = m+1+k; j > m+k; j--)
                     {
                         tablica[i, j] = y--;
+                    }
+                }
+                ++k;
+            }
+
+            Console.WriteLine();
+
+            for (int i = 0; i < tablica.GetLength(0); i++)
+            {
+                for (int j = 0; j < tablica.GetLength(1); j++)
+                {
+                    Console.Write(tablica[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public static void NeparniDDCos(int x)
+        {
+
+            int y = 1;
+
+            int[,] tablica = new int[x, x];
+            int m = x / 2;
+            int k = 0;
+
+            int brojOkretaja = x / 2;
+            tablica[m, m] = y++;
+
+
+
+            for (int a = brojOkretaja; a > 0; a--)
+            {
+                for (int i = m + k; i > m - 2 - k; i--)
+                {
+                    for (int j = m + 1 + k; j > m + k; j--)
+                    {
+                        tablica[i, j] = y++;
+                    }
+                }
+                for (int i = m - 1 - k; i > m - 2 - k; i--)
+                {
+                    for (int j = m + k; j > m - 2 - k; j--)
+                    {
+                        tablica[i, j] = y++;
+                    }
+                }
+                for (int i = m - k; i < m + 2 + k; i++)
+                {
+                    for (int j = m - 1 - k; j > m - 2 - k; j--)
+                    {
+                        tablica[i, j] = y++;
+                    }
+                }
+                for (int i = m + 1 + k; i > m + k; i--)
+                {
+                    for (int j = m - k; j < m + 2 + k; j++)
+                    {
+                        tablica[i, j] = y++;
+                    }
+                }
+                ++k;
+            }
+
+            Console.WriteLine();
+
+            for (int i = 0; i < tablica.GetLength(0); i++)
+            {
+                for (int j = 0; j < tablica.GetLength(1); j++)
+                {
+                    Console.Write(tablica[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public static void NeparniDDACos(int x)
+        {
+            int y = 1;
+            int[,] tablica = new int[x, x];
+            int m = x / 2;
+            int k = 0;
+
+            int brojOkretaja = x / 2;
+            tablica[m, m] = y++;
+
+
+
+            for (int a = brojOkretaja; a > 0; a--)
+            {
+                for (int i = m + 1 + k; i > m + k; i--)
+                {
+                    for (int j = m + k; j > m - 2 - k; j--)
+                    {
+                        tablica[i, j] = y++;
+                    }
+                }
+                for (int i = m + k; i > m - 2 - k; i--)
+                {
+                    for (int j = m - 1 - k; j > m - 2 - k; j--)
+                    {
+                        tablica[i, j] = y++;
+                    }
+                }
+                for (int i = m - 1 - k; i > m - 2 - k; i--)
+                {
+                    for (int j = m - k; j < m + 2 + k; j++)
+                    {
+                        tablica[i, j] = y++;
+                    }
+                }
+                for (int i = m - k; i < m + 2 + k; i++)
+                {
+                    for (int j = m + 1 + k; j > m + k; j--)
+                    {
+                        tablica[i, j] = y++;
                     }
                 }
                 ++k;

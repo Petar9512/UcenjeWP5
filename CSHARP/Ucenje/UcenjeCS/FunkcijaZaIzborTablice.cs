@@ -14,7 +14,7 @@ namespace UcenjeCS
             int broj;
             int smjer;
             int odSredine;
-            int mjestoPocetka;
+            int mjesto;
 
             while (true)
             {
@@ -40,22 +40,22 @@ namespace UcenjeCS
 
             while (true)
             {
-                Console.WriteLine("Unesite mjesto početka tablice: \n 1 - dolje desno \n 2 - dolje lijevo \n 3 - gore lijevo \n 4 - gore desno");
+                Console.WriteLine("Unesite mjesto početka/završetka tablice: \n 1 - dolje desno \n 2 - dolje lijevo \n 3 - gore lijevo \n 4 - gore desno");
 
                 try
                 {
-                    mjestoPocetka = int.Parse(Console.ReadLine());
+                    mjesto = int.Parse(Console.ReadLine());
 
-                    if (mjestoPocetka != 1 && mjestoPocetka != 2 && mjestoPocetka != 3 && mjestoPocetka != 4)
+                    if (mjesto != 1 && mjesto != 2 && mjesto!= 3 && mjesto != 4)
                     {
-                        Console.WriteLine("Niste unijeli 1, 2, 3 ili 4 za mjesto početka");
+                        Console.WriteLine("Niste unijeli 1, 2, 3 ili 4");
                         continue;
                     }
                     break;
                 }
                 catch 
                 {
-                    Console.WriteLine("Niste unijeli mjesto početka");
+                    Console.WriteLine("Niste unijeli mjesto početka/završetka");
                 }
             }
 
@@ -104,14 +104,14 @@ namespace UcenjeCS
 
             if (broj % 2 == 1)
             {
-                if (mjestoPocetka == 1)
+                if (mjesto == 1)
                 {
                     if (smjer == 1)
                     {
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTabliceNepar.NeparniDDCos(broj);
+                                CikličneTabliceNepar.NeparniDDACos(broj);
                                 break;
                             case 2:
                                 CikličneTabliceNepar.NeparniDDC(broj);
@@ -123,7 +123,7 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTabliceNepar.NeparniDDACos(broj);
+                                CikličneTabliceNepar.NeparniDDCos(broj);
                                 break;
                             case 2:
                                 CikličneTabliceNepar.NeparniDDAC(broj);
@@ -131,14 +131,14 @@ namespace UcenjeCS
                         }
                     }
                 }
-                else if (mjestoPocetka == 2)
+                else if (mjesto == 2)
                 {
                     if (smjer == 1)
                     {
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTabliceNepar.NeparniDLCos(broj);
+                                CikličneTabliceNepar.NeparniDLACos(broj);
                                 break;
                             case 2:
                                 CikličneTabliceNepar.NeparniDLC(broj);
@@ -150,7 +150,7 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTabliceNepar.NeparniDLACos(broj);
+                                CikličneTabliceNepar.NeparniDLCos(broj);
                                 break;
                             case 2:
                                 CikličneTabliceNepar.NeparniDLAC(broj);
@@ -158,14 +158,14 @@ namespace UcenjeCS
                         }
                     }
                 }
-                else if (mjestoPocetka == 3)
+                else if (mjesto == 3)
                 {
                     if (smjer == 1)
                     {
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTabliceNepar.NeparniGLCos(broj);
+                                CikličneTabliceNepar.NeparniGLACos(broj);
                                 break;
                             case 2:
                                 CikličneTabliceNepar.NeparniGLC(broj);
@@ -177,7 +177,7 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTabliceNepar.NeparniGLACos(broj);
+                                CikličneTabliceNepar.NeparniGLCos(broj);
                                 break;
                             case 2:
                                 CikličneTabliceNepar.NeparniGLAC(broj);
@@ -185,14 +185,14 @@ namespace UcenjeCS
                         }
                     }
                 }
-                else if (mjestoPocetka == 4)
+                else if (mjesto == 4)
                 {
                     if (smjer == 1)
                     {
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTabliceNepar.NeparniGDCos(broj);
+                                CikličneTabliceNepar.NeparniGDACos(broj);
                                 break;
                             case 2:
                                 CikličneTabliceNepar.NeparniGDC(broj);
@@ -204,7 +204,7 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTabliceNepar.NeparniGDACos(broj);
+                                CikličneTabliceNepar.NeparniGDCos(broj);
                                 break;
                             case 2:
                                 CikličneTabliceNepar.NeparniGDAC(broj);
@@ -215,14 +215,14 @@ namespace UcenjeCS
             }
             else if (broj % 2 == 0)
             {
-                if (mjestoPocetka == 1)
+                if (mjesto == 1)
                 {
                     if (smjer == 1)
                     {
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTablicePar.ParniDDCos(broj);
+                                CikličneTablicePar.ParniDDACos(broj);
                                 break;
                             case 2:
                                 CikličneTablicePar.ParniDDC(broj);
@@ -234,7 +234,7 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTablicePar.ParniDDACos(broj);
+                                CikličneTablicePar.ParniDDCos(broj);
                                 break;
                             case 2:
                                 CikličneTablicePar.ParniDDAC(broj);
@@ -242,14 +242,14 @@ namespace UcenjeCS
                         }
                     }
                 }
-                else if (mjestoPocetka == 2)
+                else if (mjesto == 2)
                 {
                     if (smjer == 1)
                     {
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTablicePar.ParniDLCos(broj);
+                                CikličneTablicePar.ParniDLACos(broj);
                                 break;
                             case 2:
                                 CikličneTablicePar.ParniDLC(broj);
@@ -261,7 +261,7 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTablicePar.ParniDLACos(broj);
+                                CikličneTablicePar.ParniDLCos(broj);
                                 break;
                             case 2:
                                 CikličneTablicePar.ParniDLAC(broj);
@@ -269,14 +269,14 @@ namespace UcenjeCS
                         }
                     }
                 }
-                else if (mjestoPocetka == 3)
+                else if (mjesto == 3)
                 {
                     if (smjer == 1)
                     {
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTablicePar.ParniGLCos(broj);
+                                CikličneTablicePar.ParniGLACos(broj);
                                 break;
                             case 2:
                                 CikličneTablicePar.ParniGLC(broj);
@@ -288,7 +288,7 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTablicePar.ParniGLACos(broj);
+                                CikličneTablicePar.ParniGLCos(broj);
                                 break;
                             case 2:
                                 CikličneTablicePar.ParniGLAC(broj);
@@ -296,14 +296,14 @@ namespace UcenjeCS
                         }
                     }
                 }
-                else if (mjestoPocetka == 4)
+                else if (mjesto == 4)
                 {
                     if (smjer == 1)
                     {
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTablicePar.ParniGDCos(broj);
+                                CikličneTablicePar.ParniGDACos(broj);
                                 break;
                             case 2:
                                 CikličneTablicePar.ParniGDC(broj);
@@ -315,7 +315,7 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTablicePar.ParniGDACos(broj);
+                                CikličneTablicePar.ParniGDCos(broj);
                                 break;
                             case 2:
                                 CikličneTablicePar.ParniGDAC(broj);

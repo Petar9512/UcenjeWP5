@@ -18,7 +18,7 @@ namespace UcenjeCS
 
             while (true)
             {
-                Console.WriteLine("Unesite neparni broj veći od nule: ");
+                Console.WriteLine("Unesite broj veći od nule: ");
 
                 try
                 {
@@ -27,12 +27,6 @@ namespace UcenjeCS
                     if (broj < 0)
                     {
                         Console.WriteLine("Broj mora biti veći od nule");
-                        continue;
-                    }
-
-                    if (broj % 2 == 0)
-                    {
-                        Console.WriteLine("Broj mora biti neparan");
                         continue;
                     }
                     break;
@@ -108,115 +102,228 @@ namespace UcenjeCS
                 }
             }
 
-           if (mjestoPocetka == 1)
+            if (broj % 2 == 1)
             {
-                if (smjer == 1)
+                if (mjestoPocetka == 1)
                 {
-                    switch (odSredine)
+                    if (smjer == 1)
                     {
-                        case 1:
-                            CTablicaNeparDD.NeparniDDCos(broj);
-                            break;
-                        case 2:
-                            CTablicaNeparDD.NeparniDDC(broj);
-                            break;
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CikličneTabliceNepar.NeparniDDCos(broj);
+                                break;
+                            case 2:
+                                CikličneTabliceNepar.NeparniDDC(broj);
+                                break;
+                        }
+                    }
+                    else if (smjer == 2)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CikličneTabliceNepar.NeparniDDACos(broj);
+                                break;
+                            case 2:
+                                CikličneTabliceNepar.NeparniDDAC(broj);
+                                break;
+                        }
                     }
                 }
-                else if (smjer == 2)
+                else if (mjestoPocetka == 2)
                 {
-                    switch (odSredine) 
+                    if (smjer == 1)
                     {
-                        case 1:
-                            CTablicaNeparDD.NeparniDDACos(broj);
-                            break;
-                        case 2:
-                            CTablicaNeparDD.NeparniDDAC(broj);
-                            break;
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CikličneTabliceNepar.NeparniDLCos(broj);
+                                break;
+                            case 2:
+                                CikličneTabliceNepar.NeparniDLC(broj);
+                                break;
+                        }
+                    }
+                    else if (smjer == 2)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CikličneTabliceNepar.NeparniDLACos(broj);
+                                break;
+                            case 2:
+                                CikličneTabliceNepar.NeparniDLAC(broj);
+                                break;
+                        }
+                    }
+                }
+                else if (mjestoPocetka == 3)
+                {
+                    if (smjer == 1)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CikličneTabliceNepar.NeparniGLCos(broj);
+                                break;
+                            case 2:
+                                CikličneTabliceNepar.NeparniGLC(broj);
+                                break;
+                        }
+                    }
+                    else if (smjer == 2)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CikličneTabliceNepar.NeparniGLACos(broj);
+                                break;
+                            case 2:
+                                CikličneTabliceNepar.NeparniGLAC(broj);
+                                break;
+                        }
+                    }
+                }
+                else if (mjestoPocetka == 4)
+                {
+                    if (smjer == 1)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CikličneTabliceNepar.NeparniGDCos(broj);
+                                break;
+                            case 2:
+                                CikličneTabliceNepar.NeparniGDC(broj);
+                                break;
+                        }
+                    }
+                    else if (smjer == 2)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CikličneTabliceNepar.NeparniGDACos(broj);
+                                break;
+                            case 2:
+                                CikličneTabliceNepar.NeparniGDAC(broj);
+                                break;
+                        }
                     }
                 }
             }
-           else if (mjestoPocetka == 2)
+            else if (broj % 2 == 0)
             {
-                if (smjer == 1)
+                if (mjestoPocetka == 1)
                 {
-                    switch (odSredine)
+                    if (smjer == 1)
                     {
-                        case 1:
-                            CTablicaNeparDL.NeparniDLCos(broj);
-                            break;
-                        case 2:
-                            CTablicaNeparDL.NeparniDLC(broj);
-                            break;
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CikličneTablicePar.ParniDDCos(broj);
+                                break;
+                            case 2:
+                                CikličneTablicePar.ParniDDC(broj);
+                                break;
+                        }
+                    }
+                    else if (smjer == 2)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CikličneTablicePar.ParniDDACos(broj);
+                                break;
+                            case 2:
+                                CikličneTablicePar.ParniDDAC(broj);
+                                break;
+                        }
                     }
                 }
-                else if (smjer == 2)
+                else if (mjestoPocetka == 2)
                 {
-                    switch (odSredine)
+                    if (smjer == 1)
                     {
-                        case 1:
-                            CTablicaNeparDL.NeparniDLACos(broj);
-                            break;
-                        case 2:
-                            CTablicaNeparDL.NeparniDLAC(broj);
-                            break;
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CikličneTablicePar.ParniDLCos(broj);
+                                break;
+                            case 2:
+                                CikličneTablicePar.ParniDLC(broj);
+                                break;
+                        }
+                    }
+                    else if (smjer == 2)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CikličneTablicePar.ParniDLACos(broj);
+                                break;
+                            case 2:
+                                CikličneTablicePar.ParniDLAC(broj);
+                                break;
+                        }
+                    }
+                }
+                else if (mjestoPocetka == 3)
+                {
+                    if (smjer == 1)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CikličneTablicePar.ParniGLCos(broj);
+                                break;
+                            case 2:
+                                CikličneTablicePar.ParniGLC(broj);
+                                break;
+                        }
+                    }
+                    else if (smjer == 2)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CikličneTablicePar.ParniGLACos(broj);
+                                break;
+                            case 2:
+                                CikličneTablicePar.ParniGLAC(broj);
+                                break;
+                        }
+                    }
+                }
+                else if (mjestoPocetka == 4)
+                {
+                    if (smjer == 1)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CikličneTablicePar.ParniGDCos(broj);
+                                break;
+                            case 2:
+                                CikličneTablicePar.ParniGDC(broj);
+                                break;
+                        }
+                    }
+                    else if (smjer == 2)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CikličneTablicePar.ParniGDACos(broj);
+                                break;
+                            case 2:
+                                CikličneTablicePar.ParniGDAC(broj);
+                                break;
+                        }
                     }
                 }
             }
-            else if (mjestoPocetka == 3)
-            {
-                if (smjer == 1)
-                {
-                    switch (odSredine)
-                    {
-                        case 1:
-                            CTablicaNeparGL.NeparniGLCos(broj);
-                            break;
-                        case 2:
-                            CTablicaNeparGL.NeparniGLC(broj);
-                            break;
-                    }
-                }
-                else if (smjer == 2)
-                {
-                    switch (odSredine)
-                    {
-                        case 1:
-                            CTablicaNeparGL.NeparniGLACos(broj);
-                            break;
-                        case 2:
-                            CTablicaNeparGL.NeparniGLAC(broj);
-                            break;
-                    }
-                }
-            }
-            else if (mjestoPocetka == 4)
-            {
-                if (smjer == 1)
-                {
-                    switch (odSredine)
-                    {
-                        case 1:
-                            CTablicaNeparGD.NeparniGDCos(broj);
-                            break;
-                        case 2:
-                            CTablicaNeparGD.NeparniGDC(broj);
-                            break;
-                    }
-                }
-                else if (smjer == 2)
-                {
-                    switch (odSredine)
-                    {
-                        case 1:
-                            CTablicaNeparGD.NeparniGDACos(broj);
-                            break;
-                        case 2:
-                            CTablicaNeparGD.NeparniGDAC(broj);
-                            break;
-                    }
-                }
-            }
-            
         }
 
     }

@@ -179,30 +179,30 @@ namespace UcenjeCS
             {
                 for (int b = brojOkretaja; b > 0; b--)
                 {
-                    for (int i = 3; i > 2; i--)
+                    for (int i = m+1+k; i > m+k; i--)
                     {
-                        for (int j = 4; j > 0; j--)
+                        for (int j = n+k; j > m-2-k; j--)
                         {
                             tablica[i, j] = z--;
                         }
                     }
-                    for (int i = 2; i > 0; i--)
+                    for (int i = m+k; i > m-2-k; i--)
                     {
-                        for (int j = 1; j > 0; j--)
+                        for (int j = m-1-k; j > m-2-k; j--)
                         {
                             tablica[i, j] = z--;
                         }
                     }
-                    for (int i = 1; i > 0; i--)
+                    for (int i = m-1-k; i > m-2-k; i--)
                     {
-                        for (int j = 2; j < 6; j++)
+                        for (int j = m-k; j < n+2+k; j++)
                         {
                             tablica[i, j] = z--;
                         }
                     }
-                    for (int i = 2; i < 4; i++)
+                    for (int i = m-k; i < m+2+k; i++)
                     {
-                        for (int j = 5; j > 4; j--)
+                        for (int j = n+1+k; j > n+k; j--)
                         {
                             tablica[i, j] = z--;
                         }

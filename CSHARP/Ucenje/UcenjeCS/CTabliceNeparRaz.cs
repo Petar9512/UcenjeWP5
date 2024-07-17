@@ -25,42 +25,87 @@ namespace UcenjeCS
 
                for (int a = 0; a < brojPrveIteracije; a++)
                {
-                   tablica[m + a, m] = z--;
+                if (x > y)
+                {
+                    tablica[m + a, m] = z--;
+                }
+                else if (x < y)
+                {
+                    tablica[m, m + a] = z--;
+                }
                }
-      
-            
 
-            for (int b = brojOkretaja; b > 0; b--)
+            if (x > y)
             {
-                for (int i = n+k; i > m-2-k; i--)
+
+                for (int b = brojOkretaja; b > 0; b--)
                 {
-                    for (int j = m+1+k; j > m+k; j--)
+                    for (int i = n + k; i > m - 2 - k; i--)
                     {
-                        tablica[i, j] = z--;
+                        for (int j = m + 1 + k; j > m + k; j--)
+                        {
+                            tablica[i, j] = z--;
+                        }
                     }
+                    for (int i = m - 1 - k; i > m - 2 - k; i--)
+                    {
+                        for (int j = m + k; j > m - 2 - k; j--)
+                        {
+                            tablica[i, j] = z--;
+                        }
+                    }
+                    for (int i = m - k; i < n + 2 + k; i++)
+                    {
+                        for (int j = m - 1 - k; j > m - 2 - k; j--)
+                        {
+                            tablica[i, j] = z--;
+                        }
+                    }
+                    for (int i = n + 1 + k; i > n + k; i--)
+                    {
+                        for (int j = m - k; j < m + 2 + k; j++)
+                        {
+                            tablica[i, j] = z--;
+                        }
+                    }
+                    ++k;
                 }
-                for (int i = m-1-k; i > m-2-k; i--)
+            }
+
+            else if (x < y)
+            {
+                for (int b = brojOkretaja; b > 0; b--)
                 {
-                    for (int j = m+k; j > m-2-k; j--)
+                    for (int i = m+k; i > m-2-k; i--)
                     {
-                        tablica[i, j] = z--;
+                        for (int j = n+1+k; j > n+k; j--)
+                        {
+                            tablica[i, j] = z--;
+                        }
                     }
-                }
-                for (int i = m-k; i < n+2+k; i++)
-                {
-                    for (int j = m-1-k; j > m-2-k; j--)
+                    for (int i = m-1-k; i > m-2-k; i--)
                     {
-                        tablica[i, j] = z--;
+                        for (int j = n+k; j > m-2-k; j--)
+                        {
+                            tablica[i, j] = z--;
+                        }
                     }
-                }
-                for (int i = n+1+k; i > n+k; i--)
-                {
-                    for (int j = m-k; j < m+2+k; j++)
+                    for (int i = m-k; i < m+2+k; i++)
                     {
-                        tablica[i, j] = z--;
+                        for (int j = m-1-k; j > m-2-k; j--)
+                        {
+                            tablica[i, j] = z--;
+                        }
                     }
+                    for (int i = m+1+k; i > m+k; i--)
+                    {
+                        for (int j = m-k; j < n+2+k; j++)
+                        {
+                            tablica[i, j] = z--;
+                        }
+                    }
+                    ++k;
                 }
-                ++k;
             }
 
             FunkcijaZaPrikazTablice.Tablica(tablica); 

@@ -22,47 +22,45 @@ namespace UcenjeCS
             int k = 0;
 
 
-
-            for (int a = 0; a < brojPrveIteracije; a++)
-            {
-                if (x > y)
-                {
-                    tablica[m + a, m] = z--;
-                }
-                else if (x < y)
-                {
-                    tablica[m, m + a] = z--;
-                }
-            }
-
             if (x > y)
             {
+                for (int a = 0; a < brojPrveIteracije; a++)
+                {
+
+
+                    tablica[m + a, m] = z--;
+
+
+                }
+
+
+
                 for (int b = brojOkretaja; b > 0; b--)
                 {
-                    for (int i = n+1+k; i > n+k; i--)
+                    for (int i = n + 1 + k; i > n + k; i--)
                     {
-                        for (int j = m-k; j < m+2+k; j++)
+                        for (int j = m - k; j < m + 2 + k; j++)
                         {
                             tablica[i, j] = z--;
                         }
                     }
-                    for (int i = n+k; i > m-2-k; i--)
+                    for (int i = n + k; i > m - 2 - k; i--)
                     {
-                        for (int j = m+1+k; j > m+k; j--)
+                        for (int j = m + 1 + k; j > m + k; j--)
                         {
                             tablica[i, j] = z--;
                         }
                     }
-                    for (int i = m-1-k; i > m-2-k; i--)
+                    for (int i = m - 1 - k; i > m - 2 - k; i--)
                     {
-                        for (int j = m+k; j > m-2-k; j--)
+                        for (int j = m + k; j > m - 2 - k; j--)
                         {
                             tablica[i, j] = z--;
                         }
                     }
-                    for (int i = m-k; i < n+2+k; i++)
+                    for (int i = m - k; i < n + 2 + k; i++)
                     {
-                        for (int j = m-1-k; j > m-2-k; j--)
+                        for (int j = m - 1 - k; j > m - 2 - k; j--)
                         {
                             tablica[i, j] = z--;
                         }
@@ -70,36 +68,39 @@ namespace UcenjeCS
                     ++k;
                 }
             }
-            else if ( x < y)
+            else if (x < y)
             {
-                Array.Reverse(tablica);
+                for (int a = brojPrveIteracije -1; a > -1; a--)
+                {
+                    tablica[m, m + a] = z--;
+                }
 
                 for (int b = brojOkretaja; b > 0; b--)
                 {
-                    for (int i = m+1+k; i > m+k; i--)
+                    for (int i = m + 1 + k; i > m + k; i--)
                     {
-                        for (int j = m-k; j < n+2+k; j++)
+                        for (int j = m - k; j < n + 2 + k; j++)
                         {
                             tablica[i, j] = z--;
                         }
                     }
-                    for (int i = m+k; i > m-2-k; i--)
+                    for (int i = m + k; i > m - 2 - k; i--)
                     {
-                        for (int j = n+1+k; j > n+k; j--)
+                        for (int j = n + 1 + k; j > n + k; j--)
                         {
                             tablica[i, j] = z--;
                         }
                     }
-                    for (int i = m-1-k; i > m-2-k; i--)
+                    for (int i = m - 1 - k; i > m - 2 - k; i--)
                     {
-                        for (int j = n+k; j > m-2-k; j--)
+                        for (int j = n + k; j > m - 2 - k; j--)
                         {
                             tablica[i, j] = z--;
                         }
                     }
-                    for (int i = m-k; i < m+2+k; i++)
+                    for (int i = m - k; i < m + 2 + k; i++)
                     {
-                        for (int j = m-1-k; j > m-2-k; j--)
+                        for (int j = m - 1 - k; j > m - 2 - k; j--)
                         {
                             tablica[i, j] = z--;
                         }
@@ -124,22 +125,15 @@ namespace UcenjeCS
             int k = 0;
 
 
-
+            if (x > y) { 
             for (int a = 0; a < brojPrveIteracije; a++)
             {
-                if (x > y)
-                {
                     tablica[m + a, m] = z--;
-                }
-                else if (x < y)
-                {
-                    tablica[m, m + a] = z--;
-                }
             }
 
 
-            if (x > y)
-            {
+            
+            
                 for (int b = brojOkretaja; b > 0; b--)
                 {
                     for (int i = n+k; i > m-2-k; i--)
@@ -175,7 +169,10 @@ namespace UcenjeCS
             }
             else if (x < y)
             {
-                Array.Reverse(tablica);
+                for (int a = brojPrveIteracije - 1; a > -1; a--)
+                {
+                    tablica[m, m + a] = z--;
+                }
 
                 for (int b = brojOkretaja; b > 0; b--)
                 {

@@ -16,7 +16,7 @@ using UcenjeCS;
 //E06ForPetlja.Izvedi();
 //ECiklicnaTablica5x5.Izvedi();
 //FunkcijaZaIzborTablice.IzborTablice();
-CTabliceParRazDD.ParniRazDDAC(6,8);
+CTabliceParRazDL.ParniRazDLAC(6,10);
 //E07WhileDoWhileForeachPetlje.Izvedi();
 //E10TryCatch.Izvedi();
 //E07Z1.Izvedi();

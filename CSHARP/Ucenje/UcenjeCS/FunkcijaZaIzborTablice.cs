@@ -111,10 +111,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTabliceNepar.NeparniDDACos(broj);
+                                CTabliceNepar.NeparniDDACos(broj);
                                 break;
                             case 2:
-                                CikličneTabliceNepar.NeparniDDC(broj);
+                                CTabliceNepar.NeparniDDC(broj);
                                 break;
                         }
                     }
@@ -123,10 +123,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTabliceNepar.NeparniDDCos(broj);
+                                CTabliceNepar.NeparniDDCos(broj);
                                 break;
                             case 2:
-                                CikličneTabliceNepar.NeparniDDAC(broj);
+                                CTabliceNepar.NeparniDDAC(broj);
                                 break;
                         }
                     }
@@ -138,10 +138,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTabliceNepar.NeparniDLACos(broj);
+                                CTabliceNepar.NeparniDLACos(broj);
                                 break;
                             case 2:
-                                CikličneTabliceNepar.NeparniDLC(broj);
+                                CTabliceNepar.NeparniDLC(broj);
                                 break;
                         }
                     }
@@ -150,10 +150,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTabliceNepar.NeparniDLCos(broj);
+                                CTabliceNepar.NeparniDLCos(broj);
                                 break;
                             case 2:
-                                CikličneTabliceNepar.NeparniDLAC(broj);
+                                CTabliceNepar.NeparniDLAC(broj);
                                 break;
                         }
                     }
@@ -165,10 +165,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTabliceNepar.NeparniGLACos(broj);
+                                CTabliceNepar.NeparniGLACos(broj);
                                 break;
                             case 2:
-                                CikličneTabliceNepar.NeparniGLC(broj);
+                                CTabliceNepar.NeparniGLC(broj);
                                 break;
                         }
                     }
@@ -177,10 +177,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTabliceNepar.NeparniGLCos(broj);
+                                CTabliceNepar.NeparniGLCos(broj);
                                 break;
                             case 2:
-                                CikličneTabliceNepar.NeparniGLAC(broj);
+                                CTabliceNepar.NeparniGLAC(broj);
                                 break;
                         }
                     }
@@ -192,10 +192,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTabliceNepar.NeparniGDACos(broj);
+                                CTabliceNepar.NeparniGDACos(broj);
                                 break;
                             case 2:
-                                CikličneTabliceNepar.NeparniGDC(broj);
+                                CTabliceNepar.NeparniGDC(broj);
                                 break;
                         }
                     }
@@ -204,10 +204,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTabliceNepar.NeparniGDCos(broj);
+                                CTabliceNepar.NeparniGDCos(broj);
                                 break;
                             case 2:
-                                CikličneTabliceNepar.NeparniGDAC(broj);
+                                CTabliceNepar.NeparniGDAC(broj);
                                 break;
                         }
                     }
@@ -222,10 +222,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTablicePar.ParniDDACos(broj);
+                                CTablicePar.ParniDDACos(broj);
                                 break;
                             case 2:
-                                CikličneTablicePar.ParniDDC(broj);
+                                CTablicePar.ParniDDC(broj);
                                 break;
                         }
                     }
@@ -234,10 +234,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTablicePar.ParniDDCos(broj);
+                                CTablicePar.ParniDDCos(broj);
                                 break;
                             case 2:
-                                CikličneTablicePar.ParniDDAC(broj);
+                                CTablicePar.ParniDDAC(broj);
                                 break;
                         }
                     }
@@ -249,10 +249,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTablicePar.ParniDLACos(broj);
+                                CTablicePar.ParniDLACos(broj);
                                 break;
                             case 2:
-                                CikličneTablicePar.ParniDLC(broj);
+                                CTablicePar.ParniDLC(broj);
                                 break;
                         }
                     }
@@ -261,10 +261,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTablicePar.ParniDLCos(broj);
+                                CTablicePar.ParniDLCos(broj);
                                 break;
                             case 2:
-                                CikličneTablicePar.ParniDLAC(broj);
+                                CTablicePar.ParniDLAC(broj);
                                 break;
                         }
                     }
@@ -276,10 +276,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTablicePar.ParniGLACos(broj);
+                                CTablicePar.ParniGLACos(broj);
                                 break;
                             case 2:
-                                CikličneTablicePar.ParniGLC(broj);
+                                CTablicePar.ParniGLC(broj);
                                 break;
                         }
                     }
@@ -288,10 +288,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTablicePar.ParniGLCos(broj);
+                                CTablicePar.ParniGLCos(broj);
                                 break;
                             case 2:
-                                CikličneTablicePar.ParniGLAC(broj);
+                                CTablicePar.ParniGLAC(broj);
                                 break;
                         }
                     }
@@ -303,10 +303,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTablicePar.ParniGDACos(broj);
+                                CTablicePar.ParniGDACos(broj);
                                 break;
                             case 2:
-                                CikličneTablicePar.ParniGDC(broj);
+                                CTablicePar.ParniGDC(broj);
                                 break;
                         }
                     }
@@ -315,10 +315,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CikličneTablicePar.ParniGDCos(broj);
+                                CTablicePar.ParniGDCos(broj);
                                 break;
                             case 2:
-                                CikličneTablicePar.ParniGDAC(broj);
+                                CTablicePar.ParniGDAC(broj);
                                 break;
                         }
                     }

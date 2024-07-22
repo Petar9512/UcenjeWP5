@@ -11,20 +11,43 @@ namespace UcenjeCS
 
         public static void IzborTablice()
         {
-            int broj;
+            int brojR;
+            int brojS;
             int smjer;
             int odSredine;
             int mjesto;
 
             while (true)
             {
-                Console.WriteLine("Unesite broj veći od nule: ");
+                Console.WriteLine("Unesite broj redaka: ");
 
                 try
                 {
-                    broj = int.Parse(Console.ReadLine());
+                    brojR = int.Parse(Console.ReadLine());
 
-                    if (broj < 0)
+                    if (brojR < 0)
+                    {
+                        Console.WriteLine("Broj mora biti veći od nule");
+                        continue;
+                    }
+                    break;
+                }
+                catch
+                {
+                    Console.WriteLine("Niste unijeli broj");
+                }
+            }
+
+
+            while (true)
+            {
+                Console.WriteLine("Unesite broj stupaca: ");
+
+                try
+                {
+                    brojS = int.Parse(Console.ReadLine());
+
+                    if (brojS < 0)
                     {
                         Console.WriteLine("Broj mora biti veći od nule");
                         continue;
@@ -102,7 +125,7 @@ namespace UcenjeCS
                 }
             }
 
-            if (broj % 2 == 1)
+            if (brojR == brojS && brojR % 2 == 1)
             {
                 if (mjesto == 1)
                 {
@@ -111,10 +134,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CTabliceNepar.NeparniDDACos(broj);
+                                CTabliceNepar.NeparniDDACos(brojR);
                                 break;
                             case 2:
-                                CTabliceNepar.NeparniDDC(broj);
+                                CTabliceNepar.NeparniDDC(brojR);
                                 break;
                         }
                     }
@@ -123,10 +146,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CTabliceNepar.NeparniDDCos(broj);
+                                CTabliceNepar.NeparniDDCos(brojR);
                                 break;
                             case 2:
-                                CTabliceNepar.NeparniDDAC(broj);
+                                CTabliceNepar.NeparniDDAC(brojR);
                                 break;
                         }
                     }
@@ -138,10 +161,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CTabliceNepar.NeparniDLACos(broj);
+                                CTabliceNepar.NeparniDLACos(brojR);
                                 break;
                             case 2:
-                                CTabliceNepar.NeparniDLC(broj);
+                                CTabliceNepar.NeparniDLC(brojR);
                                 break;
                         }
                     }
@@ -150,10 +173,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CTabliceNepar.NeparniDLCos(broj);
+                                CTabliceNepar.NeparniDLCos(brojR);
                                 break;
                             case 2:
-                                CTabliceNepar.NeparniDLAC(broj);
+                                CTabliceNepar.NeparniDLAC(brojR);
                                 break;
                         }
                     }
@@ -165,10 +188,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CTabliceNepar.NeparniGLACos(broj);
+                                CTabliceNepar.NeparniGLACos(brojR);
                                 break;
                             case 2:
-                                CTabliceNepar.NeparniGLC(broj);
+                                CTabliceNepar.NeparniGLC(brojR);
                                 break;
                         }
                     }
@@ -177,10 +200,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CTabliceNepar.NeparniGLCos(broj);
+                                CTabliceNepar.NeparniGLCos(brojR);
                                 break;
                             case 2:
-                                CTabliceNepar.NeparniGLAC(broj);
+                                CTabliceNepar.NeparniGLAC(brojR);
                                 break;
                         }
                     }
@@ -192,10 +215,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CTabliceNepar.NeparniGDACos(broj);
+                                CTabliceNepar.NeparniGDACos(brojR);
                                 break;
                             case 2:
-                                CTabliceNepar.NeparniGDC(broj);
+                                CTabliceNepar.NeparniGDC(brojR);
                                 break;
                         }
                     }
@@ -204,16 +227,16 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CTabliceNepar.NeparniGDCos(broj);
+                                CTabliceNepar.NeparniGDCos(brojR);
                                 break;
                             case 2:
-                                CTabliceNepar.NeparniGDAC(broj);
+                                CTabliceNepar.NeparniGDAC(brojR);
                                 break;
                         }
                     }
                 }
             }
-            else if (broj % 2 == 0)
+            else if (brojR == brojS && brojR % 2 == 0)
             {
                 if (mjesto == 1)
                 {
@@ -222,10 +245,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CTablicePar.ParniDDACos(broj);
+                                CTablicePar.ParniDDACos(brojR);
                                 break;
                             case 2:
-                                CTablicePar.ParniDDC(broj);
+                                CTablicePar.ParniDDC(brojR);
                                 break;
                         }
                     }
@@ -234,10 +257,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CTablicePar.ParniDDCos(broj);
+                                CTablicePar.ParniDDCos(brojR);
                                 break;
                             case 2:
-                                CTablicePar.ParniDDAC(broj);
+                                CTablicePar.ParniDDAC(brojR);
                                 break;
                         }
                     }
@@ -249,10 +272,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CTablicePar.ParniDLACos(broj);
+                                CTablicePar.ParniDLACos(brojR);
                                 break;
                             case 2:
-                                CTablicePar.ParniDLC(broj);
+                                CTablicePar.ParniDLC(brojR);
                                 break;
                         }
                     }
@@ -261,10 +284,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CTablicePar.ParniDLCos(broj);
+                                CTablicePar.ParniDLCos(brojR);
                                 break;
                             case 2:
-                                CTablicePar.ParniDLAC(broj);
+                                CTablicePar.ParniDLAC(brojR);
                                 break;
                         }
                     }
@@ -276,10 +299,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CTablicePar.ParniGLACos(broj);
+                                CTablicePar.ParniGLACos(brojR);
                                 break;
                             case 2:
-                                CTablicePar.ParniGLC(broj);
+                                CTablicePar.ParniGLC(brojR);
                                 break;
                         }
                     }
@@ -288,10 +311,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CTablicePar.ParniGLCos(broj);
+                                CTablicePar.ParniGLCos(brojR);
                                 break;
                             case 2:
-                                CTablicePar.ParniGLAC(broj);
+                                CTablicePar.ParniGLAC(brojR);
                                 break;
                         }
                     }
@@ -303,10 +326,10 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CTablicePar.ParniGDACos(broj);
+                                CTablicePar.ParniGDACos(brojR);
                                 break;
                             case 2:
-                                CTablicePar.ParniGDC(broj);
+                                CTablicePar.ParniGDC(brojR);
                                 break;
                         }
                     }
@@ -315,16 +338,242 @@ namespace UcenjeCS
                         switch (odSredine)
                         {
                             case 1:
-                                CTablicePar.ParniGDCos(broj);
+                                CTablicePar.ParniGDCos(brojR);
                                 break;
                             case 2:
-                                CTablicePar.ParniGDAC(broj);
+                                CTablicePar.ParniGDAC(brojR);
+                                break;
+                        }
+                    }
+                }
+            }
+
+            else if ((brojR % 2 == 1 && brojS % 2 == 1) || (brojR % 2 == 1 && brojS % 2 == 0 && brojR < brojS) || (brojR % 2 == 0 && brojS % 2 == 1 && brojR > brojS))
+            {
+                if (mjesto == 1)
+                {
+                    if (smjer == 1)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CTabliceNeparniRaz.NeparniRazDDACos(brojR, brojS);
+                                break;
+                            case 2:
+                                CTabliceNeparniRaz.NeparniRazDDC(brojR, brojS);
+                                break;
+                        }
+                    }
+                    else if (smjer == 2)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CTabliceNeparniRaz.NeparniRazDDCos(brojR, brojS);
+                                break;
+                            case 2:
+                                CTabliceNeparniRaz.NeparniRazDDAC(brojR, brojS);
+                                break;
+                        }
+                    }
+                }
+                else if (mjesto == 2)
+                {
+                    if (smjer == 1)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CTabliceNeparniRaz.NeparniRazDLACos(brojR, brojS);
+                                break;
+                            case 2:
+                                CTabliceNeparniRaz.NeparniRazDLC(brojR, brojS);
+                                break;
+                        }
+                    }
+                    else if (smjer == 2)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CTabliceNeparniRaz.NeparniRazDLCos(brojR, brojS);
+                                break;
+                            case 2:
+                                CTabliceNeparniRaz.NeparniRazDLAC(brojR, brojS);
+                                break;
+                        }
+                    }
+                }
+                else if (mjesto == 3)
+                {
+                    if (smjer == 1)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CTabliceNeparniRaz.NeparniRazGLACos(brojR, brojS);
+                                break;
+                            case 2:
+                                CTabliceNeparniRaz.NeparniRazGLC(brojR, brojS);
+                                break;
+                        }
+                    }
+                    else if (smjer == 2)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CTabliceNeparniRaz.NeparniRazGLCos(brojR, brojS);
+                                break;
+                            case 2:
+                                CTabliceNeparniRaz.NeparniRazGLAC(brojR, brojS);
+                                break;
+                        }
+                    }
+                }
+                else if (mjesto == 4)
+                {
+                    if (smjer == 1)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CTabliceNeparniRaz.NeparniRazGDACos(brojR, brojS);
+                                break;
+                            case 2:
+                                CTabliceNeparniRaz.NeparniRazGDC(brojR, brojS);
+                                break;
+                        }
+                    }
+                    else if (smjer == 2)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CTabliceNeparniRaz.NeparniRazGDCos(brojR, brojS);
+                                break;
+                            case 2:
+                                CTabliceNeparniRaz.NeparniRazGDAC(brojR, brojS);
+                                break;
+                        }
+                    }
+                }
+            }
+
+            else if ((brojR % 2 == 0 && brojS % 2 == 0) || (brojR % 2 == 0 && brojS % 2 == 1 && brojR < brojS) || (brojR % 2 == 1 && brojS % 2 == 0 && brojR > brojS))
+            {
+                if (mjesto == 1)
+                {
+                    if (smjer == 1)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CTabliceParniRaz.ParniRazDDACos(brojR, brojS);
+                                break;
+                            case 2:
+                                CTabliceParniRaz.ParniRazDDC(brojR, brojS);
+                                break;
+                        }
+                    }
+                    else if (smjer == 2)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CTabliceParniRaz.ParniRazDDCos(brojR, brojS);
+                                break;
+                            case 2:
+                                CTabliceParniRaz.ParniRazDDAC(brojR, brojS);
+                                break;
+                        }
+                    }
+                }
+                else if (mjesto == 2)
+                {
+                    if (smjer == 1)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CTabliceParniRaz.ParniRazDLACos(brojR, brojS);
+                                break;
+                            case 2:
+                                CTabliceParniRaz.ParniRazDLC(brojR, brojS);
+                                break;
+                        }
+                    }
+                    else if (smjer == 2)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CTabliceParniRaz.ParniRazDLCos(brojR, brojS);
+                                break;
+                            case 2:
+                                CTabliceParniRaz.ParniRazDLAC(brojR, brojS);
+                                break;
+                        }
+                    }
+                }
+                else if (mjesto == 3)
+                {
+                    if (smjer == 1)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CTabliceParniRaz.ParniRazGLACos(brojR, brojS);
+                                break;
+                            case 2:
+                                CTabliceParniRaz.ParniRazGLC(brojR, brojS);
+                                break;
+                        }
+                    }
+                    else if (smjer == 2)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CTabliceParniRaz.ParniRazGLCos(brojR, brojS);
+                                break;
+                            case 2:
+                                CTabliceParniRaz.ParniRazGLAC(brojR, brojS);
+                                break;
+                        }
+                    }
+                }
+                else if (mjesto == 4)
+                {
+                    if (smjer == 1)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CTabliceParniRaz.ParniRazGDACos(brojR, brojS);
+                                break;
+                            case 2:
+                                CTabliceParniRaz.ParniRazGDC(brojR, brojS);
+                                break;
+                        }
+                    }
+                    else if (smjer == 2)
+                    {
+                        switch (odSredine)
+                        {
+                            case 1:
+                                CTabliceParniRaz.ParniRazGDCos(brojR, brojS);
+                                break;
+                            case 2:
+                                CTabliceParniRaz.ParniRazGDAC(brojR, brojS);
                                 break;
                         }
                     }
                 }
             }
         }
+
+
 
     }
 }

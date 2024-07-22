@@ -130,5 +130,128 @@ namespace UcenjeCS
             FunkcijaZaPrikazTablice.Tablica(tablica);
         }
 
+
+        public static void NeparniParniGLCos(int x, int y)
+        {
+            int z = 1;
+            int min = x > y ? y : x;
+            int max = x > y ? x : y;
+            int m = min / 2;
+            int brojOkretaja = min / 2;
+            int n = m - 1 + max - min;
+            int[,] tablica = new int[x, y];
+            int k = 0;
+
+
+            if (x < y)
+            {
+                for (int i = m; i > m - 1; i--)
+                {
+                    for (int j = n + 1; j > m - 1; j--)
+                    {
+                        tablica[i, j] = z++;
+                    }
+                }
+
+
+                for (int a = brojOkretaja; a > 0; a--)
+                {
+                    for (int i = m - k; i < m + 2 + k; i++)
+                    {
+                        for (int j = m - 1 - k; j > m - 2 - k; j--)
+                        {
+                            tablica[i, j] = z++;
+                        }
+                    }
+                    for (int i = m + 1 + k; i > m + k; i--)
+                    {
+                        for (int j = m - k; j < n + 3 + k; j++)
+                        {
+                            tablica[i, j] = z++;
+                        }
+                    }
+                    for (int i = m + k; i > m - 2 - k; i--)
+                    {
+                        for (int j = n + 2 + k; j > n + 1 + k; j--)
+                        {
+                            tablica[i, j] = z++;
+                        }
+                    }
+                    for (int i = m - 1 - k; i > m - 2 - k; i--)
+                    {
+                        for (int j = n + 1 + k; j > m - 2 - k; j--)
+                        {
+                            tablica[i, j] = z++;
+                        }
+                    }
+                    ++k;
+                }
+            }
+
+            FunkcijaZaPrikazTablice.Tablica(tablica);
+        }
+
+
+        public static void NeparniParniGLACos(int x, int y)
+        {
+            int z = 1;
+            int min = x > y ? y : x;
+            int max = x > y ? x : y;
+            int m = min / 2;
+            int brojOkretaja = min / 2;
+            int n = m - 1 + max - min;
+            int[,] tablica = new int[x, y];
+            int k = 0;
+
+
+            if (x < y)
+            {
+                for (int i = m; i > m - 1; i--)
+                {
+                    for (int j = n + 1; j > m - 1; j--)
+                    {
+                        tablica[i, j] = z++;
+                    }
+                }
+
+
+                for (int a = brojOkretaja; a > 0; a--)
+                {
+                    for (int i = m - 1 - k; i > m - 2 - k; i--)
+                    {
+                        for (int j = m - k; j < n + 3 + k; j++)
+                        {
+                            tablica[i, j] = z++;
+                        }
+                    }
+                    for (int i = m - k; i < m + 2 + k; i++)
+                    {
+                        for (int j = n + 2 + k; j > n + 1 + k; j--)
+                        {
+                            tablica[i, j] = z++;
+                        }
+                    }
+                    for (int i = m + 1 + k; i > m + k; i--)
+                    {
+                        for (int j = n + 1 + k; j > m - 2 - k; j--)
+                        {
+                            tablica[i, j] = z++;
+                        }
+                    }
+                    for (int i = m + k; i > m - 2 - k; i--)
+                    {
+                        for (int j = m - 1 - k; j > m - 2 - k; j--)
+                        {
+                            tablica[i, j] = z++;
+                        }
+                    }
+                    ++k;
+                }
+            }
+
+            FunkcijaZaPrikazTablice.Tablica(tablica);
+        }
+
+
     }
 }

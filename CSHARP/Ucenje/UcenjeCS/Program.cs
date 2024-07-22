@@ -2,7 +2,7 @@
 //Console.WriteLine("Hello, World!");
 
 
-using UcenjeCS;
+using UcenjeCS.CikličneTablice;
 
 //E01UlazIzlaz.Izvedi();
 //E02VarijableTipoviPodataka.Izvedi();

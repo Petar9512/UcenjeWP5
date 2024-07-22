@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UcenjeCS
+namespace UcenjeCS.CikličneTablice
 {
     internal class CTablicePar
     {
-    
+
 
         public static void ParniDDC(int x)
         {
@@ -25,30 +25,30 @@ namespace UcenjeCS
 
             for (int a = brojOkretaja; a > 0; a--)
             {
-                for (int i = m+k; i > m-3-k; i--)
+                for (int i = m + k; i > m - 3 - k; i--)
                 {
-                    for (int j = m+1+k; j > m+k; j--)
+                    for (int j = m + 1 + k; j > m + k; j--)
                     {
                         tablica[i, j] = y--;
                     }
                 }
-                for (int i = m-2-k; i > m-3-k; i--)
+                for (int i = m - 2 - k; i > m - 3 - k; i--)
                 {
-                    for (int j = m+k; j > m-3-k; j--)
+                    for (int j = m + k; j > m - 3 - k; j--)
                     {
                         tablica[i, j] = y--;
                     }
                 }
-                for (int i = m-1-k; i < m+2+k; i++)
+                for (int i = m - 1 - k; i < m + 2 + k; i++)
                 {
-                    for (int j = m-2-k; j > m-3-k; j--)
+                    for (int j = m - 2 - k; j > m - 3 - k; j--)
                     {
                         tablica[i, j] = y--;
                     }
                 }
-                for (int i = m+1+k; i > m+k; i--)
+                for (int i = m + 1 + k; i > m + k; i--)
                 {
-                    for (int j = m-1-k; j < m+2+k; j++)
+                    for (int j = m - 1 - k; j < m + 2 + k; j++)
                     {
                         tablica[i, j] = y--;
                     }
@@ -57,7 +57,7 @@ namespace UcenjeCS
             }
             FunkcijaZaPrikazTablice.Tablica(tablica);
         }
-        
+
 
         public static void ParniDDAC(int x)
         {
@@ -74,30 +74,30 @@ namespace UcenjeCS
 
             for (int a = brojOkretaja; a > 0; a--)
             {
-                for (int i = m+1+k; i > m+k; i--)
+                for (int i = m + 1 + k; i > m + k; i--)
                 {
-                    for (int j = m+k; j > m-3-k; j--)
+                    for (int j = m + k; j > m - 3 - k; j--)
                     {
                         tablica[i, j] = y--;
                     }
                 }
-                for (int i = m+k; i > m-3-k; i--)
+                for (int i = m + k; i > m - 3 - k; i--)
                 {
-                    for (int j = m-2-k; j > m-3-k; j--)
+                    for (int j = m - 2 - k; j > m - 3 - k; j--)
                     {
                         tablica[i, j] = y--;
                     }
                 }
-                for (int i = m-2-k; i > m-3-k; i--)
+                for (int i = m - 2 - k; i > m - 3 - k; i--)
                 {
-                    for (int j = m-1-k; j < m+2+k; j++)
+                    for (int j = m - 1 - k; j < m + 2 + k; j++)
                     {
                         tablica[i, j] = y--;
                     }
                 }
-                for (int i = m-1-k; i < m+2+k; i++)
+                for (int i = m - 1 - k; i < m + 2 + k; i++)
                 {
-                    for (int j = m+1+k; j > m+k; j--)
+                    for (int j = m + 1 + k; j > m + k; j--)
                     {
                         tablica[i, j] = y--;
                     }

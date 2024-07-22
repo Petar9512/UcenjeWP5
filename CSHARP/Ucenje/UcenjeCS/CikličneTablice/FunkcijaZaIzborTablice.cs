@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UcenjeCS
+namespace UcenjeCS.CikličneTablice
 {
     internal class FunkcijaZaIzborTablice
     {
@@ -25,7 +25,7 @@ namespace UcenjeCS
                 {
                     brojR = int.Parse(Console.ReadLine());
 
-                    if (brojR < 0)
+                    if (brojR <= 0)
                     {
                         Console.WriteLine("Broj mora biti veći od nule");
                         continue;
@@ -47,7 +47,7 @@ namespace UcenjeCS
                 {
                     brojS = int.Parse(Console.ReadLine());
 
-                    if (brojS < 0)
+                    if (brojS <= 0)
                     {
                         Console.WriteLine("Broj mora biti veći od nule");
                         continue;
@@ -69,14 +69,14 @@ namespace UcenjeCS
                 {
                     mjesto = int.Parse(Console.ReadLine());
 
-                    if (mjesto != 1 && mjesto != 2 && mjesto!= 3 && mjesto != 4)
+                    if (mjesto != 1 && mjesto != 2 && mjesto != 3 && mjesto != 4)
                     {
                         Console.WriteLine("Niste unijeli 1, 2, 3 ili 4");
                         continue;
                     }
                     break;
                 }
-                catch 
+                catch
                 {
                     Console.WriteLine("Niste unijeli mjesto početka/završetka");
                 }
@@ -348,7 +348,7 @@ namespace UcenjeCS
                 }
             }
 
-            else if ((brojR % 2 == 1 && brojS % 2 == 1) || (brojR % 2 == 1 && brojS % 2 == 0 && brojR < brojS) || (brojR % 2 == 0 && brojS % 2 == 1 && brojR > brojS))
+            else if (brojR % 2 == 1 && brojS % 2 == 1 || brojR % 2 == 1 && brojS % 2 == 0 && brojR < brojS || brojR % 2 == 0 && brojS % 2 == 1 && brojR > brojS)
             {
                 if (mjesto == 1)
                 {
@@ -460,7 +460,7 @@ namespace UcenjeCS
                 }
             }
 
-            else if ((brojR % 2 == 0 && brojS % 2 == 0) || (brojR % 2 == 0 && brojS % 2 == 1 && brojR < brojS) || (brojR % 2 == 1 && brojS % 2 == 0 && brojR > brojS))
+            else if (brojR % 2 == 0 && brojS % 2 == 0 || brojR % 2 == 0 && brojS % 2 == 1 && brojR < brojS || brojR % 2 == 1 && brojS % 2 == 0 && brojR > brojS)
             {
                 if (mjesto == 1)
                 {

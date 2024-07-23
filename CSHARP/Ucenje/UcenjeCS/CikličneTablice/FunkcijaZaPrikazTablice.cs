@@ -17,7 +17,7 @@ namespace UcenjeCS.CikličneTablice
             {
                 for (int j = 0; j < x.GetLength(1); j++)
                 {
-                    Console.Write(x[i, j] + "\t");
+                    Console.Write(String.Format("{0,4}", x[i, j]) + " ");
                 }
                 Console.WriteLine();
             }

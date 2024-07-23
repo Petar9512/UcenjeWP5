@@ -25,9 +25,9 @@ namespace UcenjeCS.CikličneTablice
                 {
                     brojR = int.Parse(Console.ReadLine());
 
-                    if (brojR <= 0)
+                    if (brojR < 2 || brojR > 50)
                     {
-                        Console.WriteLine("Broj mora biti veći od nule");
+                        Console.WriteLine("Broj mora biti između 2 i 50");
                         continue;
                     }
                     break;
@@ -47,9 +47,9 @@ namespace UcenjeCS.CikličneTablice
                 {
                     brojS = int.Parse(Console.ReadLine());
 
-                    if (brojS <= 0)
+                    if (brojS < 2 || brojS > 50)
                     {
-                        Console.WriteLine("Broj mora biti veći od nule");
+                        Console.WriteLine("Broj mora biti između 2 i 50");
                         continue;
                     }
                     break;

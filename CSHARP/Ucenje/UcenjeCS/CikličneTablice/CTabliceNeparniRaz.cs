@@ -9,21 +9,25 @@ namespace UcenjeCS.CikličneTablice
     internal class CTabliceNeparniRaz
     {
 
-        public static void NeparniRazDDC(int x, int y)
+        /* Kratice: DD - dolje desno, DL - dolje lijevo, GL - gore lijevo, GD - gore desno
+           C - clockwise, AC - anti-clockwise, os - od sredine  */
+
+
+        public static void NeparniRazDDC(int x, int y) // Funkcije za tablice kojima su broj redova i broj stupaca 2 različita neparna broja
         {
-            int z = x * y;
-            int min = x > y ? y : x;
+            int z = x * y;  // z je najveći broj jednak umnošku x i y
+            int min = x > y ? y : x;  // potrebno je odrediti je li veći broj redova ili broj stupaca jer m mora biti manji broj / 2
             int max = x > y ? x : y;
             int m = min / 2;
             int brojOkretaja = min / 2;
-            int brojPrveIteracije = max - min + 1;
-            int n = m + max - min;
+            int brojPrveIteracije = max - min + 1;  // brojPrveIteracije određuje mjesto početka prediteracije
+            int n = m + max - min;  // u ovoj vrsti tablica potrebna je i varijabla n za određivanje položaja brojeva u for petljama
             int[,] tablica = new int[x, y];
             int k = 0;
 
 
 
-            for (int a = 0; a < brojPrveIteracije; a++)
+            for (int a = 0; a < brojPrveIteracije; a++)  // Prije glavnih okreta, ove tablice imaju prediteraciju koja se razlikuje ovisno o mjestu početka tablice
             {
                 if (x > y)
                 {

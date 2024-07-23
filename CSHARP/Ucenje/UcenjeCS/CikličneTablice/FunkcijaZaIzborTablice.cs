@@ -11,11 +11,11 @@ namespace UcenjeCS.CikličneTablice
 
         public static void IzborTablice()
         {
-            int brojR;
-            int brojS;
-            int smjer;
-            int odSredine;
-            int mjesto;
+            int brojR;       // Korisnik unosi broj redova i stupaca, smjer, mjesto početka i opciju od sredine
+            int brojS;       // Nakon toga kroz uvjetno grananje se odabere točna funkcija za kreiranje tablice
+            int smjer;       // Funkcije iz grupe NeparniRaz vrijede i u slučaju kada je x neparan i y paran ako je x < y ILI je x paran i y neparan ako je x > y
+            int odSredine;   // Funkcije ParniRaz vrijede i ako je x paran, y neparan i x < y ILI je x neparan, y paran i x > y
+            int mjesto;      // x je broj redova, y broj stupaca
 
             while (true)
             {

@@ -9,15 +9,18 @@ namespace UcenjeCS.CikličneTablice
     internal class CTablicePar
     {
 
+        /* Kratice: DD - dolje desno, DL - dolje lijevo, GL - gore lijevo, GD - gore desno
+           C - clockwise, AC - anti-clockwise, os - od sredine  */
 
-        public static void ParniDDC(int x)
+
+        public static void ParniDDC(int x) // funkcije za tablice s istim parnim brojem redova i stupaca
         {
             int y = x * x;
             int[,] tablica = new int[x, x];
             int m = x / 2;
             int k = 0;
-            int brojOkretaja = m - 1;
-            tablica[m - 1, m] = y--;
+            int brojOkretaja = m - 1;  // ove tablice imaju prediteraciju, tj. prva 4 broja moraju biti "ručno" postavljena
+            tablica[m - 1, m] = y--;   // broj okreta kod ovih tablica je m - 1, za tablicu [8,8] bit će jednak 3
             tablica[m - 1, m - 1] = y--;
             tablica[m, m - 1] = y--;
             tablica[m, m] = y--;

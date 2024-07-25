@@ -11,7 +11,7 @@ namespace UcenjeCS
 
         public static void UnosImena()
         {
-            string ime1 = "";
+            string ime1 = "";         // korisnik unosi dva imena, osigurava se da imaju samo slova
             string ime2 = "";
 
             while(true)

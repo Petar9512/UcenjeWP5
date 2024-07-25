@@ -18,7 +18,7 @@ using UcenjeCS.CikličneTablice;
 //ECiklicnaTablica5x5.Izvedi();
 //FunkcijaZaIzborTablice.IzborTablice();
 //FunkcijaZaIzborTablice.IzborTablice();
-LjubavniKalkulator.Kalkulator("elizabeta","aleksandar");
+LjubavniKalkulator.Kalkulator("marija","hrvoje");
 //E07WhileDoWhileForeachPetlje.Izvedi();
 //E10TryCatch.Izvedi();
 //E07Z1.Izvedi();

@@ -7,16 +7,23 @@ using System.Threading.Tasks;
 
 namespace UcenjeCS
 {
-    internal class LjubavniKalkulator
+    internal class LKalkulatorFunkcija
     {
 
         public static void Kalkulator(string ime1, string ime2)
-        {
+        {            
+
             string ime = ime1 + ime2;
             string brojSlova = "";
             int[] brojeviSlova = new int[ime.Length];
             int k = 0;
-            
+
+            char x = char.ToUpper(ime1[0]);
+            ime1 = x + ime1.Substring(1);
+            char y = char.ToUpper(ime2[0]);
+            ime2 = y + ime2.Substring(1);
+
+            Console.WriteLine(ime1 + ime2);
 
 
             for (int i = 0; i < ime.Length; i++)
@@ -39,6 +46,8 @@ namespace UcenjeCS
            
             while (duljinaBrojaSlova > 2)
             {
+                Console.WriteLine(brojSlova);
+
 
                 for (int i = 0; i < duljinaBrojaSlova / 2; i++)
                 {
@@ -68,13 +77,9 @@ namespace UcenjeCS
                     brojeviSlova[i] = int.Parse(brojSlova[i].ToString());
                 }
             }
-
+            
             Console.WriteLine(brojSlova);
-
-            for (int i = 0; i < brojeviSlova.Length; i++)
-            {
-                Console.WriteLine(brojeviSlova[i]);
-            }
+            Console.WriteLine("Šansa: {0}%", brojSlova);
 
 
         }

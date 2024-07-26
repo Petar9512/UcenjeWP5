@@ -11,7 +11,7 @@ namespace UcenjeCS
 
         public static void UnosImena()
         {
-            string ime1 = "";         // korisnik unosi dva imena, osigurava se da imaju samo slova
+            string ime1 = "";                 // korisnik unosi dva imena, osigurava se da imaju samo slova
             string ime2 = "";
 
             while(true)
@@ -73,7 +73,7 @@ namespace UcenjeCS
                 }
             }
 
-            LKalkulatorFunkcija.Kalkulator(ime1, ime2);
+            LKalkulatorFunkcija2.Kalkulator2(ime1, ime2);
         }
 
     }

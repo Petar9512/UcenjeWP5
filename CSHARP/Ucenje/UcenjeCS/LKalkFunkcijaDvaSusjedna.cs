@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UcenjeCS
 {
-    internal class LKalkulatorFunkcija2
+    internal class LKalkFunkcijaDvaSusjedna
     {
 
         public static void Kalkulator2(string ime1, string ime2)

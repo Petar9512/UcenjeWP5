@@ -73,7 +73,7 @@ namespace UcenjeCS
                 }
             }
 
-            LKalkulatorFunkcija2.Kalkulator2(ime1, ime2);
+            LKalkFunkcijaDvaSusjedna.Kalkulator2(ime1, ime2);
         }
 
     }

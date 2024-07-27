@@ -5,25 +5,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UcenjeCS
+namespace UcenjeCS.LjubavniKalkulator
 {
     internal class LKalkFunkcijaPrviZadnji
     {
 
         public static void Kalkulator(int[] brojeviSlova, string brojSlova)
-        {            
+        {
 
-            
+
             int duljinaBrojaSlova = brojSlova.Length;     // ova varijabla se koristi u petljama za zbrajanje brojeva
 
 
-           
+
             while (duljinaBrojaSlova > 2)                 // na kraju želimo dobiti dvoznamenkasti postotak, zato se operacija ponavlja sve dok je varijabla veća od 2
             {
                 Console.WriteLine(brojSlova);             // ovdje ispisujemo trenutni string od brojeva dobivenih zbrajanjem
 
 
-                for (int i = 0; i < duljinaBrojaSlova / 2; i++) 
+                for (int i = 0; i < duljinaBrojaSlova / 2; i++)
                 {
                     int b = brojeviSlova[i] + brojeviSlova[duljinaBrojaSlova - 1 - i];
                     brojSlova += b;                                       // b je produkt zbrajanja prvog i zadnjeg, drugog i predzadnjeg itd. broja i dodaje se u string brojSlova
@@ -51,7 +51,7 @@ namespace UcenjeCS
                     brojeviSlova[i] = int.Parse(brojSlova[i].ToString()); // da bi se to postiglo, potrebno je znakove promijeniti u integere
                 }
             }
-            
+
             Console.WriteLine(brojSlova);                                 // napišemo konačni brojSlova koji je i traženi postotak
             Console.WriteLine("Šansa: {0}%", brojSlova);
 

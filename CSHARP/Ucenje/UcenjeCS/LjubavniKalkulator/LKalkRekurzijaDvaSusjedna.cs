@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UcenjeCS
+namespace UcenjeCS.LjubavniKalkulator
 {
     internal class LKalkRekurzijaDvaSusjedna
     {
@@ -21,7 +21,7 @@ namespace UcenjeCS
                 return y;
             }
 
-            for (int i = 0; i < duljinaBrojaSlova - 1; i+=2)
+            for (int i = 0; i < duljinaBrojaSlova - 1; i += 2)
             {
                 int b = x[i] + x[i + 1];
                 y += b;

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UcenjeCS
+namespace UcenjeCS.LjubavniKalkulator
 {
-    internal class LKalkulatorUnosImena
+    internal class LKalkUnosImena
     {
 
         public static void UnosImena()
@@ -14,7 +14,7 @@ namespace UcenjeCS
             string ime1 = "";                      // korisnik unosi dva imena, osigurava se da imaju samo slova
             string ime2 = "";
 
-            while(true)
+            while (true)
             {
                 Console.WriteLine("Unesite prvo ime: ");
 

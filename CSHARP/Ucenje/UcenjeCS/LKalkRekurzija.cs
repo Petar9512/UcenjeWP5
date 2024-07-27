@@ -12,11 +12,14 @@ namespace UcenjeCS
 
         public static string Zbrajanje(int[] x, string y)
         {
+            Console.WriteLine(y);
+
             int duljinaBrojaSlova = y.Length;
 
             if (duljinaBrojaSlova <= 2)
             {
-                return y;
+                Console.WriteLine("Šansa: {0}%", y);
+                return y;                
             }
 
             for (int i = 0; i < duljinaBrojaSlova / 2; i++)

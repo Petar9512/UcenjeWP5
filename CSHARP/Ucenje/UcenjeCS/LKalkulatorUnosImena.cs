@@ -102,7 +102,7 @@ namespace UcenjeCS
             }
 
 
-            LKalkFunkcijaDvaSusjedna.Kalkulator2(brojeviSlova, brojSlova);
+            LKalkRekurzijaDvaSusjedna.Zbrajanje2(brojeviSlova, brojSlova);
         }
 
     }

@@ -11,7 +11,7 @@ namespace UcenjeCS
 
         public static void UnosImena()
         {
-            string ime1 = "";                 // korisnik unosi dva imena, osigurava se da imaju samo slova
+            string ime1 = "";                      // korisnik unosi dva imena, osigurava se da imaju samo slova
             string ime2 = "";
 
             while(true)
@@ -73,7 +73,36 @@ namespace UcenjeCS
                 }
             }
 
-            LKalkFunkcijaDvaSusjedna.Kalkulator2(ime1, ime2);
+
+            string ime = ime1 + ime2;                     // novi string od oba imena kojima su prethodno smanjena sva slova
+            string brojSlova = "";                        // u ovaj string ćemo dodavati vrijednosti ponavljanja svakog slova u ime
+            int[] brojeviSlova = new int[ime.Length];     // ovdje ćemo dodavati iste vrijednosti, ali kao intove u niz intova
+            int k = 0;
+
+            char x = char.ToUpper(ime1[0]);               // ovo služi samo za ispis unesenih imena s prvim slovom velikim
+            ime1 = x + ime1.Substring(1);
+            char y = char.ToUpper(ime2[0]);
+            ime2 = y + ime2.Substring(1);
+
+            Console.WriteLine(ime1 + ime2);
+
+
+            for (int i = 0; i < ime.Length; i++)
+            {
+                for (int j = 0; j < ime.Length; j++)
+                {
+                    if (ime[i] == ime[j])                 // petlja za dobijanje vrijednosti k za broj ponavljanja svakog slova
+                    {
+                        k++;
+                    }
+                }
+                brojeviSlova[i] = k;                      // k vrijednosti potom idu u niz brojeva i u string od brojeva
+                brojSlova += k;
+                k = 0;                                    // k se resetira na kraju svakog vanjskog loopa
+            }
+
+
+            LKalkFunkcijaDvaSusjedna.Kalkulator2(brojeviSlova, brojSlova);
         }
 
     }

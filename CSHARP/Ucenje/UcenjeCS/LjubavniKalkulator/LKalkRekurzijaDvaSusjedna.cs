@@ -9,11 +9,12 @@ namespace UcenjeCS.LjubavniKalkulator
     internal class LKalkRekurzijaDvaSusjedna
     {
 
-        public static string Zbrajanje2(int[] x, string y)
+        public static string Zbrajanje2(string y)
         {
             Console.WriteLine(y);
 
             int duljinaBrojaSlova = y.Length;
+
 
             if (duljinaBrojaSlova <= 2)
             {
@@ -23,7 +24,7 @@ namespace UcenjeCS.LjubavniKalkulator
 
             for (int i = 0; i < duljinaBrojaSlova - 1; i += 2)
             {
-                int b = x[i] + x[i + 1];
+                int b = int.Parse(y[i].ToString()) + int.Parse(y[i + 1].ToString());
                 y += b;
             }
 
@@ -39,17 +40,11 @@ namespace UcenjeCS.LjubavniKalkulator
                 y = y.Substring(duljinaBrojaSlova);
             }
 
-            Array.Clear(x, 0, x.Length);
-            Array.Resize(ref x, y.Length);
 
             duljinaBrojaSlova = y.Length;
 
-            for (int i = 0; i < duljinaBrojaSlova; i++)
-            {
-                x[i] = int.Parse(y[i].ToString());
-            }
 
-            return Zbrajanje2(x, y);
+            return Zbrajanje2(y);
         }
 
     }

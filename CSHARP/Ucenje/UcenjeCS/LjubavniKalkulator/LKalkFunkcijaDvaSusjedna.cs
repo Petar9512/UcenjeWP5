@@ -9,7 +9,7 @@ namespace UcenjeCS.LjubavniKalkulator
     internal class LKalkFunkcijaDvaSusjedna
     {
 
-        public static void Kalkulator2(int[] brojeviSlova, string brojSlova)
+        public static void Kalkulator2(string brojSlova)
         {
 
 
@@ -22,15 +22,15 @@ namespace UcenjeCS.LjubavniKalkulator
                 Console.WriteLine(brojSlova);
 
 
-                for (int i = 0; i < duljinaBrojaSlova - 1; i += 2)         // isto kao i druga funkcija, osim što zbraja dva susjedna broja
+                for (int i = 0; i < duljinaBrojaSlova - 1; i += 2)         
                 {
-                    int b = brojeviSlova[i] + brojeviSlova[i + 1];
+                    int b = int.Parse(brojSlova[i].ToString()) + int.Parse(brojSlova[i + 1].ToString());
                     brojSlova += b;
                 }
 
                 if (duljinaBrojaSlova % 2 == 1)
                 {
-                    char ostatak = brojSlova[duljinaBrojaSlova - 1];     // ostatak će u tom slučaju biti zadnji broj
+                    char ostatak = brojSlova[duljinaBrojaSlova - 1];     
                     brojSlova = brojSlova.Substring(duljinaBrojaSlova);
                     brojSlova += ostatak;
                 }
@@ -40,15 +40,8 @@ namespace UcenjeCS.LjubavniKalkulator
                     brojSlova = brojSlova.Substring(duljinaBrojaSlova);
                 }
 
-                Array.Clear(brojeviSlova, 0, brojeviSlova.Length);
-                Array.Resize(ref brojeviSlova, brojSlova.Length);
 
                 duljinaBrojaSlova = brojSlova.Length;
-
-                for (int i = 0; i < duljinaBrojaSlova; i++)
-                {
-                    brojeviSlova[i] = int.Parse(brojSlova[i].ToString());
-                }
             }
 
             Console.WriteLine(brojSlova);

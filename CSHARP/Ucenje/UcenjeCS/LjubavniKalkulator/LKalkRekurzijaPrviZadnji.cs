@@ -10,7 +10,7 @@ namespace UcenjeCS.LjubavniKalkulator
     {
 
 
-        public static string Zbrajanje(int[] x, string y)
+        public static string Zbrajanje(string y)
         {
             Console.WriteLine(y);
 
@@ -24,7 +24,7 @@ namespace UcenjeCS.LjubavniKalkulator
 
             for (int i = 0; i < duljinaBrojaSlova / 2; i++)
             {
-                int b = x[i] + x[duljinaBrojaSlova - 1 - i];
+                int b = int.Parse(y[i].ToString()) + int.Parse(y[duljinaBrojaSlova - 1 - i].ToString());
                 y += b;
             }
 
@@ -40,17 +40,11 @@ namespace UcenjeCS.LjubavniKalkulator
                 y = y.Substring(duljinaBrojaSlova);
             }
 
-            Array.Clear(x, 0, x.Length);
-            Array.Resize(ref x, y.Length);
 
             duljinaBrojaSlova = y.Length;
 
-            for (int i = 0; i < duljinaBrojaSlova; i++)
-            {
-                x[i] = int.Parse(y[i].ToString());
-            }
 
-            return Zbrajanje(x, y);
+            return Zbrajanje(y);
         }
 
     }

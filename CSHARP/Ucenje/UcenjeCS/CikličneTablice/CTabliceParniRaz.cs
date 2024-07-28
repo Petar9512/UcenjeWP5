@@ -9,7 +9,7 @@ namespace UcenjeCS.CikličneTablice
     internal class CTabliceParniRaz
     {
 
-        public static void ParniRazDDC(int x, int y)  // Funkcije za tablice kojima su broj redova i broj stupaca 2 različita parna broja
+        public static void ParniRazDDC(int x, int y)    // Funkcije za tablice kojima su broj redova i broj stupaca 2 različita parna broja
         {                                             
             int z = x * y;
             int min = x > y ? y : x;

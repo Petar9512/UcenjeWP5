@@ -22,7 +22,7 @@ namespace UcenjeCS.LjubavniKalkulator
                 Console.WriteLine(brojSlova);
 
 
-                for (int i = 0; i < duljinaBrojaSlova - 1; i += 2)         
+                for (int i = 0; i < duljinaBrojaSlova - 1; i += 2)         // for petlja zbraja 2 susjedna broja
                 {
                     int b = int.Parse(brojSlova[i].ToString()) + int.Parse(brojSlova[i + 1].ToString());
                     brojSlova += b;
@@ -30,7 +30,7 @@ namespace UcenjeCS.LjubavniKalkulator
 
                 if (duljinaBrojaSlova % 2 == 1)
                 {
-                    char ostatak = brojSlova[duljinaBrojaSlova - 1];     
+                    char ostatak = brojSlova[duljinaBrojaSlova - 1];       // u tom slučaju ostatak je zadnji broj u stringu
                     brojSlova = brojSlova.Substring(duljinaBrojaSlova);
                     brojSlova += ostatak;
                 }

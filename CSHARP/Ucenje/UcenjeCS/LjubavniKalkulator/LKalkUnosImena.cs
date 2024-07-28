@@ -75,10 +75,10 @@ namespace UcenjeCS.LjubavniKalkulator
 
 
             string ime = ime1 + ime2;                     
-            string brojSlova = "";                        
+            string brojSlova = "";                        // u ovaj string ćemo dodavati k vrijednosti
             int k = 0;
 
-            char x = char.ToUpper(ime1[0]);               
+            char x = char.ToUpper(ime1[0]);               // ovo je samo za ispis imena s prvim slovom velikim
             ime1 = x + ime1.Substring(1);
             char y = char.ToUpper(ime2[0]);
             ime2 = y + ime2.Substring(1);
@@ -86,17 +86,17 @@ namespace UcenjeCS.LjubavniKalkulator
             Console.WriteLine(ime1 + ime2);
 
 
-            for (int i = 0; i < ime.Length; i++)
+            for (int i = 0; i < ime.Length; i++)          
             {
                 for (int j = 0; j < ime.Length; j++)
                 {
-                    if (ime[i] == ime[j])                 
+                    if (ime[i] == ime[j])                 // u ovoj for petlji k vrijednosti su jednake broju ponavljanja svakog slova u ime
                     {
                         k++;
                     }
                 }                      
-                brojSlova += k;
-                k = 0;                                   
+                brojSlova += k;                          
+                k = 0;                                   // k se resetira nakon svakog vanjskog loopa
             }
 
 

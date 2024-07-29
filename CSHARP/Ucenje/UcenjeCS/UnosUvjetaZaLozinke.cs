@@ -13,6 +13,7 @@ namespace UcenjeCS
         {
 
             int duljinaLozinke;
+            int brojLozinki;
             int k;
             string uvjet = "";
 
@@ -24,9 +25,9 @@ namespace UcenjeCS
                 {
                     duljinaLozinke = int.Parse(Console.ReadLine());
 
-                    if (duljinaLozinke < 16 || duljinaLozinke > 46)
+                    if (duljinaLozinke < 10 || duljinaLozinke > 42)
                     {
-                        Console.WriteLine("Mora biti između 16 i 46");
+                        Console.WriteLine("Mora biti između 10 i 42");
                         continue;
                     }
                     break;
@@ -134,6 +135,29 @@ namespace UcenjeCS
                 }
             }
 
+            while (true)
+            {
+                Console.WriteLine("Unesite broj lozinki koje želite generirati: ");
+
+                try
+                {
+                    brojLozinki = int.Parse(Console.ReadLine());
+
+                    if (brojLozinki < 1)
+                    {
+                        Console.WriteLine("Broj mora biti veći od nule");
+                        continue;
+                    }
+                    break;
+                }
+
+                catch
+                {
+                    Console.WriteLine("Niste unijeli cijeli broj");
+                }               
+            }
+
+
             int brojDA = 0;
 
             for (int i = 0; i < uvjet.Length; i++)
@@ -238,7 +262,21 @@ namespace UcenjeCS
                 pozUvjeti[0] = 4;
             }
 
-        }
+            Console.WriteLine();
 
+            try
+            {
+                while (brojLozinki > 0)
+                {
+                    GeneratorLozinki.Generator(duljinaLozinke, pozUvjeti);
+                    brojLozinki--;
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Morate unijeti barem jedan pozitivan uvjet \n");
+                Uvjeti();
+            }
+        }
     }
 }

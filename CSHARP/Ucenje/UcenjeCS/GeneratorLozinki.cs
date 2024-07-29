@@ -9,7 +9,7 @@ namespace UcenjeCS
     internal class GeneratorLozinki
     {
 
-        public static void Generator(int duljina)
+        public static void Generator(int duljinaLozinke, int[] pozUvjeti)
         {
             string lozinka = "";
 
@@ -23,9 +23,9 @@ namespace UcenjeCS
             int[] znakovi = new int[] { 33, 44, 46, 58, 63, 64 };
 
             
-            for (int i = 0; i < duljina; i++)
+            for (int i = 0; i < duljinaLozinke; i++)
             {
-                y = rnd.Next(1, 5);
+                y = pozUvjeti[rnd.Next(0, pozUvjeti.Length)];
 
                 if (y == 1)
                 {
@@ -42,8 +42,7 @@ namespace UcenjeCS
                 else if (y == 3)
                 {
                     x = rnd.Next(0, brojevi.Length);
-                    lozinka += (Char)brojevi[x];
-                                   
+                    lozinka += (Char)brojevi[x];                                   
                 }
 
                 else if (y == 4)

@@ -18,7 +18,7 @@ using UcenjeCS.LjubavniKalkulator;
 //E06ForPetlja.Izvedi();
 //ECiklicnaTablica5x5.Izvedi();
 //FunkcijaZaIzborTablice.IzborTablice();
-GeneratorLozinki.Generator(50);
+UnosUvjetaZaLozinke.Uvjeti();
 //LKalkUnosImena.UnosImena();
 //E07WhileDoWhileForeachPetlje.Izvedi();
 //E10TryCatch.Izvedi();

@@ -2,6 +2,7 @@
 //Console.WriteLine("Hello, World!");
 
 
+using UcenjeCS;
 using UcenjeCS.CikličneTablice;
 using UcenjeCS.LjubavniKalkulator;
 
@@ -16,7 +17,8 @@ using UcenjeCS.LjubavniKalkulator;
 //E05Nizovi.Izvedi();
 //E06ForPetlja.Izvedi();
 //ECiklicnaTablica5x5.Izvedi();
-FunkcijaZaIzborTablice.IzborTablice();
+//FunkcijaZaIzborTablice.IzborTablice();
+GeneratorLozinki.Generator(50);
 //LKalkUnosImena.UnosImena();
 //E07WhileDoWhileForeachPetlje.Izvedi();
 //E10TryCatch.Izvedi();

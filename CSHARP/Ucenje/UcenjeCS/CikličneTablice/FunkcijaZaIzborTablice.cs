@@ -571,9 +571,33 @@ namespace UcenjeCS.CikličneTablice
                     }
                 }
             }
+
+            while (true)
+            {
+                Console.WriteLine("\n Želite li kreirati novu tablicu: \n 1 - DA \n 2 - NE");
+
+                try
+                {
+                    int opet = int.Parse(Console.ReadLine());
+
+                    if (opet != 1 && opet != 2)
+                    {
+                        Console.WriteLine("Niste unijeli 1 ili 2");
+                        continue;
+                    }
+
+                    else if (opet == 1)
+                    {
+                        IzborTablice();
+                    }
+
+                    break;
+                }
+                catch
+                { 
+                    Console.WriteLine("Niste unijeli 1 ili 2");
+                }
+            }
         }
-
-
-
     }
 }

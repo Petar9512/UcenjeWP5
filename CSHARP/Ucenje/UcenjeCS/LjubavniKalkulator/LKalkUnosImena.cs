@@ -100,7 +100,13 @@ namespace UcenjeCS.LjubavniKalkulator
             }
 
 
-            LKalkRekurzijaDvaSusjedna.Zbrajanje2(brojSlova);
+            //LKalkFunkcijaPrviZadnji.Kalkulator(brojSlova);
+
+            //LKalkFunkcijaDvaSusjedna.Kalkulator2(brojSlova);
+
+            //LKalkRekurzijaPrviZadnji.Zbrajanje(brojSlova);
+
+            //LKalkRekurzijaDvaSusjedna.Zbrajanje2(brojSlova);
         }
 
     }

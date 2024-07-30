@@ -15,6 +15,9 @@ namespace UcenjeCS
             int duljinaLozinke;
             int brojLozinki;
             int k;
+            int prviZnak = 0;
+            int zadnjiZnak = 0;
+            bool jedan = false;
             string uvjet = "";
 
             while (true)
@@ -41,7 +44,7 @@ namespace UcenjeCS
 
             while (true)
             {
-                Console.WriteLine("Želite li da lozinka sadrži velika slova? \n 1 - DA \n 2 - NE");
+                Console.WriteLine("\n Želite li da lozinka sadrži velika slova? \n 1 - DA \n 2 - NE");
 
                 try
                 {
@@ -65,7 +68,7 @@ namespace UcenjeCS
 
             while (true)
             {
-                Console.WriteLine("Želite li da lozinka sadrži mala slova? \n 1 - DA \n 2 - NE");
+                Console.WriteLine("\n Želite li da lozinka sadrži mala slova? \n 1 - DA \n 2 - NE");
 
                 try
                 {
@@ -89,7 +92,7 @@ namespace UcenjeCS
 
             while (true)
             {
-                Console.WriteLine("Želite li da lozinka sadrži brojeve? \n 1 - DA \n 2 - NE");
+                Console.WriteLine("\n Želite li da lozinka sadrži brojeve? \n 1 - DA \n 2 - NE");
 
                 try
                 {
@@ -102,6 +105,11 @@ namespace UcenjeCS
                     }
                     uvjet += k;
 
+                    if (k == 1)
+                    {
+                        jedan = true;
+                    }
+                        
                     break;
                 }
 
@@ -113,7 +121,7 @@ namespace UcenjeCS
 
             while (true)
             {
-                Console.WriteLine("Želite li da lozinka sadrži interpunkcijske znakove? \n 1 - DA \n 2 - NE");
+                Console.WriteLine("\n Želite li da lozinka sadrži interpunkcijske znakove? \n 1 - DA \n 2 - NE");
 
                 try
                 {
@@ -126,6 +134,11 @@ namespace UcenjeCS
                     }
                     uvjet += k;
 
+                    if (k == 1)
+                    {
+                        jedan = true;
+                    }
+
                     break;
                 }
 
@@ -135,9 +148,51 @@ namespace UcenjeCS
                 }
             }
 
+            while (jedan)
+            {
+                Console.WriteLine("\n Želite li da lozinka počne s brojem ili interpunkcijskim znakom? \n 1 - brojem \n 2 - interpunkcijskim znakom \n 3 - ne / svejedno");
+
+                try
+                {
+                    prviZnak = int.Parse(Console.ReadLine());
+
+                    if (prviZnak != 1 && prviZnak != 2 && prviZnak != 3)
+                    {
+                        Console.WriteLine("Niste unijeli opciju 1, 2 ili 3");
+                        continue;
+                    }
+                    break;
+                }
+                catch
+                {
+                    Console.WriteLine("Niste unijeli opciju 1, 2 ili 3");
+                }
+            }
+
+            while (jedan)
+            {
+                Console.WriteLine("\n Želite li da lozinka završi s brojem ili interpunkcijskim znakom? \n 1 - brojem \n 2 - interpunkcijskim znakom \n 3 - ne / svejedno");
+
+                try
+                {
+                    zadnjiZnak = int.Parse(Console.ReadLine());
+
+                    if (zadnjiZnak != 1 && zadnjiZnak != 2 && zadnjiZnak != 3)
+                    {
+                        Console.WriteLine("Niste unijeli opciju 1, 2 ili 3");
+                        continue;
+                    }
+                    break;
+                }
+                catch
+                {
+                    Console.WriteLine("Niste unijeli opciju 1, 2 ili 3");
+                }
+            }
+
             while (true)
             {
-                Console.WriteLine("Unesite broj lozinki koje želite generirati: ");
+                Console.WriteLine("\n Unesite broj lozinki koje želite generirati: ");
 
                 try
                 {
@@ -262,13 +317,11 @@ namespace UcenjeCS
                 pozUvjeti[0] = 4;
             }
 
-            Console.WriteLine();
-
             try
             {
                 while (brojLozinki > 0)
                 {
-                    GeneratorLozinki.Generator(duljinaLozinke, pozUvjeti);
+                    GeneratorLozinki.Generator(duljinaLozinke, pozUvjeti, prviZnak, zadnjiZnak);
                     brojLozinki--;
                 }
             }

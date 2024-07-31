@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UcenjeCS
+namespace UcenjeCS.GeneratorLozinke
 {
-    internal class GeneratorLozinki
+    internal class GeneratorMetoda
     {
 
         public static void Generator(int duljinaLozinke, int[] pozUvjeti, int prviZnak, int zadnjiZnak)
@@ -24,7 +24,7 @@ namespace UcenjeCS
             int[] brojevi = new int[] { 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 };
             int[] znakovi = new int[] { 33, 44, 46, 58, 63, 64 };
 
-            
+
             for (int i = 0; i < duljinaLozinke; i++)
             {
                 y = pozUvjeti[rnd.Next(0, pozUvjeti.Length)];         // y će u svakoj iteraciji biti nasumičan broj iz pozUvjeti niza
@@ -32,51 +32,51 @@ namespace UcenjeCS
                 if (y == 1)                                           // svaki broj u pozUvjeti predstavlja grupu znakova koje je korisnik odabrao za lozinke
                 {
                     x = rnd.Next(0, velikaSlova.Length);              // u uvjetnom grananju bira se nasumični broj iz jedne grupe znakova koja je također nasumično odabrana kroz y
-                    lozinka += (Char)velikaSlova[x];                  // broj se mora pretvoriti u char kako bi se u lozinku dodao znak
+                    lozinka += (char)velikaSlova[x];                  // broj se mora pretvoriti u char kako bi se u lozinku dodao znak
                 }
 
                 else if (y == 2)
                 {
                     x = rnd.Next(0, malaSlova.Length);
-                    lozinka += (Char)malaSlova[x];
+                    lozinka += (char)malaSlova[x];
                 }
 
                 else if (y == 3)
                 {
                     x = rnd.Next(0, brojevi.Length);
-                    lozinka += (Char)brojevi[x];                                   
+                    lozinka += (char)brojevi[x];
                 }
 
                 else if (y == 4)
                 {
                     x = rnd.Next(0, znakovi.Length);
-                    lozinka += (Char)znakovi[x];
+                    lozinka += (char)znakovi[x];
                 }
             }
 
 
             if (prviZnak == 1)                                        // ovaj dio služi za postavljanje broja ili interpunk znaka na početak ili kraj lozinke ako je korisnik prethodno odabrao tu opciju
             {
-                prvi = (Char)brojevi[rnd.Next(0, brojevi.Length)];
+                prvi = (char)brojevi[rnd.Next(0, brojevi.Length)];
                 lozinka = prvi + lozinka.Substring(1);
             }
 
             else if (prviZnak == 2)
             {
-                prvi = (Char)znakovi[rnd.Next(0, znakovi.Length)];
+                prvi = (char)znakovi[rnd.Next(0, znakovi.Length)];
                 lozinka = prvi + lozinka.Substring(1);
             }
 
 
             if (zadnjiZnak == 1)
             {
-                zadnji = (Char)brojevi[rnd.Next(0, brojevi.Length)];
+                zadnji = (char)brojevi[rnd.Next(0, brojevi.Length)];
                 lozinka = lozinka.Substring(0, lozinka.Length - 1) + zadnji;
             }
 
             else if (zadnjiZnak == 2)
             {
-                zadnji = (Char)znakovi[rnd.Next(0, znakovi.Length)];
+                zadnji = (char)znakovi[rnd.Next(0, znakovi.Length)];
                 lozinka = lozinka.Substring(0, lozinka.Length - 1) + zadnji;
             }
 
@@ -88,7 +88,7 @@ namespace UcenjeCS
 
         public static void GeneratorBezPonavljajucihZnakova(int duljinaLozinke, string dopusteniZnakovi)
         {
-            
+
             string lozinka = "";
             int y;
             char c;
@@ -96,9 +96,9 @@ namespace UcenjeCS
             Random rnd = new Random();
 
 
-            while (duljinaLozinke > 0)                          
+            while (duljinaLozinke > 0)
             {
-                y = rnd.Next(0, dopusteniZnakovi.Length);          
+                y = rnd.Next(0, dopusteniZnakovi.Length);
                 c = dopusteniZnakovi[y];                          // c će uvijek biti nasumični znak iz stringa s dopuštenim znakovima
 
 

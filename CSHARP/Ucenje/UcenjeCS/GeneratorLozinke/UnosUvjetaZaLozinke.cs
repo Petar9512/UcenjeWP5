@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UcenjeCS
+namespace UcenjeCS.GeneratorLozinke
 {
     internal class UnosUvjetaZaLozinke
     {
@@ -128,8 +128,8 @@ namespace UcenjeCS
                     {
                         dopusteniZnakovi += brojevi;
                         jedan = true;
-                    } 
-                    
+                    }
+
                     break;
                 }
 
@@ -192,7 +192,7 @@ namespace UcenjeCS
                     }
                 }
             }
-           
+
             while (jedan && k2 != 2)           // upit o mogućnosti da lozinka počne ili završi s brojem ili interpunkcijskim znakom postavit će se ako je korisnik dopustio brojeve ili znakove u lozinki i ako lozinka može sadržavati ponavljajuće znakove 
             {
                 Console.WriteLine("\n Želite li da lozinka počne s brojem ili interpunkcijskim znakom? \n 1 - brojem \n 2 - interpunkcijskim znakom \n 3 - ne / svejedno");
@@ -254,7 +254,7 @@ namespace UcenjeCS
                 catch
                 {
                     Console.WriteLine("Niste unijeli cijeli broj");
-                }               
+                }
             }
 
 
@@ -367,18 +367,18 @@ namespace UcenjeCS
             {
                 while (brojLozinki > 0)
                 {
-                    GeneratorLozinki.GeneratorBezPonavljajucihZnakova(duljinaLozinke, dopusteniZnakovi);
+                    GeneratorMetoda.GeneratorBezPonavljajucihZnakova(duljinaLozinke, dopusteniZnakovi);
                     brojLozinki--;
                 }
             }
 
             else
             {
-                try                                         
+                try
                 {
                     while (brojLozinki > 0)
                     {
-                        GeneratorLozinki.Generator(duljinaLozinke, pozUvjeti, prviZnak, zadnjiZnak);
+                        GeneratorMetoda.Generator(duljinaLozinke, pozUvjeti, prviZnak, zadnjiZnak);
                         brojLozinki--;
                     }
                 }
@@ -388,7 +388,7 @@ namespace UcenjeCS
                     Uvjeti();
                 }
             }
-            
+
         }
     }
 }

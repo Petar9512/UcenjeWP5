@@ -16,7 +16,7 @@ namespace UcenjeCS
             Random rnd = new Random();
             int x;
             int y;
-            char prvi;
+            char prvi;                               // u nizovima ispod su ASCII brojevi za znakove za lozinke
             char zadnji;
 
             int[] velikaSlova = new int[] { 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90 };
@@ -27,12 +27,12 @@ namespace UcenjeCS
             
             for (int i = 0; i < duljinaLozinke; i++)
             {
-                y = pozUvjeti[rnd.Next(0, pozUvjeti.Length)];
+                y = pozUvjeti[rnd.Next(0, pozUvjeti.Length)];         // y će u svakoj iteraciji biti nasumičan broj iz pozUvjeti niza
 
-                if (y == 1)
+                if (y == 1)                                           // svaki broj u pozUvjeti predstavlja grupu znakova koje je korisnik odabrao za lozinke
                 {
-                    x = rnd.Next(0, velikaSlova.Length);
-                    lozinka += (Char)velikaSlova[x];
+                    x = rnd.Next(0, velikaSlova.Length);              // u uvjetnom grananju bira se nasumični broj iz jedne grupe znakova koja je također nasumično odabrana kroz y
+                    lozinka += (Char)velikaSlova[x];                  // broj se mora pretvoriti u char kako bi se u lozinku dodao znak
                 }
 
                 else if (y == 2)
@@ -55,7 +55,7 @@ namespace UcenjeCS
             }
 
 
-            if (prviZnak == 1)
+            if (prviZnak == 1)                                        // ovaj dio služi za postavljanje broja ili interpunk znaka na početak ili kraj lozinke ako je korisnik prethodno odabrao tu opciju
             {
                 prvi = (Char)brojevi[rnd.Next(0, brojevi.Length)];
                 lozinka = prvi + lozinka.Substring(1);
@@ -96,20 +96,20 @@ namespace UcenjeCS
             Random rnd = new Random();
 
 
-            while (duljinaLozinke > 0)
+            while (duljinaLozinke > 0)                          
             {
-                y = rnd.Next(0, dopusteniZnakovi.Length);
-                c = dopusteniZnakovi[y];
+                y = rnd.Next(0, dopusteniZnakovi.Length);          
+                c = dopusteniZnakovi[y];                          // c će uvijek biti nasumični znak iz stringa s dopuštenim znakovima
 
 
-                if (lozinka.Contains(c))
+                if (lozinka.Contains(c))                          // ako lozinka već sadrži taj znak, on će se izbaciti iz stringa
                 {
                     dopusteniZnakovi.Remove(y, 1);
                 }
 
                 else
                 {
-                    lozinka += c;
+                    lozinka += c;                                 // u suprotnom će znak biti dodan u lozinku, a preostala duljina se smanjiti za 1
                     duljinaLozinke--;
                 }
             }

@@ -22,10 +22,12 @@ namespace UcenjeCS
             int duljinaLozinke;
             int brojLozinki;
             int k;
+            int k2 = 0;
             int prviZnak = 0;
             int zadnjiZnak = 0;
             bool jedan = false;
             string uvjet = "";
+
 
             while (true)
             {
@@ -166,8 +168,32 @@ namespace UcenjeCS
                     Console.WriteLine("Niste unijeli 1 ili 2");
                 }
             }
+
+            if (dopusteniZnakovi.Length >= duljinaLozinke)
+            {
+                while (true)
+                {
+                    Console.WriteLine("\n Smije li lozinka imati ponavljajuće znakove? \n 1 - DA \n 2 - NE");
+
+                    try
+                    {
+                        k2 = int.Parse(Console.ReadLine());
+
+                        if (k2 != 1 && k2 != 2)
+                        {
+                            Console.WriteLine("Niste unijeli 1 ili 2");
+                            continue;
+                        }
+                        break;
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Niste unijeli 1 ili 2");
+                    }
+                }
+            }
            
-            while (jedan)
+            while (jedan && k2 != 2)
             {
                 Console.WriteLine("\n Želite li da lozinka počne s brojem ili interpunkcijskim znakom? \n 1 - brojem \n 2 - interpunkcijskim znakom \n 3 - ne / svejedno");
 
@@ -188,7 +214,7 @@ namespace UcenjeCS
                 }
             }
 
-            while (jedan)
+            while (jedan && k2 != 2)
             {
                 Console.WriteLine("\n Želite li da lozinka završi s brojem ili interpunkcijskim znakom? \n 1 - brojem \n 2 - interpunkcijskim znakom \n 3 - ne / svejedno");
 
@@ -336,19 +362,33 @@ namespace UcenjeCS
                 pozUvjeti[0] = 4;
             }
 
-            try
+
+            if (k2 == 2)
             {
                 while (brojLozinki > 0)
                 {
-                    GeneratorLozinki.Generator(duljinaLozinke, pozUvjeti, prviZnak, zadnjiZnak);
+                    GeneratorLozinki.GeneratorBezPonavljajucihZnakova(duljinaLozinke, dopusteniZnakovi);
                     brojLozinki--;
                 }
             }
-            catch
+
+            else
             {
-                Console.WriteLine("Morate unijeti barem jedan pozitivan uvjet \n");
-                Uvjeti();
+                try
+                {
+                    while (brojLozinki > 0)
+                    {
+                        GeneratorLozinki.Generator(duljinaLozinke, pozUvjeti, prviZnak, zadnjiZnak);
+                        brojLozinki--;
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Morate unijeti barem jedan pozitivan uvjet \n");
+                    Uvjeti();
+                }
             }
+            
         }
     }
 }

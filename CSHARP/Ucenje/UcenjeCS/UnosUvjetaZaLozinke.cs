@@ -12,6 +12,13 @@ namespace UcenjeCS
         public static void Uvjeti()
         {
 
+            string velikaSlova = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            string malaSlova = "abcdefghijklmnopqrstuvwxyz";
+            string brojevi = "0123456789";
+            string znakovi = "!,.:?@";
+            string dopusteniZnakovi = "";
+
+
             int duljinaLozinke;
             int brojLozinki;
             int k;
@@ -55,8 +62,13 @@ namespace UcenjeCS
                         Console.WriteLine("Niste unijeli 1 ili 2");
                         continue;
                     }
-                    uvjet += k;
 
+                    if (k == 1)
+                    {
+                        dopusteniZnakovi += velikaSlova;
+                    }
+
+                    uvjet += k;
                     break;
                 }
 
@@ -79,8 +91,13 @@ namespace UcenjeCS
                         Console.WriteLine("Niste unijeli 1 ili 2");
                         continue;
                     }
-                    uvjet += k;
 
+                    if (k == 1)
+                    {
+                        dopusteniZnakovi += malaSlova;
+                    }
+
+                    uvjet += k;
                     break;
                 }
 
@@ -107,9 +124,10 @@ namespace UcenjeCS
 
                     if (k == 1)
                     {
+                        dopusteniZnakovi += brojevi;
                         jedan = true;
-                    }
-                        
+                    } 
+                    
                     break;
                 }
 
@@ -136,6 +154,7 @@ namespace UcenjeCS
 
                     if (k == 1)
                     {
+                        dopusteniZnakovi += znakovi;
                         jedan = true;
                     }
 
@@ -147,7 +166,7 @@ namespace UcenjeCS
                     Console.WriteLine("Niste unijeli 1 ili 2");
                 }
             }
-
+           
             while (jedan)
             {
                 Console.WriteLine("\n Želite li da lozinka počne s brojem ili interpunkcijskim znakom? \n 1 - brojem \n 2 - interpunkcijskim znakom \n 3 - ne / svejedno");

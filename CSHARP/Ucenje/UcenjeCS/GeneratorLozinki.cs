@@ -83,5 +83,39 @@ namespace UcenjeCS
 
             Console.WriteLine(lozinka);
         }
+
+
+
+        public static void GeneratorBezPonavljajucihZnakova(int duljinaLozinke, string dopusteniZnakovi)
+        {
+            string lozinka = "";
+            int y;
+            char c;
+            int duljinaZnakova = dopusteniZnakovi.Length;
+
+            Random rnd = new Random();
+
+
+            while (duljinaLozinke > 0)
+            {
+                y = rnd.Next(0, duljinaZnakova);
+                c = dopusteniZnakovi[y];
+
+
+                if (lozinka.Contains(c))
+                {
+                    dopusteniZnakovi.Remove(y, 1);
+                    duljinaZnakova--;
+                }
+
+                else
+                {
+                    lozinka += c;
+                    duljinaLozinke--;
+                }
+            }
+
+            Console.WriteLine(lozinka);
+        }
     }
 }

@@ -3,7 +3,7 @@
 
 using UcenjeCS;
 using UcenjeCS.CikličneTablice;
-using UcenjeCS.GeneratorLozinke;
+using UcenjeCS.GeneratorLozinki;
 using UcenjeCS.LjubavniKalkulator;
 
 //E01UlazIzlaz.Izvedi();

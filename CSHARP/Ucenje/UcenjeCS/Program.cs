@@ -6,7 +6,7 @@ using UcenjeCS.CiklicneTablice;
 using UcenjeCS.GeneratorLozinki;
 using UcenjeCS.LjubavniKalkulator;
 
-ZadatciBrojevi1.Temperatura();
+ZadatciBrojevi1.cijenaPantalona(123.99, true);
 //E01UlazIzlaz.Izvedi();
 //E02VarijableTipoviPodataka.Izvedi();
 //E03UvjetnoGrananjeIf.Izvedi();

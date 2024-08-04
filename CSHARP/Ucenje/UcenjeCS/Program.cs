@@ -2,7 +2,7 @@
 //Console.WriteLine("Hello, World!");
 
 using UcenjeCS;
-using UcenjeCS.CikličneTablice;
+using UcenjeCS.CiklicneTablice;
 using UcenjeCS.GeneratorLozinki;
 using UcenjeCS.LjubavniKalkulator;
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UcenjeCS.CikličneTablice
+namespace UcenjeCS.CiklicneTablice
 {
     internal class FunkcijaZaPrikazTablice
     {

@@ -6,6 +6,7 @@ using UcenjeCS.CiklicneTablice;
 using UcenjeCS.GeneratorLozinki;
 using UcenjeCS.LjubavniKalkulator;
 
+ZadatciBrojevi1.Temperatura();
 //E01UlazIzlaz.Izvedi();
 //E02VarijableTipoviPodataka.Izvedi();
 //E03UvjetnoGrananjeIf.Izvedi();
@@ -18,7 +19,7 @@ using UcenjeCS.LjubavniKalkulator;
 //E06ForPetlja.Izvedi();
 //ECiklicnaTablica5x5.Izvedi();
 //FunkcijaZaIzborTablice.IzborTablice();
-UnosUvjetaZaLozinke.Uvjeti();
+//UnosUvjetaZaLozinke.Uvjeti();
 //LKalkUnosImena.UnosImena();
 //E07WhileDoWhileForeachPetlje.Izvedi();
 //E10TryCatch.Izvedi();

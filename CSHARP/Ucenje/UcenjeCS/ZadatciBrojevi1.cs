@@ -160,5 +160,119 @@ namespace UcenjeCS
             }
         }
 
+
+        public static void povecanjeCijene(double cijena)
+        {
+            double cijenaPlusCarina = cijena * 1.1;
+            double cijenaPlusPDV = cijenaPlusCarina * 1.2;
+            double razlika = cijenaPlusPDV - cijena;
+
+            Console.WriteLine("S carinom: {0} \nS PDVom: {1} \nUkupno povećanje: {2}", cijenaPlusCarina, cijenaPlusPDV, razlika);
+        }
+
+
+        public static void volumenLopte(double r)
+        {
+            double volumen = 4 / 3 * Math.Pow(r, 3) * Math.PI;
+
+            Console.WriteLine(Math.Round(volumen, 2));
+        }
+
+
+        public static void Valjak(double r, double H)
+        {
+            double povrsina = 2 * r * Math.PI * (r + H);
+            double volumen = Math.Pow(r, 2) * Math.PI * H;
+
+            Console.WriteLine("Površina: {0} \nVolumen: {1}", Math.Round(povrsina, 3), Math.Round(volumen, 3));
+        }
+
+
+        public static void udaljenostTocaka(double x1, double y1, double x2, double y2)
+        {
+            double d = Math.Sqrt(Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2));
+
+            Console.WriteLine("Udaljenost: {0}", d);
+        }
+
+
+        public static void silaPrivlacenja(double m1, double m2, double r)
+        {
+            double gama = 6.67e-11;
+            double F = gama * (m1 * m2) / (r * r);
+
+            Console.WriteLine(F);
+        }
+
+
+        public static void silaPrivlacenja2(double x1, double y1, double m1, double x2, double y2, double m2)
+        {
+            double r = Math.Sqrt(Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2));
+            double gama = 6.67e-11;
+            double F = gama * (m1 * m2) / (r * r);
+
+            Console.WriteLine(F);
+        }
+
+
+        public static void vrijednostFunkcije(double x, double y)
+        {
+            double funk1 = (Math.Min(x, y) + 0.5) / (1 + Math.Pow(Math.Min(x, y), 2));
+            double funk2 = (Math.Min(x, y) + 0.5) / (1 + Math.Pow(Math.Max(x, y), 2));
+
+            Console.WriteLine(funk1);
+            Console.WriteLine(funk2);
+        }
+
+
+        public static void najveciBroj()
+        {
+
+            double x;
+            double[] niz = new double[5];
+
+            for (int i = 0; i < 5; i++)
+            {
+                while (true)
+                {
+                    Console.WriteLine("Unesite broj: ");
+
+                    try
+                    {
+                        x = double.Parse(Console.ReadLine());
+                        break;
+                    }
+
+                    catch
+                    {
+                        Console.WriteLine("Neispravan unos");
+                    }
+                }
+                Console.WriteLine("\n{0}. broj: {1}", i + 1, x);
+                niz[i] = x;
+            }
+
+
+            double maxBroj = niz[0];
+            for (int i = 0; i < niz.Length; i++)
+            {
+                if (niz[i] > maxBroj)
+                {
+                    maxBroj = niz[i];
+                }
+            }
+
+            Console.WriteLine("Najveći broj: {0}", maxBroj); 
+        }
+
+
+        public static void Racun(double x, double y)
+        {
+            double z = x * x + y * y + 1;
+            double racun = 1 / ((-x / z) + (y / z)) * Math.Sqrt(z);
+
+            Console.WriteLine(racun);
+        }
+
     }
 }

@@ -116,5 +116,66 @@ namespace UcenjeCS
 
             Console.WriteLine("Broj molekula: {0}", brojMolekula);
         }
+
+
+        public static void random(int p, int m)
+        {
+            if (p > m)
+            {
+                Console.WriteLine("p je veće od m");
+            }
+            else
+            {
+                Console.WriteLine("p je manje ili jednako m");
+            }
+        }
+
+
+        public static void pripadnostTocke(double x1, double y1, double x2, double y2, double r)
+        {
+            double d = Math.Sqrt(Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2));
+            Console.WriteLine(d);
+
+            if (d < r)
+            {
+                Console.WriteLine("Točka pripada krugu");
+            }
+            else
+            {
+                Console.WriteLine("Točka ne pripada krugu");
+            }
+        }
+
+
+        public static void kvadratnaJednadzba(double a, double b, double c)
+        {
+            double x1 = (-b + Math.Sqrt(b * b - 4 * a * c)) / (2 * a);
+            double x2 = (-b - Math.Sqrt(b * b - 4 * a * c)) / (2 * a);
+           
+            if (Double.IsNaN(x1) && Double.IsNaN(x2))
+            {
+                Console.WriteLine("Ne postoji rješenje");
+               
+            }
+            else
+            {
+                Console.WriteLine("x1 = {0}, x2 = {1}", x1, x2);
+                Console.WriteLine("x1: {0}", a * x1 * x1 + b * x1 + c);
+                Console.WriteLine("x2: {0}", a * x2 * x2 + b * x2 + c);
+            }
+        }
+
+
+        public static void precnikCijevi(double precnik, double tolerancija, double isporucen)
+        {
+            if (Math.Abs(isporucen - precnik) <= tolerancija)
+            {
+                Console.WriteLine("Prečnik odgovara standardu");
+            }
+            else
+            {
+                Console.WriteLine("Prečnik ne odgovara standardu");
+            }
+        }
     }
 }

@@ -6,7 +6,7 @@ using UcenjeCS.CiklicneTablice;
 using UcenjeCS.GeneratorLozinki;
 using UcenjeCS.LjubavniKalkulator;
 
-ZadatciBrojevi2.sudbinskiBroj();
+ZadatciBrojevi2.brojMolekula2(50, 128, 22);
 //E01UlazIzlaz.Izvedi();
 //E02VarijableTipoviPodataka.Izvedi();
 //E03UvjetnoGrananjeIf.Izvedi();

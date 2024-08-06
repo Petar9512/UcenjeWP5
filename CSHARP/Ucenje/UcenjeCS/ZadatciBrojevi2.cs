@@ -66,5 +66,55 @@ namespace UcenjeCS
             }
             Console.WriteLine("Sudbinski broj: {0}", godina);
         }
+
+
+        public static void zbrojKutova(int d1, int m1, int s1, int d2, int m2, int s2)
+        {
+            int d3, m3, s3;
+
+            s3 = s1 + s2;
+            m3 = m1 + m2;
+            d3 = d1 + d2;
+
+            if (s3 > 59)
+            {
+                m3 += 1;
+                s3 -= 60;
+            }
+
+            if (m3 > 59)
+            {
+                d3 += 1;
+                m3 -= 60;
+            }
+
+            Console.WriteLine("Stupnjevi: {0} \nMinute: {1} \nSekunde: {2}", d3, m3, s3);
+        }
+
+
+        public static void brojMolekula(int nH, int nS, int nO)
+        {
+            int H = nH / 2;
+            int S = nS;
+            int O = nO / 4;
+
+            int min = Math.Min(H, S);
+            int brojMolekula = Math.Min(min, O);
+
+            Console.WriteLine("Broj molekula: {0}", brojMolekula);
+        }
+
+
+        public static void brojMolekula2(int nC, int nH, int nO)
+        {
+            int C = nC / 2;
+            int H = nH / 6;
+            int O = nO;
+
+            int min = Math.Min(C, H);
+            int brojMolekula = Math.Min(min, O);
+
+            Console.WriteLine("Broj molekula: {0}", brojMolekula);
+        }
     }
 }

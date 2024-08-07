@@ -149,9 +149,24 @@ namespace UcenjeCS
 
         public static void kvadratnaJednadzba(double a, double b, double c)
         {
-            double x1 = (-b + Math.Sqrt(b * b - 4 * a * c)) / (2 * a);
-            double x2 = (-b - Math.Sqrt(b * b - 4 * a * c)) / (2 * a);
+            double x1 = Math.Round((-b + Math.Sqrt(b * b - 4 * a * c)) / (2 * a), 2);
+            double x2 = Math.Round((-b - Math.Sqrt(b * b - 4 * a * c)) / (2 * a), 2);
+
+
+            if (b*b - 4*a*c < 0)
+            {
+                Console.WriteLine("Rješenja nisu realna");
+            }
+            else if (b*b - 4*a*c == 0)
+            {
+                Console.WriteLine("Rješenja su jednaka: x1 = {0}. x2 = {1}", x1, x2);
+            }
+            else
+            {
+                Console.WriteLine("x1 = {0}, x2 = {1}", x1, x2);
+            }
            
+            
             if (Double.IsNaN(x1) && Double.IsNaN(x2))
             {
                 Console.WriteLine("Ne postoji rješenje");
@@ -233,6 +248,123 @@ namespace UcenjeCS
                 y = 1;
                 Console.WriteLine("x: {0}, y: {1}", x, y);
             }
+        }
+
+
+        public static void randomBrojevi(double a, double b)
+        {
+            double c;
+            double d;
+
+            if (a > b)
+            {
+                c = 1;
+                d = 2;
+            }
+            else
+            {
+                c = 3;
+                d = 4;
+            }
+            Console.WriteLine("{0}, {1}", c, d);
+        }
+
+
+        public static void BodyMassIndex(double t, double v)
+        {
+            double BMI = t / Math.Pow(v, 2);
+
+            if (BMI < 18.5)
+            {
+                Console.WriteLine("Neuhranjenost");
+            }
+            else if (BMI < 25.0)
+            {
+                Console.WriteLine("Idealna težina");
+            }
+            else if (BMI < 30.0)
+            {
+                Console.WriteLine("Uvećana težina");
+            }
+            else
+            {
+                Console.WriteLine("Gojaznost");
+            }
+        }
+
+
+        public static void isplataDnevnica(int h, double d)
+        {
+            int brojDnevnica = h / 24;
+            int ostatak = h % 24;
+            double kolicina = d * brojDnevnica;
+
+            if (ostatak >= 12)
+            {
+                kolicina += d;
+            }
+            else if (ostatak >= 8)
+            {
+                kolicina += d / 2;
+            }
+
+            Console.WriteLine("Za isplatiti: {0}", kolicina);
+        }
+
+
+        public static void mjerenjeKutova(int d1, int m1, int s1, int d2, int m2, int s2)
+        {
+            if (d1 > d2)
+            {
+                Console.WriteLine("alfa > beta");
+            }
+            else if (d1 < d2)
+            {
+                Console.WriteLine("alfa < beta");
+            }
+            else if (s1 > s2)
+            {
+                Console.WriteLine("alfa > beta");
+            }
+            else if (s1 < s2)
+            {
+                Console.WriteLine("alfa < beta");
+            }
+            else if (m1 > m2)
+            {
+                Console.WriteLine("alfa > beta");
+            }
+            else if (m1 < m2)
+            {
+                Console.WriteLine("alfa < beta");
+            }
+            else
+            {
+                Console.WriteLine("alfa = beta");
+            }
+
+            int d3, m3, s3;
+
+            d3 = d1 - d2;
+            m3 = m1 - m2;
+            s3 = s1 - s2;
+
+            if (d3 > 0)
+            {
+                if (m3 < 0)
+                {
+                    d3 -= 1;
+                    m3 = 60 - Math.Abs(m1 - m2);
+                }
+
+                if (s3 < 0)
+                {
+                    m3 -= 1;
+                    s3 = 60 - Math.Abs(s1 - s2);
+                }
+
+                Console.WriteLine("stupnjevi: {0}, minute: {1}, sekunde: {2}", d3, m3, s3);
+            }            
         }
     }
 }

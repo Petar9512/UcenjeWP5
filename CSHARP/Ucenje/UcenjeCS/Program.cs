@@ -6,7 +6,7 @@ using UcenjeCS.CiklicneTablice;
 using UcenjeCS.GeneratorLozinki;
 using UcenjeCS.LjubavniKalkulator;
 
-ZadatciBrojevi2.vrijednostFunkcije(1);
+ZadatciBrojevi2.mjerenjeKutova(147, 7, 32, 24, 38, 45);
 //E01UlazIzlaz.Izvedi();
 //E02VarijableTipoviPodataka.Izvedi();
 //E03UvjetnoGrananjeIf.Izvedi();

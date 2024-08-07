@@ -177,5 +177,62 @@ namespace UcenjeCS
                 Console.WriteLine("Prečnik ne odgovara standardu");
             }
         }
+
+
+        public static void cijenaAutomobila(double pocetna, double prodano)
+        {
+            double maxOdstupanje = pocetna / 100 * 5;
+
+            if (Math.Abs(prodano - pocetna) <= maxOdstupanje)
+            {
+                Console.WriteLine("Cijena je ok");
+            }
+            else
+            {
+                Console.WriteLine("Preveliko odstupanje od početne cijene");
+            }
+        }
+
+
+        public static void cijenaCipela(double d, double c)
+        {
+            if (d >= c)
+            {
+                Console.WriteLine("Ima dovoljno novca za kupnju");
+            }
+
+            else if (d >= c * 0.9)
+            {
+                Console.WriteLine("Moći će ih kupiti ako sačeka sniženje");
+            }
+
+            else
+            {
+                Console.WriteLine("Nema dovoljno novca za kupnju");
+            }                
+        }
+
+
+        public static void vrijednostFunkcije(int x)
+        {
+            int y;
+
+            if (x < 0)
+            {
+                Console.WriteLine("x ne smije biti manji od 0");
+            }
+
+            else if (x % 2 == 0)
+            {
+                y = 0;
+                Console.WriteLine("x: {0}, y: {1}", x, y);
+            }
+
+            else
+            {
+                y = 1;
+                Console.WriteLine("x: {0}, y: {1}", x, y);
+            }
+        }
     }
 }

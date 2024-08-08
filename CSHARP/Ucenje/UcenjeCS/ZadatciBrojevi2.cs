@@ -366,5 +366,26 @@ namespace UcenjeCS
                 Console.WriteLine("stupnjevi: {0}, minute: {1}, sekunde: {2}", d3, m3, s3);
             }            
         }
+
+
+        public static void iznosPoreza(double dgr, double ggr, double nks, double vks, double z)
+        {
+            double p = 0;
+
+            if (z <= dgr)
+            {
+                p = 0;
+            }
+            else if (z > dgr && z <= ggr)
+            {
+                p = ((z - dgr) * nks) / 100;
+            }
+            else if (z > ggr)
+            {
+                p = ((ggr - dgr) * nks + (z - ggr) * vks) / 100;
+            }
+
+            Console.WriteLine("Iznos poreza: {0}", p);
+        }
     }
 }

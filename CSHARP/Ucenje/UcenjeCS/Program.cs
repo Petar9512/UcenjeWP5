@@ -6,7 +6,7 @@ using UcenjeCS.CiklicneTablice;
 using UcenjeCS.GeneratorLozinki;
 using UcenjeCS.LjubavniKalkulator;
 
-ZadatciBrojevi3.najisplativijeGorivo("gorivo1", 48, 150.99, "gorivo2", 50, 165.99, "gorivo3", 45, 145.99);
+ZadatciBrojevi3.provjeraDatuma(29, 2, 2008);
 //E01UlazIzlaz.Izvedi();
 //E02VarijableTipoviPodataka.Izvedi();
 //E03UvjetnoGrananjeIf.Izvedi();

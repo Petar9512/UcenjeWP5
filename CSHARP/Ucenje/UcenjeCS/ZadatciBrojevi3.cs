@@ -106,5 +106,46 @@ namespace UcenjeCS
                 Console.WriteLine("Najekonomičnije je {0}", g3);
             }
         }
+
+
+        public static void dimenzijePloce(double d1, double d2, double isp1, double isp2)
+        {
+            double odstupanje1 = d1 * 0.01;
+            double odstupanje2 = d2 * 0.01;
+
+            if (Math.Abs(isp1 - d1) <= odstupanje1 && Math.Abs(isp2 - d2) <= odstupanje2)
+            {
+                Console.WriteLine("Dimenzije su ok");
+            }
+            else
+            {
+                Console.WriteLine("Preveliko odstupanje");
+            }
+        }
+
+
+        public static void provjeraDatuma(int d, int m, int g)
+        {
+            if (g < 1582 || g > 9999 || m < 1 || m > 12 || d < 1 || d > 31)
+            {
+                Console.WriteLine("Netočan datum");
+            }
+            else if (m == 2 && d > 28 && g % 4 != 0)
+            {
+                Console.WriteLine("Netočan datum");
+            }
+            else if (m == 2 && d > 29)
+            {
+                Console.WriteLine("Netočan datum");
+            }
+            else if (m == 4 || m == 6 || m == 9 || m == 11 && d > 30)
+            {
+                Console.WriteLine("Netočan datum");
+            }
+            else
+            {
+                Console.WriteLine("Točan datum");
+            }
+        }
     }
 }

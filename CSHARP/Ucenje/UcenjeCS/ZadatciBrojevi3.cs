@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -145,6 +146,169 @@ namespace UcenjeCS
             else
             {
                 Console.WriteLine("Točan datum");
+            }
+        }
+
+
+        public static void redniBrojDana(int d, int m, int g)
+        {
+            int broj = 0;
+
+            if (m == 1)
+            {
+                broj = d;
+            }
+            else if (m == 2)
+            {
+                broj = d + 31;
+            }
+            else if (m == 3)
+            {
+                broj = d + 59;
+            }
+            else if ( m == 4)
+            {
+                broj = d + 90;
+            }
+            else if (m == 5)
+            {
+                broj = d + 120;
+            }
+            else if (m == 6)
+            {
+                broj = d + 151;
+            }
+            else if (m == 7)
+            {
+                broj = d + 181;
+            }
+            else if (m == 8)
+            {
+                broj = d + 212;
+            }
+            else if (m == 9)
+            {
+                broj = d + 243;
+            }
+            else if (m == 10)
+            {
+                broj = d + 273;
+            }
+            else if (m == 11)
+            {
+                broj = d + 304;
+            }
+            else if (m == 12)
+            {
+                broj = d + 334;
+            }
+
+            if (g % 4 == 0 && m > 2)
+            {
+                broj += 1;
+            }
+
+            Console.WriteLine("Redni broj dana u godini: {0}", broj);
+        }
+
+
+        public static void danUGodini(int n, int g)
+        {
+            int brojDana = 365; 
+
+            if (g % 4 == 0)
+            {
+                brojDana += 1;
+            }
+
+            int m = 12;
+            int d = 31 - (brojDana - n);
+
+            if (n <= 31)
+            {
+                m = 1;
+                d = 31 - (31 - n);
+            }
+            else if (n <= brojDana - 306)
+            {
+                m = 2;
+                if (g % 4 == 0)
+                {
+                    d = 29 - (brojDana - 306 - n);
+                }
+                else
+                {
+                    d = 28 - (brojDana - 306 - n);
+                }                
+            }
+            else if (n <= brojDana - 275)
+            {
+                m = 3;
+                d = 31 - (brojDana - 275 - n);
+            }
+            else if (n <= brojDana - 245)
+            {
+                m = 4;
+                d = 30 - (brojDana - 245 - n);
+            }
+            else if (n <= brojDana - 214)
+            {
+                m = 5;
+                d = 31 - (brojDana - 214 - n);
+            }
+            else if (n <= brojDana - 184)
+            {
+                m = 6;
+                d = 30 - (brojDana - 184 - n);
+            }
+            else if (n <= brojDana - 153)
+            {
+                m = 7;
+                d = 31 - (brojDana - 153 - n);
+            }
+            else if (n <= brojDana - 122)
+            {
+                m = 8;
+                d = 31 - (brojDana - 122 - n);
+            }
+            else if (n <= brojDana - 92)
+            {
+                m = 9;
+                d = 3 - (brojDana - 92 - n);
+            }
+            else if (n <= brojDana - 61)
+            {
+                m = 10;
+                d = 31 - (brojDana - 61 - n);
+            }
+            else if (n <= brojDana - 31) 
+            {
+                m = 11;
+                d = 30 - (brojDana - 31 - n);
+            }
+            
+            Console.WriteLine("Mjesec: {0}, Dan: {1}", m, d);
+        }
+
+
+        public static void prijestupnaGodinaMilankovic(int g)
+        {
+            int brojVjekova = g / 100;
+            int ostatak = brojVjekova % 9;
+
+            if (g % 4 == 0 && g % 100 != 0)
+            {
+                Console.WriteLine("Prijestupna godina");
+            }
+
+            else if (g % 100 == 0 && (ostatak == 2 || ostatak == 6))
+            {
+                Console.WriteLine("Prijestupna godina");
+            }
+
+            else
+            {
+                Console.WriteLine("Godina nije prijestupna");
             }
         }
     }

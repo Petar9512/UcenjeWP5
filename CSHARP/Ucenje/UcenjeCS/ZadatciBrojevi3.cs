@@ -311,5 +311,54 @@ namespace UcenjeCS
                 Console.WriteLine("Godina nije prijestupna");
             }
         }
+
+
+        public static void sviPozitivniDjelitelji(int n)
+        {
+            for (int i = n; i > 0; i--)
+            {
+
+                if (n % i == 0)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
+
+
+        public static void randomMath(int d, int n)
+        {
+            while (n >= 10)
+            {
+                int zbroj = 0;
+                int k = n;
+
+                zbroj += k % 10;
+                k /= 10;
+                zbroj += k % 10;
+
+                if (zbroj == d)
+                {
+                    Console.WriteLine(n);
+                }
+                n--;
+            }           
+        }
+
+
+        public static void stranicePravokutnika(int p)
+        {
+            for (int a = p; a > 0; a--)
+            {
+                for (int b = a; b > 0; b--)
+                {
+                    if (a * b == p)
+                    {
+                        int opseg = 2 * a + 2 * b;
+                        Console.WriteLine("a: {0}, b: {1}, opseg: {2}", a, b, opseg);
+                    }                    
+                }
+            }
+        }
     }
 }

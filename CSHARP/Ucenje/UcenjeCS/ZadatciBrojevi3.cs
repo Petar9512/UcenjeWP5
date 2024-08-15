@@ -360,5 +360,25 @@ namespace UcenjeCS
                 }
             }
         }
+
+
+        public static void mathRandom2(int n)
+        {
+            int k = 0;
+
+               while (Math.Pow(2, k) <= n)
+               {
+                   ++k;
+               }
+               k--;
+
+            Console.WriteLine("{0}, {1}", k, Math.Pow(2, k));
+        }
+
+
+        public static void mathRandom3(double m, double n, int k)
+        {
+            Console.WriteLine(Math.Round(m / n, k));
+        }
     }
 }

@@ -226,5 +226,57 @@ namespace UcenjeCS
             }
             Console.WriteLine("Novo stanje na računu: {0}", n);
         }
+
+
+        public static void Desifriranje()
+        {
+            for (int i = 100; i < 1000; i++)
+            {
+                for (int j = 10000; j < 100000; j++)
+                {
+                    if (Math.Pow(i, 2) == j && (j / 100) % 10 == 0 && (j / 1000) % 10 == 0)
+                    {
+                        Console.WriteLine("{0}, {1}", i, j);
+                    }
+                }
+            }
+        }
+
+
+        public static void Desifriranje2()
+        {
+            for (int i = 10; i < 100; i++)
+            {
+                for (int j = 10; j < 100; j++)
+                {
+                    if (i % 10 == j % 10 && i / 10 != j / 10 && i / 10 != i % 10 && j / 10 != j % 10)
+                    {
+                        int zbroj = i + j;
+
+                        if (zbroj > 99 && (zbroj / 10) % 10 == i % 10 && zbroj % 10 != i / 10 && zbroj % 10 != j / 10 && zbroj / 100 != i / 10 && zbroj / 100 != j / 10 && (zbroj / 10) % 10 != zbroj / 100 && zbroj % 10 != i % 10)
+                        {
+                            Console.WriteLine("{0} + {1} = {2}", i, j, zbroj);
+                        }
+                    }
+                }
+            }
+        }
+
+
+        public static void Desifriranje3()
+        {
+            for (int i = 100; i < 1000; i++)
+            {
+                if (i % 10 != (i / 10) % 10 && i % 10 != i / 100 && (i / 10) % 10 != i / 100)
+                {
+                    int p = i + i;
+
+                    if (p > 999 && p % 10 != (p / 10) % 10 && p % 10 != (p / 100) % 10 && p % 10 != p / 1000 && (p / 10) % 10 != (p / 100) % 10 && (p / 10) % 10 != p / 1000 && (p / 100) % 10 != p / 1000 && p % 10 != i % 10 && p % 10 != (i / 10) % 10 && p % 10 != i / 100 && (p / 10) % 10 != i % 10 && (p / 10) % 10 != (i / 10) % 10 && (p / 10) % 10 != i / 100 && (p / 100) % 10 != i % 10 && (p / 100) % 10 != (i / 10) % 10 && (p / 100) % 10 != i / 100 && p / 1000 != i % 10 && p / 1000 != (i / 10) % 10 && p / 1000 != i / 100)
+                    {
+                        Console.WriteLine("{0} + {0} = {1}", i, p);
+                    }
+                }
+            }
+        }
     }
 }

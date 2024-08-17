@@ -278,5 +278,62 @@ namespace UcenjeCS
                 }
             }
         }
+
+
+        public static void Desifriranje4()
+        {
+            for (int i = 10000; i < 100000; i++)
+            {
+                if (i % 10 == (i / 100) % 10 && i % 10 != (i / 10) % 10 && i % 10 != (i / 1000) % 10 && i % 10 != i / 10000 && (i / 10) % 10 != (i / 1000) % 10 && (i / 10) % 10 != i / 10000 && (i / 1000) % 10 != i / 10000)
+                {
+                    int p = i + i + i;
+
+                    if (p < 100000 && (p / 10) % 10 == i % 10 && p % 10 != (i / 10) % 10 && p % 10 != (i / 1000) % 10 && p % 10 != i / 10000 && (p / 100) % 10 != (i / 10) % 10 && (p / 100) % 10 != (i / 1000) % 10 && (p / 100) % 10 != i / 10000 && (p / 1000) % 10 != (i / 10) % 10 && (p / 1000) % 10 != (i / 1000) % 10 && (p / 1000) % 10 != i / 10000 && p / 10000 != (i / 10) % 10 && p / 10000 != (i / 1000) % 10 && p / 10000 != i / 10000 && p % 10 != (p / 10) % 10 && p % 10 != (p / 100) % 10 && p % 10 != (p / 1000) % 10 && p % 10 != p / 10000 && (p / 10) % 10 != (p / 100) % 10 && (p / 10) % 10 != (p / 1000) % 10 && (p / 10) % 10 != p / 10000 && (p / 100) % 10 != (p / 1000) % 10 && (p / 100) % 10 != p / 10000 && (p / 1000) % 10 != p / 10000)
+                    {
+                        Console.WriteLine("{0} + {0} + {0} = {1}", i, p);
+                    }
+                }
+            }
+        }
+
+
+        public static void zamisljeniBroj()
+        {
+            int minBroj = 1;
+            int maxBroj = 10000;            
+            string input;
+
+            Console.WriteLine("Zamislite broj između 1 i 10000");
+
+            while (true)
+            {
+                var rnd = new Random();
+                int zamisljeniBroj = rnd.Next(minBroj, maxBroj);
+               
+                Console.WriteLine("Je li broj veći od {0}?", zamisljeniBroj);
+                input = Console.ReadLine();
+
+                if (input != "da" && input != "ne")
+                {
+                    Console.WriteLine("Trebate napisati da ili ne");
+                    continue;
+                }
+                else if (input == "da")
+                {
+                    minBroj = zamisljeniBroj + 1;
+                }
+                else if (input == "ne")
+                {
+                    maxBroj = zamisljeniBroj;
+                }
+
+                if (minBroj == maxBroj || minBroj == 10000)
+                {
+                    break;
+                }
+            }
+
+            Console.WriteLine("Zamislili ste broj {0}", minBroj);
+        }
     }
 }

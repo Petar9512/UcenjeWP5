@@ -524,7 +524,11 @@ namespace UcenjeCS
             }
 
             int maxBroj = Int32.MinValue;
-            int brojPonavljanja = 1;
+            int minBroj = Int32.MaxValue;
+            int brojPonavljanjaMax = 1;
+            int brojPonavljanjaMin = 1;
+            int pp = 0;
+            int zp = 0;
 
             while (broj > 0)
             {
@@ -537,11 +541,24 @@ namespace UcenjeCS
                     if (broj2 > maxBroj)
                     {
                         maxBroj = broj2;
-                        brojPonavljanja = 1;
+                        brojPonavljanjaMax = 1;
+                        pp = x;
+                        zp = x;
                     }
                     else if (broj2 == maxBroj)
                     {
-                        brojPonavljanja++;
+                        brojPonavljanjaMax++;
+                        zp = x;
+                    }
+
+                    if (broj2 < minBroj)
+                    {
+                        minBroj = broj2;
+                        brojPonavljanjaMin = 1;
+                    }
+                    else if (broj2 == minBroj)
+                    {
+                        brojPonavljanjaMin++;
                     }
                     broj--;
                     x++;
@@ -551,7 +568,7 @@ namespace UcenjeCS
                     Console.WriteLine("Neispravan unos");
                 }
             }
-            Console.WriteLine("najveći broj: {0}, broj ponavljanja: {1}", maxBroj, brojPonavljanja);
+            Console.WriteLine("najveći broj: {0}, broj ponavljanja: {1}, prvo pojavljivanje: {2}, zadnje pojavljivanje: {3}, najmanjiBroj: {4}, broj ponavljanja: {5}", maxBroj, brojPonavljanjaMax, pp, zp, minBroj, brojPonavljanjaMin);
         }
     }
 }

@@ -335,5 +335,223 @@ namespace UcenjeCS
 
             Console.WriteLine("Zamislili ste broj {0}", minBroj);
         }
+
+
+        public static void randomBrojevi()
+        {
+            int broj;
+            int x = 1;
+
+            while (true)
+            {
+                Console.WriteLine("Unesite broj: ");
+
+                try
+                {
+                    broj = int.Parse(Console.ReadLine());
+
+                    if (broj < 1)
+                    {
+                        Console.WriteLine("Broj mora biti veći od 0");
+                        continue;
+                    }
+                    break;
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos");
+                }
+            }
+
+            while (broj > 0)
+            {
+                Console.WriteLine("Unesite {0}. broj: ", x);
+
+                try
+                {
+                    int broj2 = int.Parse(Console.ReadLine());
+
+                    if (broj2 < 0)
+                    {
+                        Console.WriteLine("Broj mora biti pozitivan");
+                        continue;
+                    }
+                    broj--;
+                    x++;
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos");
+                }
+            }            
+        }
+
+
+        public static void randomBrojevi2()
+        {
+            int broj;
+            int x = 1;
+
+            while (true)
+            {
+                Console.WriteLine("Unesite broj: ");
+
+                try
+                {
+                    broj = int.Parse(Console.ReadLine());
+
+                    if (broj < 1)
+                    {
+                        Console.WriteLine("Broj mora biti veći od 0");
+                        continue;
+                    }
+                    break;
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos");
+                }
+            }
+
+            int k = broj;
+            int uvjet = 0;
+
+            while (k > 0)
+            {
+                Console.WriteLine("Unesite {0}. broj: ", x);
+
+                try
+                {
+                    int broj2 = int.Parse(Console.ReadLine());
+
+                    if (broj2 >= 5)
+                    {
+                        uvjet++;
+                    }
+                    x++;
+                    k--;
+
+                    if (k == 0 && uvjet == 0)
+                    {
+                        Console.WriteLine("Barem jedan broj mora biti jednak ili veći od 5");
+                        k = broj;
+                        x = 1;
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos");
+                }
+            }
+        }
+
+
+        public static void randomBrojevi3()
+        {
+            int broj;
+            int x = 1;
+
+            while(true)
+            {
+                Console.WriteLine("Unesite broj: ");
+
+                try
+                {
+                    broj = int.Parse(Console.ReadLine());
+
+                    if (broj < 1)
+                    {
+                        Console.WriteLine("Broj mora biti pozitivan");
+                        continue;
+                    }
+                    break;
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos");
+                }
+            }
+            int uvjet = 0;
+
+            while (broj > 0)
+            {
+                Console.WriteLine("Unesite {0}. broj: ", x);
+
+                try
+                {
+                    int broj2 = int.Parse(Console.ReadLine());
+
+                    if (broj2 % 2 != 0)
+                    {
+                        uvjet++;
+                    }
+                    broj--;
+                    x++;
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos");
+                }
+            }
+            Console.WriteLine("Broj neparnih brojeva: {0}", uvjet);
+        }
+
+
+        public static void randomBrojevi4()
+        {
+            int broj;
+            int x = 1;
+
+            while (true)
+            {
+                Console.WriteLine("Unesite broj: ");
+
+                try
+                {
+                    broj = int.Parse(Console.ReadLine());
+
+                    if (broj < 1)
+                    {
+                        Console.WriteLine("Broj mora biti veći od nule");
+                        continue;
+                    }
+                    break;
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos");
+                }
+            }
+
+            int maxBroj = Int32.MinValue;
+            int brojPonavljanja = 1;
+
+            while (broj > 0)
+            {
+                Console.WriteLine("Unesite {0}. broj: ", x);
+
+                try
+                {
+                    int broj2 = int.Parse(Console.ReadLine());
+
+                    if (broj2 > maxBroj)
+                    {
+                        maxBroj = broj2;
+                        brojPonavljanja = 1;
+                    }
+                    else if (broj2 == maxBroj)
+                    {
+                        brojPonavljanja++;
+                    }
+                    broj--;
+                    x++;
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos");
+                }
+            }
+            Console.WriteLine("najveći broj: {0}, broj ponavljanja: {1}", maxBroj, brojPonavljanja);
+        }
     }
 }

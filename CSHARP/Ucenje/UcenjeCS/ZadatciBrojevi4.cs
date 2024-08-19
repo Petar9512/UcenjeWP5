@@ -570,5 +570,96 @@ namespace UcenjeCS
             }
             Console.WriteLine("najveći broj: {0}, broj ponavljanja: {1}, prvo pojavljivanje: {2}, zadnje pojavljivanje: {3}, najmanjiBroj: {4}, broj ponavljanja: {5}", maxBroj, brojPonavljanjaMax, pp, zp, minBroj, brojPonavljanjaMin);
         }
+
+
+        public static void randomBrojevi5()
+        {
+            int broj;
+            int x = 1;
+
+            while (true)
+            {
+                Console.WriteLine("Unesite broj: ");
+
+                try
+                {
+                    broj = int.Parse(Console.ReadLine());
+
+                    if (broj < 3)
+                    {
+                        Console.WriteLine("Broj mora biti veći od 2");
+                        continue;
+                    }
+                    break;
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos");
+                }
+            }
+
+            int[] niz = new int[broj];
+            int mjesto = 0;
+            int k = 0;
+            int pocetniBroj = broj;
+
+            while (broj > 0)
+            {
+                Console.WriteLine("Unesite {0}. broj: ", x);
+
+                try
+                {
+                    int broj2 = int.Parse(Console.ReadLine());
+
+                    if (broj2 < 0)
+                    {
+                        k = 0;
+                    }
+
+                    else if (broj2 >= 0)
+                    {
+                        k++;
+                    }
+                    niz[mjesto] = broj2;
+                    mjesto++;
+                    broj--;
+                    x++;
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos");
+                }
+            }
+            Console.WriteLine("Broj pozitivnih iza zadnjeg negativnog: {0}", k);
+
+            int najduljiRastuciSegment = 1;
+            int sljedeciSegment = 1;
+            int mjestoPocetka = 1;
+
+            for (int i = 0; i < niz.Length; i++)
+            {
+                if (i > 0 && niz[i] > niz[i - 1])
+                {
+                    najduljiRastuciSegment++;                    
+                }
+
+                else if (i > 0 && niz[i] <= niz[i - 1])
+                {
+                    if (najduljiRastuciSegment > sljedeciSegment)
+                    {
+                        sljedeciSegment = najduljiRastuciSegment;
+                        mjestoPocetka = i - sljedeciSegment + 1;
+                    }                    
+                    najduljiRastuciSegment = 1;
+                }
+            }
+
+            if (najduljiRastuciSegment > sljedeciSegment)
+            {
+                mjestoPocetka = pocetniBroj - najduljiRastuciSegment + 1;
+            }
+
+            Console.WriteLine("najdulji rastući segment: {0}, mjesto početka: {1}", Math.Max(najduljiRastuciSegment, sljedeciSegment), mjestoPocetka);
+        }
     }
 }

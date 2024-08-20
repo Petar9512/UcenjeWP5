@@ -661,5 +661,252 @@ namespace UcenjeCS
 
             Console.WriteLine("najdulji rastući segment: {0}, mjesto početka: {1}", Math.Max(najduljiRastuciSegment, sljedeciSegment), mjestoPocetka);
         }
+
+
+        public static void fiksnaTocka()
+        {
+            int broj;
+            int x = 1;
+
+            while (true)
+            {
+                Console.WriteLine("Unesite broj: ");
+
+                try
+                {
+                    broj = int.Parse(Console.ReadLine());
+
+                    if (broj < 1)
+                    {
+                        Console.WriteLine("Broj mora biti veći od 0");
+                        continue;
+                    }
+                    break;
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos");
+                }
+            }
+            int fiksneTocke = 0;
+
+            while (broj > 0)
+            {
+                Console.WriteLine("Unesite {0}. broj: ", x);
+
+                try
+                {
+                    int broj2 = int.Parse(Console.ReadLine());
+
+                    if (broj2 == x)
+                    {
+                        fiksneTocke++;
+                    }
+                    broj--;
+                    x++;
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos");
+                }
+            }
+
+            Console.WriteLine("Broj fiksnih točaka: {0}", fiksneTocke);
+        }
+
+
+        public static void KolacovaHipoteza()
+        {
+            int brojKoraka = 0;
+            int max = 0;
+
+            for (int i = 2; i < 100000; i++)
+            {
+                int k = i;
+              //  Console.WriteLine(k);
+
+                while (k != 1)
+                {
+                    if (k % 2 == 0)
+                    {
+                        k /= 2;
+                        brojKoraka++;
+                    }
+
+                    else if (k % 2 != 0)
+                    {
+                        k *= 3;
+                        k += 1;
+                        brojKoraka++;
+                    }
+                }
+                if (brojKoraka >= max)
+                {
+                    max = brojKoraka;
+                    Console.WriteLine("{0}: {1}", i, brojKoraka);
+                }
+
+              //  Console.WriteLine("broj koraka: {0}", brojKoraka);
+                brojKoraka = 0;
+            }            
+        }
+
+
+        public static void zabacNaLivadi()
+        {
+            int broj;
+
+            while (true)
+            {
+                Console.WriteLine("Unesite broj komandi: ");
+
+                try
+                {
+                    broj = int.Parse(Console.ReadLine());
+
+                    if (broj < 1)
+                    {
+                        Console.WriteLine("Broj mora biti pozitivan");
+                        continue;
+                    }
+                    break;
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos");
+                }
+            }
+
+            int x = 0;
+            int y = 0;
+            Console.WriteLine("Početna pozicija: x:{0}, y:{1}", x, y);
+
+            while (broj > 0)
+            {
+                Console.WriteLine("Unesite 1 za 1m sjeverno, 2 za 1m istočno, 3 za 1m južno, 4 za 1m zapadno");
+
+                try
+                {
+                    int broj2 = int.Parse(Console.ReadLine());
+
+                    if (broj2 != 1 && broj2 != 2 && broj2 != 3 && broj2 != 4)
+                    {
+                        Console.WriteLine("Trebate unijeti 1, 2, 3 ili 4");
+                        continue;
+                    }
+                    else if (broj2 == 1)
+                    {
+                        y++;
+                    }
+                    else if (broj2 == 2)
+                    {
+                        x++;
+                    }
+                    else if (broj2 == 3)
+                    {
+                        y--;
+                    }
+                    else if (broj2 == 4)
+                    {
+                        x--;
+                    }
+                    broj--;
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos");
+                }                
+            }
+            Console.WriteLine("Završna pozicija: x:{0}, y:{1}", x, y);
+        }
+
+
+        public static void robotNaPlatformi()
+        {
+            int broj;
+
+            while (true)
+            {
+                Console.WriteLine("Unesite broj komandi: ");
+
+                try
+                {
+                    broj = int.Parse(Console.ReadLine());
+
+                    if (broj < 1)
+                    {
+                        Console.WriteLine("Broj mora biti pozitivan");
+                        continue;
+                    }
+                    break;
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos");
+                }
+            }
+
+            int x = 0;
+            int y = 0;
+            int smjer = 1;
+            Console.WriteLine("Početna pozicija: x:{0}, y:{1}", x, y);
+
+            while (broj > 0)
+            {
+                Console.WriteLine("Unesite broj: \n1 - okreni se lijevo za 90 stupnjeva \n2 - okreni se desno za 90 stupnjeva \n3 - idi naprijed 1m");
+
+                try
+                {
+                    int broj2 = int.Parse(Console.ReadLine());
+
+                    if (broj2 != 1 && broj2 != 2 && broj2 != 3)
+                    {
+                        Console.WriteLine("Trebate unijeti 1, 2 ili 3");
+                        continue;
+                    }
+
+                    else if (broj2 == 1)
+                    {
+                        smjer--;
+                        if (smjer < 1)
+                        {
+                            smjer = 4;
+                        }
+                    }
+                    else if (broj2 == 2)
+                    {
+                        smjer++;
+                        if (smjer > 4)
+                        {
+                            smjer = 1;
+                        }
+                    }
+                    else if (broj2 == 3)
+                    {
+                        switch (smjer)
+                        {
+                            case 1:
+                                y++;
+                                break;
+                            case 2:
+                                x++;
+                                break;
+                            case 3:
+                                y--;
+                                break;
+                            case 4:
+                                x--;
+                                break;
+                        }
+                    }
+                    broj--;
+                }
+                catch
+                {
+                    Console.WriteLine("Neispravan unos");
+                }
+            }
+            Console.WriteLine("Završna pozicija: x:{0}, y:{1}", x, y);
+        }
     }
 }

@@ -6,7 +6,7 @@ using UcenjeCS.CiklicneTablice;
 using UcenjeCS.GeneratorLozinki;
 using UcenjeCS.LjubavniKalkulator;
 
-ZadatciBrojevi4.randomBrojevi5();
+ZadatciBrojevi4.robotNaPlatformi();
 //E01UlazIzlaz.Izvedi();
 //E02VarijableTipoviPodataka.Izvedi();
 //E03UvjetnoGrananjeIf.Izvedi();

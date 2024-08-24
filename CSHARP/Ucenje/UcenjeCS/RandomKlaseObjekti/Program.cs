@@ -64,7 +64,7 @@ namespace UcenjeCS.RandomKlaseObjekti
                 Sifra = 2,
                 Ime = "Hajdi",
                 Prezime = "Hajdić",
-                Datum = new DateTime(1984, 17, 3),
+                Datum = new DateTime(1984, 3, 17),
                 Placa = 750.75,
                 Odjel = o5
             };
@@ -89,11 +89,49 @@ namespace UcenjeCS.RandomKlaseObjekti
                 Odjel = o1
             };
 
+            var zaposlenici = new Zaposlenik[5];
+            zaposlenici[0] = z1;
+            zaposlenici[1] = z2;
+            zaposlenici[2] = z3;
+            zaposlenici[3] = z4;
+            zaposlenici[4] = z5;
+
+            foreach (var zaposlenik in zaposlenici)
+            {
+                Console.WriteLine(zaposlenik);
+            }
+
+
             var p1 = new Projekt(1, "Predavanja u OŠ", new DateTime(2024, 4, 16), new DateTime(2024, 4, 23));
             var p2 = new Projekt(2, "Seminari fakultet", new DateTime(2024, 3, 27), new DateTime(2024, 4, 10));
             var p3 = new Projekt(3, "Istraživanje kakvoće mora", new DateTime(2024, 6, 5), new DateTime(2024, 6, 10));
             var p4 = new Projekt(4, "Ljetni kamp", new DateTime(2024, 7, 16), new DateTime(2024, 7, 30));
             var p5 = new Projekt(5, "Mikroskopska analiza", new DateTime(2024, 5, 10), new DateTime(2024, 5, 11));
+
+
+            var r1 = new Racun(1, 1, new DateTime(2024, 6, 1, 8, 2, 0), "Ivan Ivić", true);
+            var r2 = new Racun(2, 2, new DateTime(2024, 6, 1, 8, 33, 0), "Hajdi Hajdić", true);
+            var r3 = new Racun(3, 3, new DateTime(2024, 6, 1, 8, 42, 0), "Pero Perić", true);
+            var r4 = new Racun(4, 4, new DateTime(2024, 6, 1, 9, 7, 0), "Goran Grgić", true);
+            var r5 = new Racun(5, 5, new DateTime(2024, 6, 1, 9, 32, 0), "Ivan Ivičević", true);
+
+            var sr1 = new StavkeRacuna(r2, "Banane", 2.25, "7", "0");
+            var sr2 = new StavkeRacuna(r2, "Naranče", 1.32, "5", "0");
+            var sr3 = new StavkeRacuna(r1, "Čokolada Dorina", 3.98, "2", "0");
+            var sr4 = new StavkeRacuna(r1, "Čips Pringles", 3.25, "1", "0");
+            var sr5 = new StavkeRacuna(r1, "Jabuke", 1.77, "5", "0");
+
+            var stavke = new StavkeRacuna[5];
+            stavke[0] = sr1;
+            stavke[1] = sr2;
+            stavke[2] = sr3;
+            stavke[3] = sr4;
+            stavke[4] = sr5;
+
+            foreach (var stavka in stavke)
+            {
+                Console.WriteLine(stavka);
+            }
         }
     }
 }

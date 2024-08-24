@@ -15,5 +15,10 @@ namespace UcenjeCS.RandomKlaseObjekti
             base.Naziv = naziv;
         }
 
+        public override string ToString()
+        {
+            return "odjel: " + Naziv;
+        }
+
     }
 }

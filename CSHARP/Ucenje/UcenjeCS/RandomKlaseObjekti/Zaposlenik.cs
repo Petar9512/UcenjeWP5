@@ -25,5 +25,10 @@ namespace UcenjeCS.RandomKlaseObjekti
         public double? Placa { get; set; }
         public Odjel? Odjel { get; set; }
 
+        public override string ToString()
+        {
+            return "zaposlenik: " + Ime + " " + Prezime + ", nadređeni: " + Nadredeni?.Ime + " " + Nadredeni?.Prezime + ", datum rođenja: " + Datum + ", " + Odjel;
+        }
+
     }
 }

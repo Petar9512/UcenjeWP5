@@ -66,6 +66,33 @@ namespace UcenjeCS.RandomKlaseObjekti.Random2
                 Console.WriteLine(s);
             }
 
+
+            var ss1 = new StrucnaSprema(1, "Učiteljski fakultet");
+            var ss2 = new StrucnaSprema(2, "Odgojno-obrazovni tečaj");
+
+            var odg1 = new Odgajateljica(1, "Hajdi", "Hajdić", "0987775558", ss1);
+            var odg2 = new Odgajateljica(2, "Sonja", "Sonjić", "0957778882", ss1);
+            var odg3 = new Odgajateljica(3, "Ivana", "Ivić", "0954445553", ss2);
+
+            var skup1 = new Skupina(1, odg3, "Odgojna skupina 1", 20);
+            var skup2 = new Skupina(2, odg2, "Odgojna skupina 2", 15);
+            var skup3 = new Skupina(3, odg1, "Odgojna skupina 3", 15);
+
+            var dj1 = new Dijete(1, "Pero", "Perić", 7, "0985557778", skup3);
+            var dj2 = new Dijete(2, "Ivan", "Ivić", 8, "0912224443", skup3);
+            var dj3 = new Dijete(3, "Ivan", "Ivičević", 7, "0983334445", skup3);
+            var dj4 = new Dijete(4, "Marko", "Markić", 8, "0985554446", skup3);
+
+            var djeca = new Dijete[4];
+            djeca[0] = dj1;
+            djeca[1] = dj2;
+            djeca[2] = dj3;
+            djeca[3] = dj4;
+
+            foreach (var d in djeca)
+            {
+                Console.WriteLine(d);
+            }
         }
 
     }

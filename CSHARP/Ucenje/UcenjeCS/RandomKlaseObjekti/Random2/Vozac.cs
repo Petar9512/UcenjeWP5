@@ -6,19 +6,20 @@ using System.Threading.Tasks;
 
 namespace UcenjeCS.RandomKlaseObjekti.Random2
 {
-    internal class Sponzor : Entitet
+    internal class Vozac : Entitet
     {
 
-        public Sponzor(int sifra, string naziv, string kontakt)
+        public Vozac(int sifra, string ime, string prezime, string kontakt)
         {
             base.Sifra = sifra;
-            base.Naziv = naziv;
+            base.Ime = ime;
+            base.Prezime = prezime;
             base.Kontakt = kontakt;
         }
 
         public override string ToString()
         {
-            return "sponzor: " + Naziv + " - " + Kontakt;
+            return "vozač: " + Ime + " " + Prezime;
         }
 
     }

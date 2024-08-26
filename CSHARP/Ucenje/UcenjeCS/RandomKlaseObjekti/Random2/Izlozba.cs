@@ -20,5 +20,10 @@ namespace UcenjeCS.RandomKlaseObjekti.Random2
         public int? BrojDjela { get; set; }
         public Sponzor? Sponzor { get; set; }
 
+        public override string ToString()
+        {
+            return "izložba: " + Naziv + ", početak: " + Datum;
+        }
+
     }
 }

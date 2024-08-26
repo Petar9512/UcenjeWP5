@@ -20,5 +20,10 @@ namespace UcenjeCS.RandomKlaseObjekti.Random2
         public string? BrojTelefona { get; set; }
         public Izlozba? Izlozba { get; set; }
 
+        public override string ToString()
+        {
+            return "ime: " + Ime + " " + Prezime + ", kontakt: " + BrojTelefona;
+        }
+
     }
 }

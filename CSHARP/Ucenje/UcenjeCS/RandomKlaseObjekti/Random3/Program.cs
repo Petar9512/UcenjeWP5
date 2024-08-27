@@ -63,7 +63,53 @@ namespace UcenjeCS.RandomKlaseObjekti.Random3
             {
                 Console.WriteLine(l);
             }
-        }
 
+
+            var s1 = new Student(1, "Marko", "Markić", "55476834587", new DateOnly(1999, 7, 31), "Germanistika");
+            var s2 = new Student(2, "Hajdi", "Hajdić", "91436778453", new DateOnly(2000, 1, 16), "Kroatistika");
+            var s3 = new Student(3, "Ivan", "Ivić", "35499872335", new DateOnly(2002, 3, 21), "Talijanistika");
+
+            var is1 = new IspitniRok(1, "Jezične vježbe 1", "pismeni", new DateTime(2024, 7, 7, 10, 0, 0));
+            var is2 = new IspitniRok(2, "Uvod u lingvistiku", "pismeni", new DateTime(2024, 6, 28, 13, 0, 0));
+            var is3 = new IspitniRok(3, "Staroslavenski jezik", "pismeni", new DateTime(2024, 6, 30, 12, 0, 0));
+            var is4 = new IspitniRok(4, "Fonetika", "usmeni", new DateTime(2024, 7, 2, 10, 0, 0));
+            var is5 = new IspitniRok(5, "Jezične vježbe 2", "pismeni", new DateTime(2024, 7, 7, 14, 0, 0));
+
+            Console.WriteLine(s2);
+            Console.WriteLine(is4);
+
+
+            var u1 = new Uciteljica(1, "Sonja", "Sonjić", new DateOnly(1980, 6, 10), "0915558887");
+            var u2 = new Uciteljica(2, "Hajdi", "Hajdić", new DateOnly(1988, 3, 7), "0912225556");
+            var u3 = new Uciteljica(3, "Ivana", "Ivić", new DateOnly(1968, 10, 27), "0984445553");
+
+            var r1 = new Radionica(1, "Izrada božićnih ukrasa", new DateTime(2024, 12, 5, 14, 0, 0), 20, u2);
+            var r2 = new Radionica(2, "Vrtna radionica", new DateTime(2024, 5, 10, 9, 0, 0), 10, u3);
+            var r3 = new Radionica(3, "Informatička radionica", new DateTime(2024, 4, 22, 10, 0, 0), 15, u2);
+
+            var dij1 = new Dijete(1, "Ivan", "Ivičević", new DateOnly(2009, 11, 22), "3.A");
+            var dij2 = new Dijete(2, "Pero", "Perić", new DateOnly(2010, 2, 6), "3.B");
+            var dij3 = new Dijete(3, "Goran", "Grkić", new DateOnly(2010, 1, 21), "3.A");
+            var dij4 = new Dijete(4, "Marko", "Markić", new DateOnly(2008, 9, 17), "4.A");
+            var dij5 = new Dijete(5, "Ivan", "Ivić", new DateOnly(2008, 10, 10), "4.C");
+
+            var sud1 = new Sudionik(dij1, r3, new DateOnly(2024, 4, 24));
+            var sud2 = new Sudionik(dij1, r2, new DateOnly(2024, 5, 10));
+            var sud3 = new Sudionik(dij3, r3, new DateOnly(2024, 4, 22));
+            var sud4 = new Sudionik(dij2, r1, new DateOnly(2024, 12, 8));
+            var sud5 = new Sudionik(dij4, r1, new DateOnly(2024, 12, 6));
+
+            var sudionici = new Sudionik[5];
+            sudionici[0] = sud1;
+            sudionici[1] = sud2;
+            sudionici[2] = sud3;
+            sudionici[3] = sud4;
+            sudionici[4] = sud5;
+
+            foreach (var s in sudionici)
+            {
+                Console.WriteLine(s);
+            }
+        }
     }
 }

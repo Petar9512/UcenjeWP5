@@ -54,6 +54,54 @@ namespace UcenjeCS.RandomKlaseObjekti.Random4
             {
                 Console.WriteLine(z);
             }
+
+
+            var k1 = new Kategorija(1, "Jela s morskim plodovima");
+            var k2 = new Kategorija(2, "Tjestenine");
+
+            var j1 = new Jelo(1, k1, "Hobotnica", "hobotnica, krumpir, salata", 18.99);
+            var j2 = new Jelo(2, k1, "Riblja plata", "6 vrsta ribe, krumpir, salata", 43.99);
+            var j3 = new Jelo(3, k2, "Spaghetti bolognese", "spaghetti, umak", 9.99);
+
+            var pi1 = new Pice() { Sifra = 1, Naziv = "Coca Cola", Cijena = 1.99 };
+            var pi2 = new Pice() { Sifra = 2, Naziv = "Sok od naranče", Cijena = 1.99 };
+            var pi3 = new Pice() { Sifra = 3, Naziv = "Vino", Cijena = 4.99 };
+
+            var jela = new Jelo[3];
+            jela[0] = j1;
+            jela[1] = j2;
+            jela[2] = j3;
+
+            foreach (var j in jela)
+            {
+                Console.WriteLine(j);
+            }
+            Console.WriteLine(pi2);
+
+
+            var d1 = new Djelatnik(1, "Marko", "Markić", "87661143564");
+            var d2 = new Djelatnik(2, "Ivan", "Ivić", "38798698453");
+            var d3 = new Djelatnik(3, "Goran", "Grkić", "24377895643");
+
+            var pro1 = new Proizvod(1, d2, "Stolica", "obična stolica");
+            var pro2 = new Proizvod(2, d2, "Stolna lampa", "aluminijska stolna lampa");
+            var pro3 = new Proizvod(3, d1, "Televizor", "televizor 80x50");
+
+            var s1 = new Sirovina(1, "Prerađeno drvo", "drvo", "50kg");
+            var s2 = new Sirovina(2, "Prerađeno željezo", "željezo", "20kg");
+            var s3 = new Sirovina(3, "Aluminij", "aluminij", "20kg");
+            var s4 = new Sirovina(4, "Plastika", "plastika", "30kg");
+
+            var proizvodi = new Proizvod[3];
+            proizvodi[0] = pro1;
+            proizvodi[1] = pro2;
+            proizvodi[2] = pro3;
+
+            foreach (var p in proizvodi)
+            {
+                Console.WriteLine(p);
+            }
+            Console.WriteLine(s3);
         }
     }
 }

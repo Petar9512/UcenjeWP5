@@ -49,6 +49,33 @@ namespace UcenjeCS.RandomKlaseObjekti.Random6
             {
                 Console.WriteLine(clan);
             }
+
+
+            var cit1 = new Citatelj(1, "Ivan", "Ivić", "0985557776", "75863348698");
+            var cit2 = new Citatelj(2, "Hajdi", "Hajdić", "0912224443", "91345873345");
+            var cit3 = new Citatelj(3, "Marko", "Markić", "markomarkic@gmail.com", "06787979453");
+            var cit4 = new Citatelj(4, "Pero", "Perić", "0912227778", "24658498712");
+            var cit5 = new Citatelj(5, "Ivana", "Ivić", "ivanaivic@gmail.com", "5735545879");
+
+            var k1 = new Knjiga(1, "20000 milja pod morem", "Jules Verne", cit2);
+            var k2 = new Knjiga(2, "Hobit", "J.R.R.Tolkien", cit3);
+            var k3 = new Knjiga(3, "Eragon", "Christopher Paolini", cit5);
+
+            var p1 = new Posudba(cit1, k2, new DateOnly(2024, 2, 3), new DateOnly(2024, 2, 17));
+            var p2 = new Posudba(cit5, k2, new DateOnly(2024, 3, 12), new DateOnly(2024, 3, 30));
+            var p3 = new Posudba(cit4, k1, new DateOnly(2024, 3, 1), new DateOnly(2024, 3, 22));
+            var p4 = new Posudba(cit5, k3, new DateOnly(2024, 5, 30), new DateOnly(2024, 6, 14));
+
+            var posudbe = new Posudba[4];
+            posudbe[0] = p1;
+            posudbe[1] = p2;
+            posudbe[2] = p3;
+            posudbe[3] = p4;
+
+            foreach (var p in posudbe)
+            {
+                Console.WriteLine(p);
+            }
         }
 
     }

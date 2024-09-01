@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UcenjeCS.RandomKlaseObjekti
+namespace UcenjeCS.RandomKlaseObjekti.Random
 {
     internal class Racun : Entitet
     {
         public Racun(int sifra, int redniBroj, DateTime datum, string kupac, bool placeno)
         {
-            base.Sifra = sifra;
-            this.RedniBroj = redniBroj;
-            base.Datum = datum;
-            this.Kupac = kupac;
-            this.Placeno = placeno;
+            Sifra = sifra;
+            RedniBroj = redniBroj;
+            Datum = datum;
+            Kupac = kupac;
+            Placeno = placeno;
         }
 
         public int? RedniBroj { get; set; }

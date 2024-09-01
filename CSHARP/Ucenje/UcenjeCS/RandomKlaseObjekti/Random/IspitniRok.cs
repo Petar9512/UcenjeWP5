@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UcenjeCS.RandomKlaseObjekti
+namespace UcenjeCS.RandomKlaseObjekti.Random
 {
     internal class IspitniRok : Entitet
     {
         public IspitniRok(int sifa, string predmet, string vrstaIspita, DateTime datum)
         {
-            base.Sifra = Sifra;
-            this.Predmet = predmet;
-            this.VrstaIspita = vrstaIspita;
-            base.Datum = datum;
+            Sifra = Sifra;
+            Predmet = predmet;
+            VrstaIspita = vrstaIspita;
+            Datum = datum;
         }
 
         public string? Predmet { get; set; }

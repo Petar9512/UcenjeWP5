@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UcenjeCS.RandomKlaseObjekti
+namespace UcenjeCS.RandomKlaseObjekti.Random
 {
     internal class StavkeRacuna
     {
         public StavkeRacuna(Racun racun, string artikl, double cijena, string kolicina, string popust)
         {
-            this.Racun = racun;
-            this.Artikl = artikl;
-            this.Cijena = cijena;
-            this.Kolicina = kolicina;
-            this.Popust = popust;
+            Racun = racun;
+            Artikl = artikl;
+            Cijena = cijena;
+            Kolicina = kolicina;
+            Popust = popust;
         }
 
         public Racun? Racun { get; set; }

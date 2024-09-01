@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UcenjeCS.RandomKlaseObjekti
+namespace UcenjeCS.RandomKlaseObjekti.Random
 {
     internal class Odjel : Entitet
     {
 
         public Odjel(int sifra, string naziv)
         {
-            base.Sifra = sifra;
-            base.Naziv = naziv;
+            Sifra = sifra;
+            Naziv = naziv;
         }
 
         public override string ToString()

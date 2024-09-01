@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UcenjeCS.RandomKlaseObjekti
+namespace UcenjeCS.RandomKlaseObjekti.Random
 {
     internal class Pristupnik
     {
         public Pristupnik(IspitniRok ispitniRok, string student, int brojBodova, int ocjena)
         {
-            this.IspitniRok = ispitniRok;
-            this.Student = student;
-            this.BrojBodova = brojBodova;
-            this.Ocjena = ocjena;
+            IspitniRok = ispitniRok;
+            Student = student;
+            BrojBodova = brojBodova;
+            Ocjena = ocjena;
         }
 
         public IspitniRok? IspitniRok { get; set; }

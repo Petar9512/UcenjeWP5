@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UcenjeCS.RandomKlaseObjekti
+namespace UcenjeCS.RandomKlaseObjekti.Random
 {
     internal class Zaposlenik : Entitet
     {
@@ -12,13 +12,13 @@ namespace UcenjeCS.RandomKlaseObjekti
 
         public Zaposlenik(int sifra, Zaposlenik nadredeni, string ime, string prezime, DateTime datumrodenja, double placa, Odjel odjel)
         {
-            base.Sifra = sifra;
-            this.Nadredeni = nadredeni;
-            base.Ime = ime;
-            base.Prezime = prezime;
-            base.Datum = datumrodenja;
-            this.Placa = placa;
-            this.Odjel = odjel;
+            Sifra = sifra;
+            Nadredeni = nadredeni;
+            Ime = ime;
+            Prezime = prezime;
+            Datum = datumrodenja;
+            Placa = placa;
+            Odjel = odjel;
         }
 
         public Zaposlenik? Nadredeni { get; set; }

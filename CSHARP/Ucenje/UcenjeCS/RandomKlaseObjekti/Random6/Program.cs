@@ -76,7 +76,79 @@ namespace UcenjeCS.RandomKlaseObjekti.Random6
             {
                 Console.WriteLine(p);
             }
-        }
 
+
+            var z1 = new Zupan(1, "Nikola", "Dobroslavić");
+            var z2 = new Zupan(2, "Blaženko", "Boban");
+            var z3 = new Zupan(3, "Božidar", "Longin");
+
+            var zup1 = new Zupanija(1, "Zadarska", z3);
+            var zup2 = new Zupanija(2, "Splitsko-dalmatinska", z2);
+            var zup3 = new Zupanija(3, "Dubrovačko-neretvanska", z1);
+
+            var o1 = new Opcina(1, "Dubrovačko Primorje", zup3);
+            var o2 = new Opcina(2, "Janjina", zup3);
+            var o3 = new Opcina(3, "Baška Voda", zup2);
+            var o4 = new Opcina(4, "Zmijavci", zup2);
+            var o5 = new Opcina(5, "Bibinje", zup1);
+            var o6 = new Opcina(6, "Gračac", zup1);
+
+            var m1 = new Mjesto(1, "Cerovac", o6);
+            var m2 = new Mjesto(2, "Dugopolje", o6);
+            var m3 = new Mjesto(3, "Promajna", o3);
+            var m4 = new Mjesto(4, "Bratuš", o3);
+            var m5 = new Mjesto(5, "Krvavica", o3);
+            var m6 = new Mjesto(6, "Bast", o3);
+            var m7 = new Mjesto(7, "Drače", o2);
+            var m8 = new Mjesto(8, "Osobjava", o2);
+            var m9 = new Mjesto(9, "Popova Luka", o2);
+            var m10 = new Mjesto(10, "Topolo", o1);
+            var m11 = new Mjesto(11, "Imotica", o1);
+            var m12 = new Mjesto(12, "Visočani", o1);
+
+            var mjesta = new Mjesto[12];
+            mjesta[0] = m1;
+            mjesta[1] = m2;
+            mjesta[2] = m3;
+            mjesta[3] = m4;
+            mjesta[4] = m5;
+            mjesta[5] = m6;
+            mjesta[6] = m7;
+            mjesta[7] = m8;
+            mjesta[8] = m9;
+            mjesta[9] = m10;
+            mjesta[10] = m11;
+            mjesta[11] = m12;
+
+            foreach (var m in mjesta)
+            {
+                Console.WriteLine(m);
+            }
+
+
+            var zap1 = new Zaposlenik(1, "Ivan", "Ivić", new DateOnly(1976, 5, 10), false);
+            var zap2 = new Zaposlenik(2, "Goran", "Grkić", new DateOnly(1978, 6, 15), false);
+            var zap3 = new Zaposlenik(3, "Hajdi", "Hajidć", new DateOnly(1988, 3, 5), false);
+
+            var sl1 = new Slika(1, zap1, 1, "https://www.pexels.com/photo/two-deer-grazing-in-a-field-with-trees-in-the-background-21820922/");
+            var sl2 = new Slika(2, zap1, 2, "https://www.pexels.com/photo/kiz-kulesi-in-istanbul-at-sunset-23731698/");
+            var sl3 = new Slika(3, zap2, 3, "https://www.pexels.com/photo/a-mountain-with-trees-and-clouds-in-the-background-20875403/");
+            var sl4 = new Slika(4, zap2, 4, "https://www.pexels.com/video/sunflower-in-rural-setting-at-sunset-in-summer-20712217/");
+            var sl5 = new Slika(5, zap3, 5, "https://www.pexels.com/photo/diamond-cut-24778046/");
+            var sl6 = new Slika(6, zap3, 6, "https://www.pexels.com/video/light-city-man-love-25559507/");
+
+            var slike = new Slika[6];
+            slike[0] = sl1;
+            slike[1] = sl2;
+            slike[2] = sl3;
+            slike[3] = sl4;
+            slike[4] = sl5;
+            slike[5] = sl6;
+
+            foreach (var s in slike)
+            {
+                Console.WriteLine(s);
+            }
+        }
     }
 }

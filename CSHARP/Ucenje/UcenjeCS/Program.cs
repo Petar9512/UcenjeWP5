@@ -6,7 +6,8 @@ using UcenjeCS.CiklicneTablice;
 using UcenjeCS.GeneratorLozinki;
 using UcenjeCS.LjubavniKalkulator;
 
-new UcenjeCS.RandomKlaseObjekti.Random6.Program();
+new UcenjeCS.E15KlasaObjekt.fakultet.Program();
+//new UcenjeCS.RandomKlaseObjekti.Random6.Program();
 //E01UlazIzlaz.Izvedi();
 //E02VarijableTipoviPodataka.Izvedi();
 //E03UvjetnoGrananjeIf.Izvedi();

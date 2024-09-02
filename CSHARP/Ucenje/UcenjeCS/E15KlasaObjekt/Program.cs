@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UcenjeCS.E15KlasaObjekt.Polimorfizam;
 
 namespace UcenjeCS.E15KlasaObjekt
 {
@@ -48,6 +49,5 @@ namespace UcenjeCS.E15KlasaObjekt
 
             Console.WriteLine(ja.Mjesto?.Zupanija?.Naziv);
         }
-
     }
 }

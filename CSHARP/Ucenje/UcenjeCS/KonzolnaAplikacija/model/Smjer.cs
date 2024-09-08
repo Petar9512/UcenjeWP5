@@ -8,8 +8,24 @@ namespace UcenjeCS.KonzolnaAplikacija.model
 {
     internal class Smjer : Entitet
     {
+        public Smjer() 
+        {
+        }
+        public Smjer(int sifra, string naziv, string trajanje, DateOnly izvodiseod, double cijena, bool vaucer)
+        {
+            base.Sifra = sifra;
+            this.Naziv = naziv;
+            this.Trajanje = trajanje;
+            this.IzvodiSeOd = izvodiseod;
+            this.Cijena = cijena;
+            this.Vaucer = vaucer;
+        }
 
-        public string? Naziv { get; set; }
+        public string? Naziv { get; set; } 
+        public string? Trajanje { get; set; } 
+        public DateOnly? IzvodiSeOd { get; set; } 
+        public double? Cijena { get; set; }
+        public bool Vaucer { get; set; }
 
     }
 }

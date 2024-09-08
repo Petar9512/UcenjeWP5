@@ -23,11 +23,11 @@ namespace UcenjeCS.KonzolnaAplikacija
 
         private void UcitajTestnePodatke()
         {
-            Smjerovi.Add(new() { Sifra = 1, Naziv = "Web programiranjr" });
-            Smjerovi.Add(new() { Sifra = 2, Naziv = "AA" });
-            Smjerovi.Add(new() { Sifra = 3, Naziv = "BB" });
-            Smjerovi.Add(new() { Sifra = 4, Naziv = "CC" });
-            Smjerovi.Add(new() { Sifra = 5, Naziv = "DD" });
+            Smjerovi.Add(new(1, "Web programiranje", "6 mjeseci", new DateOnly(2024, 5, 14), 1340.55, true));
+            Smjerovi.Add(new(2, "Web dizajn", "5 mjeseci", new DateOnly(2024, 5, 12), 960.77, true));
+            Smjerovi.Add(new(3, "Online marketing", "7 mjeseci", new DateOnly(2024, 4, 1), 1510, true));
+            Smjerovi.Add(new(4, "Grafički dizajn", "6 mjeseci", new DateOnly(2024, 5, 14), 1040.33, true));
+            Smjerovi.Add(new(5, "Odnosi s javnošću", "5 mjeseci", new DateOnly(2024, 6, 1), 960.55, true));
         }
 
         public void PrikaziIzbornik()
@@ -78,7 +78,7 @@ namespace UcenjeCS.KonzolnaAplikacija
             var s = Smjerovi[E11Metode.UcitajCijeliBroj("Odaberite redni broj smjera", 1, Smjerovi.Count) - 1];
 
             s.Sifra = E11Metode.UcitajCijeliBroj("Unesite novu vrijednost šifre (" + s.Sifra + ")", 1, int.MaxValue);
-            s.Naziv = Pomocno.UcitajString("Unesite novu vrijednost naziva (" + s.Naziv + ")");
+            s.Naziv = Pomocno.UcitajString("Unesite novu vrijednost naziva (" + s.Naziv + ")", 50, true);
         }
 
         private void DodajNoviSmjer()
@@ -86,7 +86,7 @@ namespace UcenjeCS.KonzolnaAplikacija
             Smjerovi.Add(new()
             {
                 Sifra = E11Metode.UcitajCijeliBroj("Unesite šifru smjera", 1, int.MaxValue),
-                Naziv = Pomocno.UcitajString("Unesite naziv smjera")
+                Naziv = Pomocno.UcitajString("Unesite naziv smjera", 50, true)
             });
         }
 

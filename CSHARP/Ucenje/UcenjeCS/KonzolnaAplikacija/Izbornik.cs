@@ -11,12 +11,14 @@ namespace UcenjeCS.KonzolnaAplikacija
 
         public ObradaSmjer ObradaSmjer { get; set; }
         public ObradaGrupa ObradaGrupa { get; set; }
+        public ObradaPolaznik ObradaPolaznik { get; set; }
 
         public Izbornik()
         {
             Pomocno.DEV = true;
             ObradaSmjer = new ObradaSmjer();
             ObradaGrupa = new ObradaGrupa(this);
+            ObradaPolaznik = new ObradaPolaznik();
             PrikaziIzbornik();
         }
 
@@ -25,6 +27,7 @@ namespace UcenjeCS.KonzolnaAplikacija
             Console.WriteLine("Glavni izbornik");
             Console.WriteLine("1. Smjerovi");
             Console.WriteLine("2. Grupe");
+            Console.WriteLine("3. Polaznici");
             Console.WriteLine("4. Izlaz iz programa");
             OdabirOpcijeIzbornika();
         }
@@ -40,6 +43,11 @@ namespace UcenjeCS.KonzolnaAplikacija
                     break;
                 case 2:
                   //  ObradaGrupa.PrikaziIzbornik();
+                    Console.Clear();
+                    PrikaziIzbornik();
+                    break;
+                case 3:
+                    ObradaPolaznik.PrikaziIzbornik();
                     Console.Clear();
                     PrikaziIzbornik();
                     break;

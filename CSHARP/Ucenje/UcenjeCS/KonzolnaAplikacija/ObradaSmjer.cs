@@ -32,52 +32,66 @@ namespace UcenjeCS.KonzolnaAplikacija
 
         public void PrikaziIzbornik()
         {
-            Console.WriteLine("Rad sa smjerovima");
+            Console.WriteLine("\nOdaberite opciju izbornika: ");
             Console.WriteLine("1. Prikaži sve smjerove");
-            Console.WriteLine("2. Dodaj novi smjer");
-            Console.WriteLine("3. Promijeni podatke smjera");
-            Console.WriteLine("4. Brisanje smjera");
-            Console.WriteLine("5. Povratak na glavni izbornik");
+            Console.WriteLine("2. Pregled detalja smjera");
+            Console.WriteLine("3. Dodaj novi smjer");
+            Console.WriteLine("4. Promijeni podatke smjera");
+            Console.WriteLine("5. Brisanje smjera");
+            Console.WriteLine("6. Povratak na glavni izbornik");
             OdabirOpcijeIzbornika();
         }
 
         private void OdabirOpcijeIzbornika()
         {
-            switch(E11Metode.UcitajCijeliBroj("Odaberite stavku izbornika", 1, 5))
+            switch(Pomocno.UcitajRasponBroja("Odaberite stavku izbornika: ", 1, 6))
             {
                 case 1:
                     PrikaziSveSmjerove();
                     PrikaziIzbornik();
                     break;
                 case 2:
-                    DodajNoviSmjer();
+                    PregledDetaljaSmjera();
                     PrikaziIzbornik();
                     break;
                 case 3:
-                    PromijeniSmjer();
+                    DodajNoviSmjer();
                     PrikaziIzbornik();
                     break;
                 case 4:
-                    ObrisiSmjer();
+                    PromijeniSmjer();
                     PrikaziIzbornik();
                     break;
                 case 5:
+                    ObrisiSmjer();
+                    PrikaziIzbornik();
+                    break;
+                case 6:
                     break;
             }
         }
 
+        private void PregledDetaljaSmjera()
+        {
+            PrikaziSveSmjerove();
+
+            var s = Smjerovi[Pomocno.UcitajRasponBroja("Odaberite smjer za prikaz", 1, Smjerovi.Count) - 1];
+
+            Console.WriteLine("Detalji smjera: ");
+            Console.WriteLine(s);
+        }
         private void ObrisiSmjer()
         {
             PrikaziSveSmjerove();
-            Smjerovi.RemoveAt(E11Metode.UcitajCijeliBroj("Odaberite redni broj smjera za brisanje", 1, int.MaxValue) - 1);
+            Smjerovi.RemoveAt(Pomocno.UcitajRasponBroja("Odaberite redni broj smjera za brisanje", 1, int.MaxValue) - 1);
         }
 
         private void PromijeniSmjer()
         {
             PrikaziSveSmjerove();
-            var s = Smjerovi[E11Metode.UcitajCijeliBroj("Odaberite redni broj smjera", 1, Smjerovi.Count) - 1];
+            var s = Smjerovi[Pomocno.UcitajRasponBroja("Odaberite redni broj smjera", 1, Smjerovi.Count) - 1];
 
-            s.Sifra = E11Metode.UcitajCijeliBroj("Unesite novu vrijednost šifre (" + s.Sifra + ")", 1, int.MaxValue);
+            s.Sifra = Pomocno.UcitajRasponBroja("Unesite novu vrijednost šifre (" + s.Sifra + ")", 1, int.MaxValue);
             s.Naziv = Pomocno.UcitajString("Unesite novu vrijednost naziva (" + s.Naziv + ")", 50, true);
         }
 
@@ -85,7 +99,7 @@ namespace UcenjeCS.KonzolnaAplikacija
         {
             Smjerovi.Add(new()
             {
-                Sifra = E11Metode.UcitajCijeliBroj("Unesite šifru smjera", 1, int.MaxValue),
+                Sifra = Pomocno.UcitajRasponBroja("Unesite šifru smjera", 1, int.MaxValue),
                 Naziv = Pomocno.UcitajString("Unesite naziv smjera", 50, true)
             });
         }

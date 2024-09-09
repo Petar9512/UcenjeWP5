@@ -27,5 +27,9 @@ namespace UcenjeCS.KonzolnaAplikacija.model
         public double? Cijena { get; set; }
         public bool Vaucer { get; set; }
 
+        public override string ToString()
+        {
+            return Naziv + "\ntrajanje: " + Trajanje + "\npočetak: " + IzvodiSeOd + "\ncijena: " + Cijena + "\nvaučer: " + (Vaucer ? "da" : "ne");
+        }
     }
 }

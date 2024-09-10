@@ -42,7 +42,7 @@ namespace UcenjeCS.KonzolnaAplikacija
                     PrikaziIzbornik();
                     break;
                 case 2:
-                  //  ObradaGrupa.PrikaziIzbornik();
+                    ObradaGrupa.PrikaziIzbornik();
                     Console.Clear();
                     PrikaziIzbornik();
                     break;

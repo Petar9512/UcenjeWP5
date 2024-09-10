@@ -67,6 +67,7 @@ namespace UcenjeCS.KonzolnaAplikacija
                     PrikaziIzbornik();
                     break;
                 case 6:
+                    Console.Clear();
                     break;
             }
         }

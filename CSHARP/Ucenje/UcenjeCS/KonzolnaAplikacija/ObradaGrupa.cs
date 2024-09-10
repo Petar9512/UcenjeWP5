@@ -57,6 +57,24 @@ namespace UcenjeCS.KonzolnaAplikacija
                     PromjenaPodatakaGrupe();
                     PrikaziIzbornik();
                     break;
+                case 4:
+                    ObrisiGrupu();
+                    PrikaziIzbornik();
+                    break;
+                case 5:
+                    Console.Clear();
+                    break;
+            }
+        }
+
+        private void ObrisiGrupu()
+        {
+            PrikaziSveGrupe();
+
+            var g = Grupe[Pomocno.UcitajRasponBroja("Unesite redni broj grupe a brisanje", 1, Grupe.Count) - 1];
+            if (Pomocno.UcitajBool("Sigurno želite obrisati " + g.Naziv + "? (DA / NE)", "da"))
+            {
+                Grupe.Remove(g);
             }
         }
 

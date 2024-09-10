@@ -144,7 +144,7 @@ namespace UcenjeCS.KonzolnaAplikacija
             });
         }
 
-        private void PrikaziSveSmjerove()
+        public void PrikaziSveSmjerove()
         {
             if (Smjerovi.Count == 0)
             {

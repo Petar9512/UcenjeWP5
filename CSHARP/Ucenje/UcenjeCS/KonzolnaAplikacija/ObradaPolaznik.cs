@@ -91,7 +91,7 @@ namespace UcenjeCS.KonzolnaAplikacija
             }
         }
 
-        private void DodajNovogPolaznika()
+        public void DodajNovogPolaznika()
         {
             Polaznici.Add(new()
             {
@@ -103,7 +103,7 @@ namespace UcenjeCS.KonzolnaAplikacija
             });
         }
 
-        private void PrikazSvihPolaznika()
+        public void PrikazSvihPolaznika()
         {
             if (Polaznici.Count == 0)
             {

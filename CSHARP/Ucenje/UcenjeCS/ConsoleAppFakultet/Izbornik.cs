@@ -3,55 +3,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UcenjeCS.KonzolnaAplikacija;
 
-namespace UcenjeCS.KonzolnaAplikacija
+namespace UcenjeCS.ConsoleAppFakultet
 {
     internal class Izbornik
     {
-
         public ObradaSmjer ObradaSmjer { get; set; }
-        public ObradaGrupa ObradaGrupa { get; set; }
-        public ObradaPolaznik ObradaPolaznik { get; set; }
 
-        public Izbornik()
+        public Izbornik() 
         {
             Pomocno.DEV = true;
             ObradaSmjer = new ObradaSmjer();
-            ObradaGrupa = new ObradaGrupa(this);
-            ObradaPolaznik = new ObradaPolaznik();
             PrikaziIzbornik();
         }
 
         private void PrikaziIzbornik()
         {
-            Console.WriteLine("Glavni izbornik");
+            Console.WriteLine("Odaberite opciju izbornika: ");
             Console.WriteLine("1. Smjerovi");
-            Console.WriteLine("2. Grupe");
-            Console.WriteLine("3. Polaznici");
-            Console.WriteLine("4. Izlaz iz programa");
+            Console.WriteLine("2. Kolegiji");
+            Console.WriteLine("3. Studenti");
+            Console.WriteLine("4. IspitniRokovi");
+            Console.WriteLine("5. Izlaz iz programa");
             OdabirOpcijeIzbornika();
         }
 
         private void OdabirOpcijeIzbornika()
         {
-            switch(Pomocno.UcitajRasponBroja("Odaberite opciju izbornika", 1, 4))
+            switch(KonzolnaAplikacija.Pomocno.UcitajRasponBroja("Odaberite opciju izbornika: ", 1, 5))
             {
                 case 1:
                     ObradaSmjer.PrikaziIzbornik();
-                    Console.Clear();
                     PrikaziIzbornik();
                     break;
                 case 2:
-                    ObradaGrupa.PrikaziIzbornik();
-                    Console.Clear();
-                    PrikaziIzbornik();
                     break;
                 case 3:
-                    ObradaPolaznik.PrikaziIzbornik();
-                    Console.Clear();
-                    PrikaziIzbornik();
                     break;
                 case 4:
+                    break;
+                case 5:
                     break;
             }
         }

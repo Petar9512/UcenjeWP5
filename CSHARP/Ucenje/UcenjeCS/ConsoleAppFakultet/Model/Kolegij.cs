@@ -8,6 +8,16 @@ namespace UcenjeCS.ConsoleAppFakultet.Model
 {
     internal class Kolegij : Entitet
     {
+        public Kolegij() { }
+
+        public Kolegij(int sifra, Smjer smjer, string naziv, string predavac, bool obavezni)
+        {
+            base.Sifra = sifra;
+            this.Smjer = smjer;
+            this.Naziv = naziv;
+            this.Predavac = predavac;
+            this.Obavezni = obavezni;
+        }
 
         public Smjer? Smjer { get; set; }
         public string? Naziv { get; set; }

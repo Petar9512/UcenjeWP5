@@ -52,7 +52,7 @@ namespace UcenjeCS.KonzolnaAplikacija
             int broj;
             while (true)
             {
-                Console.WriteLine(poruka + ": ");
+                Console.WriteLine(poruka);
                 try
                 {
                     broj = int.Parse(Console.ReadLine());

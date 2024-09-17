@@ -20,7 +20,7 @@ namespace UcenjeCS.ConsoleAppFakultet
 
         private void PrikaziIzbornik()
         {
-            Console.WriteLine("Odaberite opciju izbornika: ");
+            Console.WriteLine("\nIzbornik");
             Console.WriteLine("1. Smjerovi");
             Console.WriteLine("2. Kolegiji");
             Console.WriteLine("3. Studenti");
@@ -31,10 +31,11 @@ namespace UcenjeCS.ConsoleAppFakultet
 
         private void OdabirOpcijeIzbornika()
         {
-            switch(KonzolnaAplikacija.Pomocno.UcitajRasponBroja("Odaberite opciju izbornika: ", 1, 5))
+            switch(KonzolnaAplikacija.Pomocno.UcitajRasponBroja("Odaberite opciju izbornika", 1, 5))
             {
                 case 1:
                     ObradaSmjer.PrikaziIzbornik();
+                    Console.Clear();
                     PrikaziIzbornik();
                     break;
                 case 2:

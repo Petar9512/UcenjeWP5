@@ -10,11 +10,15 @@ namespace UcenjeCS.ConsoleAppFakultet
     internal class Izbornik
     {
         public ObradaSmjer ObradaSmjer { get; set; }
+        public ObradaKolegij ObradaKolegij { get; set; }
+        public ObradaStudent ObradaStudent { get; set; }
 
         public Izbornik() 
         {
             Pomocno.DEV = true;
             ObradaSmjer = new ObradaSmjer();
+            ObradaKolegij = new ObradaKolegij(this);
+            ObradaStudent = new ObradaStudent(this);
             PrikaziIzbornik();
         }
 
@@ -39,8 +43,14 @@ namespace UcenjeCS.ConsoleAppFakultet
                     PrikaziIzbornik();
                     break;
                 case 2:
+                    ObradaKolegij.PrikaziIzbornik();
+                    Console.Clear();
+                    PrikaziIzbornik();
                     break;
                 case 3:
+                    ObradaStudent.PrikaziIzbornik();
+                    Console.Clear();
+                    PrikaziIzbornik();
                     break;
                 case 4:
                     break;

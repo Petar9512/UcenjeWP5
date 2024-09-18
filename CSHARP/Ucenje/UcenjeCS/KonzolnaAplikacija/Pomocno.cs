@@ -16,7 +16,7 @@ namespace UcenjeCS.KonzolnaAplikacija
             string s;
             while (true)
             {
-                Console.WriteLine(poruka + ": ");
+                Console.WriteLine(poruka);
                 s = Console.ReadLine().Trim();
                 if ((b && s.Length == 0) || s.Length > max)
                 {
@@ -32,7 +32,7 @@ namespace UcenjeCS.KonzolnaAplikacija
             string s;
             while (true)
             {
-                Console.WriteLine(poruka + " (" + stari + "): ");
+                Console.WriteLine(poruka + " (" + stari + ") ");
                 s = Console.ReadLine().Trim();
                 if (s.Length == 0)
                 {
@@ -75,7 +75,7 @@ namespace UcenjeCS.KonzolnaAplikacija
             double broj;
             while (true)
             {
-                Console.WriteLine(poruka + ": ");
+                Console.WriteLine(poruka);
                 try
                 {
                     broj = double.Parse(Console.ReadLine());
@@ -122,7 +122,7 @@ namespace UcenjeCS.KonzolnaAplikacija
 
         public static bool UcitajBool(string poruka, string b)
         {
-            Console.WriteLine(poruka + ": ");
+            Console.WriteLine(poruka);
             return Console.ReadLine().Trim().ToLower() == b;
         }
     }

@@ -67,7 +67,6 @@ namespace UcenjeCS.ConsoleAppFakultet
                     PrikaziIzbornik();
                     break;
                 case 6:
-                    Console.Clear();
                     break;
             }
         }
@@ -123,7 +122,7 @@ namespace UcenjeCS.ConsoleAppFakultet
             Console.WriteLine("naziv: " + s.Naziv + ", broj studenata: " + s.BrojStudenata);
         }
 
-        private void PrikaziSmjerove()
+        public void PrikaziSmjerove()
         {
             var rbs = 1;
             foreach (var s in Smjerovi)

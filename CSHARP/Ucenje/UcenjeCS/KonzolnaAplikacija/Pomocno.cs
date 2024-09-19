@@ -98,7 +98,7 @@ namespace UcenjeCS.KonzolnaAplikacija
             DateTime datum;
             while (true)
             {
-                Console.WriteLine("Unesite datum (format unosa je yyyy-MM-dd): ");
+                Console.WriteLine("Unesite datum (format unosa je yyyy-MM-dd H:mm:ss): ");
                 if (kontrolaDatuma)
                 {
                     Console.WriteLine("Datum ne smije biti prije današnjeg");

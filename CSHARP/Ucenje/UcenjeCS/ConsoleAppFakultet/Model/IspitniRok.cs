@@ -8,15 +8,18 @@ namespace UcenjeCS.ConsoleAppFakultet.Model
 {
     internal class IspitniRok : Entitet
     {
-        public IspitniRok() { }
+        public IspitniRok() 
+        {
+            Studenti = new List<Student>();
+        }
 
-        public IspitniRok(int sifra, Kolegij kolegij, string vrstaIspita, DateTime datum, List<Student> studenti)
+        public IspitniRok(int sifra, Kolegij kolegij, string vrstaIspita, DateTime datum)
         {
             base.Sifra = sifra;
             this.Kolegij = kolegij;
             this.VrstaIspita = vrstaIspita;
             this.Datum = datum;
-            this.Studenti = studenti;
+            Studenti = new List<Student>();
         }
 
         public Kolegij? Kolegij { get; set; }

@@ -26,12 +26,12 @@ namespace UcenjeCS.ConsoleAppFakultet
 
         private void UcitajTestnePodatke()
         {
-            Rokovi.Add(new(1, Izbornik.ObradaKolegij.Kolegiji[5], "pismeni", new DateTime(2024, 6, 10, 12, 0, 0), null));
-            Rokovi.Add(new(2, Izbornik.ObradaKolegij.Kolegiji[6], "usmeni", new DateTime(2024, 6, 14, 10, 0, 0), null));
-            Rokovi.Add(new(3, Izbornik.ObradaKolegij.Kolegiji[0], "pismeni", new DateTime(2024, 6, 10, 9, 0, 0), null));
-            Rokovi.Add(new(4, Izbornik.ObradaKolegij.Kolegiji[1], "pismeni", new DateTime(2024, 6, 12, 10, 30, 0), null));
-            Rokovi.Add(new(5, Izbornik.ObradaKolegij.Kolegiji[2], "pismeni", new DateTime(2024, 6, 17, 14, 0, 0), null));
-            Rokovi.Add(new(6, Izbornik.ObradaKolegij.Kolegiji[4], "pismeni", new DateTime(2024, 6, 18, 16, 0, 0), null));
+            Rokovi.Add(new(1, Izbornik.ObradaKolegij.Kolegiji[5], "pismeni", new DateTime(2024, 6, 10, 12, 0, 0)));
+            Rokovi.Add(new(2, Izbornik.ObradaKolegij.Kolegiji[6], "usmeni", new DateTime(2024, 6, 14, 10, 0, 0)));
+            Rokovi.Add(new(3, Izbornik.ObradaKolegij.Kolegiji[0], "pismeni", new DateTime(2024, 6, 10, 9, 0, 0)));
+            Rokovi.Add(new(4, Izbornik.ObradaKolegij.Kolegiji[1], "pismeni", new DateTime(2024, 6, 12, 10, 30, 0)));
+            Rokovi.Add(new(5, Izbornik.ObradaKolegij.Kolegiji[2], "pismeni", new DateTime(2024, 6, 17, 14, 0, 0)));
+            Rokovi.Add(new(6, Izbornik.ObradaKolegij.Kolegiji[4], "pismeni", new DateTime(2024, 6, 18, 16, 0, 0)));
         }
 
         public void PrikaziIzbornik()
@@ -42,7 +42,7 @@ namespace UcenjeCS.ConsoleAppFakultet
             Console.WriteLine("3. Dodaj novi ispitni rok");
             Console.WriteLine("4. Promijeni podatke ispitnog roka");
             Console.WriteLine("5. Brisanje ispitnog roka");
-            Console.WriteLine("6. Dodaj pristupnike prvi put");
+            Console.WriteLine("6. Dodaj pristupnike");
             Console.WriteLine("7. Povratak na glavni izbornik");
             OdabirOpcijeIzbornika();
         }
@@ -72,7 +72,8 @@ namespace UcenjeCS.ConsoleAppFakultet
                     PrikaziIzbornik();
                     break;
                 case 6:
-                    UcitajPristupnikePrviPut();
+                    var e = Rokovi[Pomocno.UcitajRasponBroja("Unesite redni broj ispitnog roka za unos pristupnika", 1, Rokovi.Count) - 1];
+                    UcitajPristupnike2(e, e.Studenti);
                     PrikaziIzbornik();
                     break;
                 case 7:
@@ -91,17 +92,15 @@ namespace UcenjeCS.ConsoleAppFakultet
             r.Studenti = listaPristupnika;
         }
 
-        private void UcitajPristupnikePrviPut()
-        {
-            var r = Rokovi[Pomocno.UcitajRasponBroja("Unesite redni broj ispitnog roka za unos pristupnika", 1, Rokovi.Count) - 1];
-            List<Student> listaPristupnika = new List<Student>();
+        private void UcitajPristupnike2(IspitniRok e, List<Student> lista)
+        {           
             while (Pomocno.UcitajBool("Unos novog pristupnika? (DA / NE)", "da"))
             {
                 Izbornik.ObradaStudent.PrikaziStudente();
                 var opcija = Pomocno.UcitajRasponBroja("Izaberite redni broj pristupnika za unos", 1, Izbornik.ObradaStudent.Studenti.Count);
-                    listaPristupnika.Add(Izbornik.ObradaStudent.Studenti[opcija - 1]);
+                lista.Add(Izbornik.ObradaStudent.Studenti[opcija - 1]);
             }
-            r.Studenti = listaPristupnika;
+            e.Studenti = lista;
         }
 
         private void ObrisiRok()
@@ -167,7 +166,7 @@ namespace UcenjeCS.ConsoleAppFakultet
         {
             var r = Rokovi[Pomocno.UcitajRasponBroja("Unesite redni broj ispitnog roka za prikaz", 1, Rokovi.Count) - 1];
             Console.WriteLine(r.Kolegij.Naziv + " - " + r.Datum + ", " + r.VrstaIspita + "\nPrijavljeni: ");
-            if (r.Studenti != null)
+            if (r.Studenti.Count != 0)
             {
                 foreach (var p in r.Studenti)
                 {

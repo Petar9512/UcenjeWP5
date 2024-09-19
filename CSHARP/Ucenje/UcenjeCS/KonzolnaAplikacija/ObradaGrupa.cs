@@ -121,7 +121,7 @@ namespace UcenjeCS.KonzolnaAplikacija
                 }
                 else
                 {
-                    lista.Add(Izbornik.ObradaPolaznik.Polaznici[opcija]);
+                    lista.Add(Izbornik.ObradaPolaznik.Polaznici[opcija - 1]);
                 }
             }
             return lista;

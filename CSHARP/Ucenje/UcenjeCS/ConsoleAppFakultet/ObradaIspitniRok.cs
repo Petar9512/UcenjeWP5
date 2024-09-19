@@ -167,16 +167,16 @@ namespace UcenjeCS.ConsoleAppFakultet
         {
             var r = Rokovi[Pomocno.UcitajRasponBroja("Unesite redni broj ispitnog roka za prikaz", 1, Rokovi.Count) - 1];
             Console.WriteLine(r.Kolegij.Naziv + " - " + r.Datum + ", " + r.VrstaIspita + "\nPrijavljeni: ");
-            if (r.Studenti.Count == 0)
-            {
-                Console.WriteLine("Nema prijavljenih");
-            }
-            else
+            if (r.Studenti != null)
             {
                 foreach (var p in r.Studenti)
                 {
                     Console.WriteLine(p.Ime + " " + p.Prezime);
-                }
+                }               
+            }
+            else
+            {
+                Console.WriteLine("Nema prijavljenih");
             }            
         }
 

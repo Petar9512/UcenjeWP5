@@ -136,7 +136,7 @@ namespace UcenjeCS.ConsoleAppFakultet
             Console.WriteLine("student: " + s.Ime + " " + s.Prezime + ", OIB: " + s.Oib + ", smjer: " + s.Smjer.Naziv);
         }
 
-        private void PrikaziStudente()
+        public void PrikaziStudente()
         {
             var rbs = 1;
             foreach (var s in Studenti)

@@ -22,7 +22,7 @@ namespace UcenjeCS.ConsoleAppFakultet.Model
         public Kolegij? Kolegij { get; set; }
         public string? VrstaIspita { get; set; }
         public DateTime? Datum { get; set; }
-        public List<Student> Studenti { get; set; }
+        public List<Student>? Studenti { get; set; }
 
     }
 }

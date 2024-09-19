@@ -12,6 +12,7 @@ namespace UcenjeCS.ConsoleAppFakultet
         public ObradaSmjer ObradaSmjer { get; set; }
         public ObradaKolegij ObradaKolegij { get; set; }
         public ObradaStudent ObradaStudent { get; set; }
+        public ObradaIspitniRok ObradaIspitniRok { get; set; }
 
         public Izbornik() 
         {
@@ -19,6 +20,7 @@ namespace UcenjeCS.ConsoleAppFakultet
             ObradaSmjer = new ObradaSmjer();
             ObradaKolegij = new ObradaKolegij(this);
             ObradaStudent = new ObradaStudent(this);
+            ObradaIspitniRok = new ObradaIspitniRok(this);
             PrikaziIzbornik();
         }
 
@@ -53,6 +55,9 @@ namespace UcenjeCS.ConsoleAppFakultet
                     PrikaziIzbornik();
                     break;
                 case 4:
+                    ObradaIspitniRok.PrikaziIzbornik();
+                    Console.Clear();
+                    PrikaziIzbornik();
                     break;
                 case 5:
                     break;

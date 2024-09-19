@@ -72,8 +72,8 @@ namespace UcenjeCS.ConsoleAppFakultet
                     PrikaziIzbornik();
                     break;
                 case 6:
-                    var e = Rokovi[Pomocno.UcitajRasponBroja("Unesite redni broj ispitnog roka za unos pristupnika", 1, Rokovi.Count) - 1];
-                    UcitajPristupnike2(e, e.Studenti);
+                    var r = Rokovi[Pomocno.UcitajRasponBroja("Unesite redni broj ispitnog roka za unos pristupnika", 1, Rokovi.Count) - 1];
+                    UcitajPristupnike(r, r.Studenti);
                     PrikaziIzbornik();
                     break;
                 case 7:
@@ -90,17 +90,6 @@ namespace UcenjeCS.ConsoleAppFakultet
                 listaPristupnika.Add(Izbornik.ObradaStudent.Studenti[opcija - 1]);
             }
             r.Studenti = listaPristupnika;
-        }
-
-        private void UcitajPristupnike2(IspitniRok e, List<Student> lista)
-        {           
-            while (Pomocno.UcitajBool("Unos novog pristupnika? (DA / NE)", "da"))
-            {
-                Izbornik.ObradaStudent.PrikaziStudente();
-                var opcija = Pomocno.UcitajRasponBroja("Izaberite redni broj pristupnika za unos", 1, Izbornik.ObradaStudent.Studenti.Count);
-                lista.Add(Izbornik.ObradaStudent.Studenti[opcija - 1]);
-            }
-            e.Studenti = lista;
         }
 
         private void ObrisiRok()

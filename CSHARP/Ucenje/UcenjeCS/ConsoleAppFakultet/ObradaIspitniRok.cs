@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using UcenjeCS.ConsoleAppFakultet.Model;
@@ -42,7 +43,7 @@ namespace UcenjeCS.ConsoleAppFakultet
             Console.WriteLine("3. Dodaj novi ispitni rok");
             Console.WriteLine("4. Promijeni podatke ispitnog roka");
             Console.WriteLine("5. Brisanje ispitnog roka");
-            Console.WriteLine("6. Dodaj pristupnike");
+            Console.WriteLine("6. Dodaj / obriši pristupnike");
             Console.WriteLine("7. Povratak na glavni izbornik");
             OdabirOpcijeIzbornika();
         }
@@ -72,8 +73,15 @@ namespace UcenjeCS.ConsoleAppFakultet
                     PrikaziIzbornik();
                     break;
                 case 6:
-                    var r = Rokovi[Pomocno.UcitajRasponBroja("Unesite redni broj ispitnog roka za unos pristupnika", 1, Rokovi.Count) - 1];
-                    UcitajPristupnike(r, r.Studenti);
+                    var r = Rokovi[Pomocno.UcitajRasponBroja("Unesite redni broj ispitnog roka za unos/brisanje pristupnika", 1, Rokovi.Count) - 1];
+                    if (Pomocno.UcitajBool("1 - dodati \n2 - obrisati", "1"))
+                    {
+                        UcitajPristupnike(r, r.Studenti);
+                    }
+                    else
+                    {
+                        ObrisiPristupnike(r, r.Studenti);
+                    }
                     PrikaziIzbornik();
                     break;
                 case 7:
@@ -81,15 +89,41 @@ namespace UcenjeCS.ConsoleAppFakultet
             }
         }
 
+        private void ObrisiPristupnike(IspitniRok r, List<Student> listaPristupnika)
+        {
+            if (listaPristupnika.Count != 0)
+            {                
+                do
+                {
+                    var rbs = 1;
+                    foreach (var e in listaPristupnika)
+                    {
+                        Console.WriteLine(rbs++ + ". " + e.Ime + " " + e.Prezime);
+                    }
+                    var s = listaPristupnika[Pomocno.UcitajRasponBroja("Unesite redni broj pristupnika za brisanje", 1, listaPristupnika.Count) - 1];
+                    if (Pomocno.UcitajBool("Obrisati pristupnika " + s.Ime + " " + s.Prezime + "? (DA / NE)", "da"))
+                    {
+                        listaPristupnika.Remove(s);
+                    }
+                }
+                while (listaPristupnika.Count != 0 && Pomocno.UcitajBool("Želite li obrisati još jednog pristupnika? (DA / NE)", "da"));
+            }
+
+            if (listaPristupnika.Count == 0)
+            {
+                Console.WriteLine("Nema više pristupnika u ovom ispitnom roku");
+            }
+        }
+
         private void UcitajPristupnike(IspitniRok r, List<Student> listaPristupnika)
         {
-            while (Pomocno.UcitajBool("Unos novog pristupnika? (DA / NE)", "da"))
+            Izbornik.ObradaStudent.PrikaziStudente();
+            do
             {
-                Izbornik.ObradaStudent.PrikaziStudente();
                 var opcija = Pomocno.UcitajRasponBroja("Izaberite redni broj pristupnika za unos", 1, Izbornik.ObradaStudent.Studenti.Count);
                 listaPristupnika.Add(Izbornik.ObradaStudent.Studenti[opcija - 1]);
             }
-            r.Studenti = listaPristupnika;
+            while (Pomocno.UcitajBool("Unos još jednog pristupnika? (DA / NE)", "da"));
         }
 
         private void ObrisiRok()
@@ -113,10 +147,14 @@ namespace UcenjeCS.ConsoleAppFakultet
                 {
                     UcitajPristupnike(r, r.Studenti);
                 }
+                if (Pomocno.UcitajBool("Želite li obrisati pristupnike iz obog ispitnog roka? (DA / NE)", "da"))
+                {
+                    ObrisiPristupnike(r, r.Studenti);
+                }
             }
             else
             {
-                switch(Pomocno.UcitajRasponBroja("Unesite broj parametra za promjenu \n1 - šifra\n2 - kolegij\n3 - vrsta ispita\n4 - vrijeme\n5 - dodaj pristupnike", 1, 5))
+                switch(Pomocno.UcitajRasponBroja("Unesite broj parametra za promjenu \n1 - šifra\n2 - kolegij\n3 - vrsta ispita\n4 - vrijeme\n5 - dodaj/obriši pristupnike", 1, 5))
                 {
                     case 1:
                         r.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + r.Sifra + ")", 1, int.MaxValue);
@@ -131,7 +169,14 @@ namespace UcenjeCS.ConsoleAppFakultet
                         r.Datum = Pomocno.UcitajDatum(false);
                         break;
                     case 5:
-                        UcitajPristupnike(r, r.Studenti);
+                        if (Pomocno.UcitajBool("1 - dodati \n2 - obrisati", "1"))
+                        {
+                            UcitajPristupnike(r, r.Studenti);
+                        }
+                        else
+                        {
+                            ObrisiPristupnike(r, r.Studenti);
+                        }
                         break;
                 }
             }
@@ -171,10 +216,9 @@ namespace UcenjeCS.ConsoleAppFakultet
         private void PrikaziRokove()
         {
             var rbis = 1;
-            var rbp = 1;
             foreach (var r in Rokovi)
             {
-                Console.WriteLine(rbis++ + ". " + r.Kolegij.Naziv + " - " + r.Datum + ", " + r.VrstaIspita);
+                Console.WriteLine(rbis++ + ". " + r.Kolegij.Naziv + " (" + r.Kolegij.Smjer.Naziv + ") - " + r.Datum + ", " + r.VrstaIspita);
             }
         }
     }

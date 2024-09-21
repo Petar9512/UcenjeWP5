@@ -78,7 +78,10 @@ namespace UcenjeCS.ConsoleAppFakultet
         {
             PrikaziStudente();
             var s = Studenti[Pomocno.UcitajRasponBroja("Unesite redni broj studenta za brisanje", 1, Studenti.Count) - 1];
-            Studenti.Remove(s);
+            if (Pomocno.UcitajBool("1 - obriši studenta\n2 - odustani", "1"))
+            {
+                Studenti.Remove(s);
+            }           
         }
 
         private void PromjenaStudenta()

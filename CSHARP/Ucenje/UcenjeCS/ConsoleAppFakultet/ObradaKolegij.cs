@@ -122,7 +122,10 @@ namespace UcenjeCS.ConsoleAppFakultet
         {
             PrikaziKolegije();
             var k = Kolegiji[Pomocno.UcitajRasponBroja("Unesite redni broj kolegija za brisanje", 1, Kolegiji.Count) - 1];
-            Kolegiji.Remove(k);
+            if (Pomocno.UcitajBool("1 - obriši kolegij\n2 - odustani", "1"))
+            {
+                Kolegiji.Remove(k);
+            }            
         }
 
         private void PromijeniKolegij()

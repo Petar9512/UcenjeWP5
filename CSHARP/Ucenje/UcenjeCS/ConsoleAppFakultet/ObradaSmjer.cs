@@ -75,7 +75,10 @@ namespace UcenjeCS.ConsoleAppFakultet
         {
             PrikaziSmjerove();
             var s = Smjerovi[Pomocno.UcitajRasponBroja("Unesite redni broj smjera za brisanje", 1, Smjerovi.Count) - 1];
-            Smjerovi.Remove(s);
+            if (Pomocno.UcitajBool("1 - obriši smjer\n2 - odustani", "1"))
+            {
+                Smjerovi.Remove(s);
+            }           
         }
 
         private void PromijeniSmjer()

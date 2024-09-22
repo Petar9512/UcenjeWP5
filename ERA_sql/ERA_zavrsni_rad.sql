@@ -6,6 +6,20 @@ create database fakultet;
 go
 use fakultet;
 
+
+SELECT name, collation_name FROM sys.databases;  
+GO  
+ALTER DATABASE db_aad5a5_fakultet  SET SINGLE_USER WITH 
+ROLLBACK IMMEDIATE;  
+GO  
+ALTER DATABASE db_aad5a5_fakultet COLLATE Croatian_CI_AS;  
+GO  
+ALTER DATABASE db_aad5a5_fakultet  SET MULTI_USER;  
+GO  
+SELECT name, collation_name FROM sys.databases;  
+GO  
+
+
 create table Smjerovi(
 sifra int not null primary key identity(1,1),
 naziv varchar(100) not null,
@@ -48,7 +62,6 @@ alter table Studenti add foreign key (smjerID) references Smjerovi(sifra);
 alter table IspitniRok add foreign key (kolegijID) references Kolegiji(sifra);
 alter table Prijava add foreign key(studentID) references Studenti(sifra);
 alter table Prijava add foreign key(ispitniRokID) references IspitniRok(sifra);
-
 
 insert into Smjerovi (naziv,brojStudenata) values
 ('Anglistika',50),

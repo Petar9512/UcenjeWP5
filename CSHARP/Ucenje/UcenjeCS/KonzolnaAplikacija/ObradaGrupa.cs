@@ -26,24 +26,25 @@ namespace UcenjeCS.KonzolnaAplikacija
 
         private void UcitajTestnePodatke()
         {
-            Grupe.Add(new() { Sifra = 1, Naziv = "WP4", Smjer = Izbornik.ObradaSmjer.Smjerovi[0] });
-            Grupe.Add(new() { Sifra = 2, Naziv = "WP5", Smjer = Izbornik.ObradaSmjer.Smjerovi[0] });
+            Grupe.Add(new() { Sifra = 1, Naziv = "WP4", Smjer = Izbornik.ObradaSmjer.Smjerovi[0], BrojPolaznika = 5 });
+            Grupe.Add(new() { Sifra = 2, Naziv = "WP5", Smjer = Izbornik.ObradaSmjer.Smjerovi[0], BrojPolaznika = 10 });
         }
 
         public void PrikaziIzbornik()
         {
-            Console.WriteLine("Izaberite opciju izbornika: ");
+            Console.WriteLine("\nIzaberite opciju izbornika: ");
             Console.WriteLine("1. Pregled svih grupa");
             Console.WriteLine("2. Unos nove grupe");
             Console.WriteLine("3. Promjena podataka grupe");
             Console.WriteLine("4. Brisanje grupe");
-            Console.WriteLine("5. Povratak na glavni izbornik");
+            Console.WriteLine("5. Dodaj / obriši polaznike");
+            Console.WriteLine("6. Povratak na glavni izbornik");
             OdabirOpcijeIzbornika();
         }
 
         private void OdabirOpcijeIzbornika()
         {
-            switch(Pomocno.UcitajRasponBroja("Izaberite stavku izbornika", 1, 5))
+            switch(Pomocno.UcitajRasponBroja("Izaberite stavku izbornika", 1, 6))
             {
                 case 1:
                     PrikaziSveGrupe();
@@ -62,8 +63,64 @@ namespace UcenjeCS.KonzolnaAplikacija
                     PrikaziIzbornik();
                     break;
                 case 5:
-                    Console.Clear();
+                    var g = Grupe[Pomocno.UcitajRasponBroja("Unesite redni broj grupe za dodavanje / brisanje polaznika", 1, Grupe.Count) - 1];
+                    if (Pomocno.UcitajBool("1 - dodati\n2 - brisati", "1"))
+                    {
+                        DodajPolaznike(g, g.Polaznici, g.BrojPolaznika);
+                    }
+                    else
+                    {
+                        ObrisiPolaznike(g, g.Polaznici);
+                    }
+                    PrikaziIzbornik();
                     break;
+                case 6:
+                    break;
+            }
+        }
+
+        private void DodajPolaznike(Grupa g, List<Polaznik> lista, int brojPolaznika)
+        {
+            Izbornik.ObradaPolaznik.PrikazSvihPolaznika();
+            do
+            {
+                var p = Izbornik.ObradaPolaznik.Polaznici[Pomocno.UcitajRasponBroja("Unesite redni broj polaznika za dodati u grupu", 1, Izbornik.ObradaPolaznik.Polaznici.Count) - 1];
+                if (lista.Count < brojPolaznika)
+                {
+                    lista.Add(p);
+                }
+                else
+                {
+                    Console.WriteLine("Polaznik nije dodan - ova grupa je već popunjena");
+                    break;
+                }
+            }
+            while (Pomocno.UcitajBool("Želite li dodati još jednog polaznika? (DA / NE)", "da"));
+        }
+
+        private void ObrisiPolaznike(Grupa g, List<Polaznik> lista)
+        {
+            if (lista.Count != 0)
+            {
+                do 
+                { 
+                var rbp = 1;
+                foreach (var e in lista)
+                {
+                    Console.WriteLine(rbp++ + ". " + e.Ime + " " + e.Prezime);
+                }
+                    var p = lista[Pomocno.UcitajRasponBroja("Unesite redni broj polaznika za brisanje", 1, lista.Count) - 1];
+                    if (Pomocno.UcitajBool("Obrisati polaznika (" + p.Ime + " " + p.Prezime + ")? DA / NE", "da"))
+                    {
+                        lista.Remove(p);
+                    }                    
+                }
+                while (lista.Count != 0 && Pomocno.UcitajBool("Obrisati još jednog polaznika? (DA / NE)", "da"));
+            }
+
+            if (lista.Count == 0)
+            {
+                Console.WriteLine("Nema više polaznika u ovoj grupi");
             }
         }
 
@@ -89,7 +146,14 @@ namespace UcenjeCS.KonzolnaAplikacija
             g.Smjer = Izbornik.ObradaSmjer.Smjerovi[Pomocno.UcitajRasponBroja("Unesite redni broj grupe", 1, Izbornik.ObradaSmjer.Smjerovi.Count) - 1];
             g.Predavac = Pomocno.UcitajString(g.Predavac, "Unesite novog predavača", 50, true);
             g.BrojPolaznika = Pomocno.UcitajRasponBroja("Unesite maksimalni broj polaznika", 5, 40);
-            g.Polaznici = UcitajPolaznike(g.BrojPolaznika);
+            if (Pomocno.UcitajBool("Želite li dodati polaznike u ovu grupu? (DA / NE)", "da"))
+            {
+                DodajPolaznike(g, g.Polaznici, g.BrojPolaznika);
+            }
+            if (Pomocno.UcitajBool("Želite li brisati polaznike iz ove grupe? (DA / NE)", "da"))
+            {
+                ObrisiPolaznike(g, g.Polaznici);
+            }
         }
 
         private void UnosNoveGrupe()

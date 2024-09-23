@@ -9,6 +9,10 @@ namespace UcenjeCS.KonzolnaAplikacija.model
 {
     internal class Grupa : Entitet
     {
+        public Grupa()
+        {
+            Polaznici = new List<Polaznik>();
+        }
 
         public string? Naziv { get; set; }
         public Smjer? Smjer { get; set; }

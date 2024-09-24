@@ -24,7 +24,7 @@ namespace UcenjeCS.KonzolnaAplikacija
 
         private void PrikaziIzbornik()
         {
-            Console.WriteLine("Glavni izbornik");
+            Console.WriteLine("\nGlavni izbornik");
             Console.WriteLine("1. Smjerovi");
             Console.WriteLine("2. Grupe");
             Console.WriteLine("3. Polaznici");

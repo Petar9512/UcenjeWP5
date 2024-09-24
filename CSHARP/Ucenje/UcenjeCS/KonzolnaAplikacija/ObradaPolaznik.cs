@@ -80,7 +80,7 @@ namespace UcenjeCS.KonzolnaAplikacija
         {
             PrikazSvihPolaznika();
             var p = Polaznici[Pomocno.UcitajRasponBroja("Unesite redni broj polaznika za promjenu", 1, Polaznici.Count) - 1];
-            if (Pomocno.UcitajRasponBroja("1.Promijeni sve \n2. Pojedinačna promjena", 1, 2) == 1)
+            if (Pomocno.UcitajRasponBroja("1. Promijeni sve \n2. Pojedinačna promjena", 1, 2) == 1)
             {
                 p.Promijeni(p);
             }

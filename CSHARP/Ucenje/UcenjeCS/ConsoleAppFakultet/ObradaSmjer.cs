@@ -75,7 +75,7 @@ namespace UcenjeCS.ConsoleAppFakultet
         {
             PrikaziSmjerove();
             var s = Smjerovi[Pomocno.UcitajRasponBroja("Unesite redni broj smjera za brisanje", 1, Smjerovi.Count) - 1];
-            if (Pomocno.UcitajBool("1 - obriši smjer\n2 - odustani", "1"))
+            if (Pomocno.UcitajRasponBroja("1 - obriši smjer\n2 - odustani", 1, 2) == 1)
             {
                 Smjerovi.Remove(s);
             }           
@@ -86,7 +86,7 @@ namespace UcenjeCS.ConsoleAppFakultet
             PrikaziSmjerove();
             var s = Smjerovi[Pomocno.UcitajRasponBroja("Unesite redni broj smjera za promjenu", 1, Smjerovi.Count) - 1];
 
-            if (Pomocno.UcitajBool("1 - promijeni sve parametre \n2 - promijeni pojedinačno", "1"))
+            if (Pomocno.UcitajRasponBroja("1 - promijeni sve parametre \n2 - promijeni pojedinačno", 1, 2) == 1)
             {
                 s.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + s.Sifra + "):", 1, int.MaxValue);
                 s.Naziv = Pomocno.UcitajString(s.Naziv, "Unesite novi naziv smjera", 50, true);

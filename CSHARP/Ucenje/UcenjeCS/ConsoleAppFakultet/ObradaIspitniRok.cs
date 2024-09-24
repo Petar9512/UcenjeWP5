@@ -74,7 +74,7 @@ namespace UcenjeCS.ConsoleAppFakultet
                     break;
                 case 6:
                     var r = Rokovi[Pomocno.UcitajRasponBroja("Unesite redni broj ispitnog roka za unos/brisanje pristupnika", 1, Rokovi.Count) - 1];
-                    if (Pomocno.UcitajBool("1 - dodati \n2 - obrisati", "1"))
+                    if (Pomocno.UcitajRasponBroja("1 - dodati \n2 - obrisati", 1, 2) == 1)
                     {
                         UcitajPristupnike(r, r.Studenti);
                     }
@@ -137,7 +137,7 @@ namespace UcenjeCS.ConsoleAppFakultet
         {
             PrikaziRokove();
             var r = Rokovi[Pomocno.UcitajRasponBroja("Unesite redni broj ispitnog roka za brisanje", 1, Rokovi.Count) - 1];
-            if (Pomocno.UcitajBool("1 - obriši rok\n2 - odustani", "1"))
+            if (Pomocno.UcitajRasponBroja("1 - obriši rok\n2 - odustani", 1, 2) == 1)
             {
                 Rokovi.Remove(r);
             }           
@@ -147,7 +147,7 @@ namespace UcenjeCS.ConsoleAppFakultet
         {
             PrikaziRokove();
             var r = Rokovi[Pomocno.UcitajRasponBroja("Unesite redni broj roka za promjenu", 1, Rokovi.Count) - 1];
-            if (Pomocno.UcitajBool("1 - promijeniti sve parametre\n2 - promijeniti pojedinačno", "1"))
+            if (Pomocno.UcitajRasponBroja("1 - promijeniti sve parametre\n2 - promijeniti pojedinačno", 1, 2) == 1)
             {
                 r.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + r.Sifra + ")", 1, int.MaxValue);
                 r.Kolegij = Izbornik.ObradaKolegij.Kolegiji[Pomocno.UcitajRasponBroja("Unesite redni broj kolegija", 1, Izbornik.ObradaKolegij.Kolegiji.Count) - 1];
@@ -179,11 +179,11 @@ namespace UcenjeCS.ConsoleAppFakultet
                         r.Datum = Pomocno.UcitajDatum(false);
                         break;
                     case 5:
-                        if (Pomocno.UcitajBool("1 - dodati \n2 - obrisati", "1"))
+                        if (Pomocno.UcitajBool("Želite li dodati pristupnike u ovaj ispitni rok? (DA / NE)", "da"))
                         {
                             UcitajPristupnike(r, r.Studenti);
                         }
-                        else
+                        if (Pomocno.UcitajBool("Želite li obrisati pristupnike iz ovog ispitnog roka? (DA / NE)", "da"))
                         {
                             ObrisiPristupnike(r, r.Studenti);
                         }

@@ -78,7 +78,7 @@ namespace UcenjeCS.ConsoleAppFakultet
         {
             PrikaziStudente();
             var s = Studenti[Pomocno.UcitajRasponBroja("Unesite redni broj studenta za brisanje", 1, Studenti.Count) - 1];
-            if (Pomocno.UcitajBool("1 - obriši studenta\n2 - odustani", "1"))
+            if (Pomocno.UcitajRasponBroja("1 - obriši studenta\n2 - odustani", 1, 2) == 1)
             {
                 Studenti.Remove(s);
             }           
@@ -88,7 +88,7 @@ namespace UcenjeCS.ConsoleAppFakultet
         {
             PrikaziStudente();
             var s = Studenti[Pomocno.UcitajRasponBroja("Unesite redni broj studenta za promjenu", 1, Studenti.Count) - 1];
-            if (Pomocno.UcitajBool("1 - promijeni sve parametre\n2 - promijeni pojedinačno", "1"))
+            if (Pomocno.UcitajRasponBroja("1 - promijeni sve parametre\n2 - promijeni pojedinačno", 1, 2) == 1)
             {
                 s.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + s.Sifra + ")", 1, int.MaxValue);
                 Izbornik.ObradaSmjer.PrikaziSmjerove();

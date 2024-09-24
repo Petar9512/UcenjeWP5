@@ -122,7 +122,7 @@ namespace UcenjeCS.ConsoleAppFakultet
         {
             PrikaziKolegije();
             var k = Kolegiji[Pomocno.UcitajRasponBroja("Unesite redni broj kolegija za brisanje", 1, Kolegiji.Count) - 1];
-            if (Pomocno.UcitajBool("1 - obriši kolegij\n2 - odustani", "1"))
+            if (Pomocno.UcitajRasponBroja("1 - obriši kolegij\n2 - odustani", 1, 2) == 1)
             {
                 Kolegiji.Remove(k);
             }            
@@ -132,7 +132,7 @@ namespace UcenjeCS.ConsoleAppFakultet
         {
             PrikaziKolegije();
             var k = Kolegiji[Pomocno.UcitajRasponBroja("Unesite redni broj kolegija za promjenu", 1, Kolegiji.Count) - 1];
-            if (Pomocno.UcitajBool("1 - promijeni sve parametre \n2 - promijeni pojedinačno", "1"))
+            if (Pomocno.UcitajRasponBroja("1 - promijeni sve parametre \n2 - promijeni pojedinačno", 1, 2) == 1)
             {
                 k.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + k.Sifra + ")", 1, Kolegiji.Count);
                 Izbornik.ObradaSmjer.PrikaziSmjerove();

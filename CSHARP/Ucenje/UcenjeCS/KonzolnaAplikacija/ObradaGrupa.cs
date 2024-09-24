@@ -64,7 +64,7 @@ namespace UcenjeCS.KonzolnaAplikacija
                     break;
                 case 5:
                     var g = Grupe[Pomocno.UcitajRasponBroja("Unesite redni broj grupe za dodavanje / brisanje polaznika", 1, Grupe.Count) - 1];
-                    if (Pomocno.UcitajBool("1 - dodati\n2 - brisati", "1"))
+                    if (Pomocno.UcitajRasponBroja("1 - dodati\n2 - brisati", 1, 2) == 1)
                     {
                         DodajPolaznike(g, g.Polaznici, g.BrojPolaznika);
                     }
@@ -140,19 +140,54 @@ namespace UcenjeCS.KonzolnaAplikacija
             PrikaziSveGrupe();
 
             var g = Grupe[Pomocno.UcitajRasponBroja("Unesite redni broj grupe za promjenu", 1, Grupe.Count) - 1];
-            g.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru grupe", 1, int.MaxValue);
-            g.Naziv = Pomocno.UcitajString(g.Naziv, "Unesite novi naziv grupe", 50, true);
-            Izbornik.ObradaSmjer.PrikaziSveSmjerove();
-            g.Smjer = Izbornik.ObradaSmjer.Smjerovi[Pomocno.UcitajRasponBroja("Unesite redni broj grupe", 1, Izbornik.ObradaSmjer.Smjerovi.Count) - 1];
-            g.Predavac = Pomocno.UcitajString(g.Predavac, "Unesite novog predavača", 50, true);
-            g.BrojPolaznika = Pomocno.UcitajRasponBroja("Unesite maksimalni broj polaznika", 5, 40);
-            if (Pomocno.UcitajBool("Želite li dodati polaznike u ovu grupu? (DA / NE)", "da"))
+            if (Pomocno.UcitajRasponBroja("1 - promijenti sve parametre\n2 - promijeniti pojedinačno", 1, 2) == 1)
             {
-                DodajPolaznike(g, g.Polaznici, g.BrojPolaznika);
+                g.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru grupe (" + g.Sifra + ")", 1, int.MaxValue);
+                g.Naziv = Pomocno.UcitajString(g.Naziv, "Unesite novi naziv grupe", 50, true);
+                Izbornik.ObradaSmjer.PrikaziSveSmjerove();
+                g.Smjer = Izbornik.ObradaSmjer.Smjerovi[Pomocno.UcitajRasponBroja("Unesite redni broj grupe", 1, Izbornik.ObradaSmjer.Smjerovi.Count) - 1];
+                g.Predavac = Pomocno.UcitajString(g.Predavac, "Unesite novog predavača", 50, true);
+                g.BrojPolaznika = Pomocno.UcitajRasponBroja("Unesite maksimalni broj polaznika", 5, 40);
+                if (Pomocno.UcitajBool("Želite li dodati polaznike u ovu grupu? (DA / NE)", "da"))
+                {
+                    DodajPolaznike(g, g.Polaznici, g.BrojPolaznika);
+                }
+                if (Pomocno.UcitajBool("Želite li brisati polaznike iz ove grupe? (DA / NE)", "da"))
+                {
+                    ObrisiPolaznike(g, g.Polaznici);
+                }
             }
-            if (Pomocno.UcitajBool("Želite li brisati polaznike iz ove grupe? (DA / NE)", "da"))
+            else
             {
-                ObrisiPolaznike(g, g.Polaznici);
+                switch (Pomocno.UcitajRasponBroja("Unesite redni broj parametra za promjenu: \n1 - šifra\n2 - naziv\n3 - smjer\n4 - predavač\n5 - broj polaznika\n6 - unos/brisanje polaznika", 1, 6))
+                {
+                    case 1:
+                        g.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru grupe (" + g.Sifra + ")", 1, int.MaxValue);
+                        break;
+                    case 2:
+                        g.Naziv = Pomocno.UcitajString(g.Naziv, "Unesite novi naziv grupe", 50, true);
+                        break;
+                    case 3:
+                        Izbornik.ObradaSmjer.PrikaziSveSmjerove();
+                        g.Smjer = Izbornik.ObradaSmjer.Smjerovi[Pomocno.UcitajRasponBroja("Unesite redni broj grupe", 1, Izbornik.ObradaSmjer.Smjerovi.Count) - 1];
+                        break;
+                    case 4:
+                        g.Predavac = Pomocno.UcitajString(g.Predavac, "Unesite novog predavača", 50, true);
+                        break;
+                    case 5:
+                        g.BrojPolaznika = Pomocno.UcitajRasponBroja("Unesite maksimalni broj polaznika", 5, 40);
+                        break;
+                    case 6:
+                        if (Pomocno.UcitajBool("Želite li dodati polaznike u ovu grupu? (DA / NE)", "da"))
+                        {
+                            DodajPolaznike(g, g.Polaznici, g.BrojPolaznika);
+                        }
+                        if (Pomocno.UcitajBool("Želite li brisati polaznike iz ove grupe? (DA / NE)", "da"))
+                        {
+                            ObrisiPolaznike(g, g.Polaznici);
+                        }
+                        break;
+                }
             }
         }
 

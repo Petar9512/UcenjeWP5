@@ -26,19 +26,24 @@ namespace UcenjeCS.ConsoleAppFakultet
 
         private void PrikaziIzbornik()
         {
-            Console.WriteLine("\nIzbornik");
+            Console.WriteLine("\nGlavni izbornik");
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("1. Smjerovi");
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("2. Kolegiji");
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine("3. Studenti");
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("4. IspitniRokovi");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("5. Izlaz iz programa");
             OdabirOpcijeIzbornika();
         }
 
         private void OdabirOpcijeIzbornika()
         {
-            switch(KonzolnaAplikacija.Pomocno.UcitajRasponBroja("Odaberite opciju izbornika", 1, 5))
-            {
+            switch(KonzolnaAplikacija.Pomocno.UcitajRasponBroja("\nOdaberite opciju izbornika", 1, 5))
+            {            
                 case 1:
                     ObradaSmjer.PrikaziIzbornik();
                     Console.Clear();

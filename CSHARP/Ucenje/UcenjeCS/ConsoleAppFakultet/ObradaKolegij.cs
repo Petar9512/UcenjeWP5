@@ -79,7 +79,9 @@ namespace UcenjeCS.ConsoleAppFakultet
 
         public void PrikaziIzbornik()
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\nIzbornik - kolegiji");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("1. Prikaži sve kolegije");
             Console.WriteLine("2. Pregled detalja kolegija");
             Console.WriteLine("3. Dodaj novi kolegij");
@@ -91,7 +93,7 @@ namespace UcenjeCS.ConsoleAppFakultet
 
         private void OdabirOpcijeIzbornika()
         {
-            switch(Pomocno.UcitajRasponBroja("Odaberite opciju izbornika: ", 1, 6))
+            switch(Pomocno.UcitajRasponBroja("\nOdaberite opciju izbornika: ", 1, 6))
             {
                 case 1:
                     PrikaziKolegije();
@@ -121,7 +123,7 @@ namespace UcenjeCS.ConsoleAppFakultet
         private void ObrisiKolegij()
         {
             PrikaziKolegije();
-            var k = Kolegiji[Pomocno.UcitajRasponBroja("Unesite redni broj kolegija za brisanje", 1, Kolegiji.Count) - 1];
+            var k = Kolegiji[Pomocno.UcitajRasponBroja("\nUnesite redni broj kolegija za brisanje", 1, Kolegiji.Count) - 1];
             if (Pomocno.UcitajRasponBroja("1 - obriši kolegij\n2 - odustani", 1, 2) == 1)
             {
                 Kolegiji.Remove(k);
@@ -131,37 +133,43 @@ namespace UcenjeCS.ConsoleAppFakultet
         private void PromijeniKolegij()
         {
             PrikaziKolegije();
-            var k = Kolegiji[Pomocno.UcitajRasponBroja("Unesite redni broj kolegija za promjenu", 1, Kolegiji.Count) - 1];
-            if (Pomocno.UcitajRasponBroja("1 - promijeni sve parametre \n2 - promijeni pojedinačno", 1, 2) == 1)
+            var k = Kolegiji[Pomocno.UcitajRasponBroja("\nUnesite redni broj kolegija za promjenu", 1, Kolegiji.Count) - 1];
+            switch (Pomocno.UcitajRasponBroja("1 - promijeni sve parametre \n2 - promijeni pojedinačno \n3 - odustani", 1, 3))
             {
-                k.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + k.Sifra + ")", 1, Kolegiji.Count);
-                Izbornik.ObradaSmjer.PrikaziSmjerove();
-                k.Smjer = Izbornik.ObradaSmjer.Smjerovi[Pomocno.UcitajRasponBroja("Unesite redni broj novog smjera", 1, Izbornik.ObradaSmjer.Smjerovi.Count) - 1];
-                k.Naziv = Pomocno.UcitajString(k.Naziv, "Unesite novi naziv kolegija", 50, true);
-                k.Predavac = Pomocno.UcitajString("Unesite ime novog predavača", 50, true);
-                k.Obavezni = Pomocno.UcitajBool("Je li kolegij obavezan? (DA / NE)", "da");
-            }
-            else
-            {
-                switch(Pomocno.UcitajRasponBroja("Unesite broj parametra za promjenu: \n1 - šifra\n2 - smjer\n3 - naziv\n4 - predavač\n5 - obavezni", 1, 5))
-                {
-                    case 1: 
-                        k.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + k.Sifra + ")", 1, Kolegiji.Count);
-                        break;
-                    case 2:
-                        Izbornik.ObradaSmjer.PrikaziSmjerove();
-                        k.Smjer = Izbornik.ObradaSmjer.Smjerovi[Pomocno.UcitajRasponBroja("Unesite redni broj novog smjera", 1, Izbornik.ObradaSmjer.Smjerovi.Count) - 1];
-                        break;
-                    case 3:
-                        k.Naziv = Pomocno.UcitajString(k.Naziv, "Unesite novi naziv kolegija", 50, true);
-                        break;
-                    case 4:
-                        k.Predavac = Pomocno.UcitajString("Unesite ime novog predavača", 50, true);
-                        break;
-                    case 5:
-                        k.Obavezni = Pomocno.UcitajBool("Je li kolegij obavezan? (DA / NE)", "da");
-                        break;
-                }
+                case 1:
+                    k.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + k.Sifra + ")", 1, Kolegiji.Count);
+                    Izbornik.ObradaSmjer.PrikaziSmjerove();
+                    k.Smjer = Izbornik.ObradaSmjer.Smjerovi[Pomocno.UcitajRasponBroja("Unesite redni broj novog smjera", 1, Izbornik.ObradaSmjer.Smjerovi.Count) - 1];
+                    k.Naziv = Pomocno.UcitajString(k.Naziv, "Unesite novi naziv kolegija", 50, true);
+                    k.Predavac = Pomocno.UcitajString("Unesite ime novog predavača", 50, true);
+                    k.Obavezni = Pomocno.UcitajBool("Je li kolegij obavezan? (DA / NE)", "da");
+                    break;
+
+                case 2:
+                    switch (Pomocno.UcitajRasponBroja("Unesite broj parametra za promjenu: \n1 - šifra\n2 - smjer\n3 - naziv\n4 - predavač\n5 - obavezni\n6 - odustani", 1, 6))
+                    {
+                        case 1:
+                            k.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + k.Sifra + ")", 1, Kolegiji.Count);
+                            break;
+                        case 2:
+                            Izbornik.ObradaSmjer.PrikaziSmjerove();
+                            k.Smjer = Izbornik.ObradaSmjer.Smjerovi[Pomocno.UcitajRasponBroja("Unesite redni broj novog smjera", 1, Izbornik.ObradaSmjer.Smjerovi.Count) - 1];
+                            break;
+                        case 3:
+                            k.Naziv = Pomocno.UcitajString(k.Naziv, "Unesite novi naziv kolegija", 50, true);
+                            break;
+                        case 4:
+                            k.Predavac = Pomocno.UcitajString("Unesite ime novog predavača", 50, true);
+                            break;
+                        case 5:
+                            k.Obavezni = Pomocno.UcitajBool("Je li kolegij obavezan? (DA / NE)", "da");
+                            break;
+                        case 6:
+                            break;
+                    }
+                    break;
+                case 3:
+                    break;
             }
         }
 
@@ -179,8 +187,17 @@ namespace UcenjeCS.ConsoleAppFakultet
 
         private void PregledKolegija()
         {
-            var k = Kolegiji[Pomocno.UcitajRasponBroja("Odaberite redni broj kolegija za pregled", 1, Kolegiji.Count) - 1];
-            Console.WriteLine("naziv: " + k.Naziv + ", smjer: " + k.Smjer.Naziv + ", predavač: " + (k.Predavac == null ? "nepoznat" : k.Predavac) + ", obavezni: " + ((bool)k.Obavezni ? "da" : "ne"));
+            PrikaziKolegije();
+            var broj = Pomocno.UcitajRasponBroja("\nOdaberite redni broj kolegija za pregled ili 0 za povratak na izbornik", 0, Kolegiji.Count);
+            if (broj == 0)
+            {
+                return;
+            }
+            else
+            {
+                var k = Kolegiji[broj - 1];
+                Console.WriteLine("naziv: " + k.Naziv + ", smjer: " + k.Smjer.Naziv + ", predavač: " + (k.Predavac == null ? "nepoznat" : k.Predavac) + ", obavezni: " + ((bool)k.Obavezni ? "da" : "ne"));
+            }           
         }
 
         private void PrikaziKolegije()

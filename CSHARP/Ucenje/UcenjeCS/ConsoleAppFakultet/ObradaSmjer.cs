@@ -32,7 +32,9 @@ namespace UcenjeCS.ConsoleAppFakultet
 
         public void PrikaziIzbornik()
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\nIzbornik - smjerovi");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("1. Prikaži sve smjerove");
             Console.WriteLine("2. Pregled detalja smjera");
             Console.WriteLine("3. Dodaj novi smjer");
@@ -44,7 +46,7 @@ namespace UcenjeCS.ConsoleAppFakultet
 
         private void OdabirOpcijeIzbornika()
         {
-            switch (Pomocno.UcitajRasponBroja("Odaberite opciju izbornika", 1, 6))
+            switch (Pomocno.UcitajRasponBroja("\nOdaberite opciju izbornika", 1, 6))
             {
                 case 1:
                     PrikaziSmjerove();
@@ -74,7 +76,7 @@ namespace UcenjeCS.ConsoleAppFakultet
         private void ObrisiSmjer()
         {
             PrikaziSmjerove();
-            var s = Smjerovi[Pomocno.UcitajRasponBroja("Unesite redni broj smjera za brisanje", 1, Smjerovi.Count) - 1];
+            var s = Smjerovi[Pomocno.UcitajRasponBroja("\nUnesite redni broj smjera za brisanje", 1, Smjerovi.Count) - 1];
             if (Pomocno.UcitajRasponBroja("1 - obriši smjer\n2 - odustani", 1, 2) == 1)
             {
                 Smjerovi.Remove(s);
@@ -84,28 +86,33 @@ namespace UcenjeCS.ConsoleAppFakultet
         private void PromijeniSmjer()
         {
             PrikaziSmjerove();
-            var s = Smjerovi[Pomocno.UcitajRasponBroja("Unesite redni broj smjera za promjenu", 1, Smjerovi.Count) - 1];
+            var s = Smjerovi[Pomocno.UcitajRasponBroja("\nUnesite redni broj smjera za promjenu", 1, Smjerovi.Count) - 1];
 
-            if (Pomocno.UcitajRasponBroja("1 - promijeni sve parametre \n2 - promijeni pojedinačno", 1, 2) == 1)
+            switch (Pomocno.UcitajRasponBroja("1 - promijeni sve parametre \n2 - promijeni pojedinačno \n3 - odustani", 1, 3))
             {
-                s.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + s.Sifra + "):", 1, int.MaxValue);
-                s.Naziv = Pomocno.UcitajString(s.Naziv, "Unesite novi naziv smjera", 50, true);
-                s.BrojStudenata = Pomocno.UcitajRasponBroja("Unesite novi broj studenata (" + s.BrojStudenata + "):", 10, 60);
-            }
-            else
-            {
-                switch(Pomocno.UcitajRasponBroja("Unesite broj parametra za promjenu: \n1. šifra\n2. naziv\n3. broj studenata", 1, 3))
-                {
-                    case 1:
-                        s.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + s.Sifra + "):", 1, int.MaxValue);
-                        break;
-                    case 2:
-                        s.Naziv = Pomocno.UcitajString(s.Naziv, "Unesite novi naziv smjera", 50, true);
-                        break;
-                    case 3:
-                        s.BrojStudenata = Pomocno.UcitajRasponBroja("Unesite novi broj studenata (" + s.BrojStudenata + "):", 10, 60);
-                        break;
-                }
+                case 1:
+                    s.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + s.Sifra + "):", 1, int.MaxValue);
+                    s.Naziv = Pomocno.UcitajString(s.Naziv, "Unesite novi naziv smjera", 50, true);
+                    s.BrojStudenata = Pomocno.UcitajRasponBroja("Unesite novi broj studenata (" + s.BrojStudenata + "):", 10, 60);
+                    break;
+                case 2:
+                    switch (Pomocno.UcitajRasponBroja("\nUnesite broj parametra za promjenu: \n1 - šifra\n2 - naziv\n3 - broj studenata\n4 - odustani", 1, 4))
+                    {
+                        case 1:
+                            s.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + s.Sifra + "):", 1, int.MaxValue);
+                            break;
+                        case 2:
+                            s.Naziv = Pomocno.UcitajString(s.Naziv, "Unesite novi naziv smjera", 50, true);
+                            break;
+                        case 3:
+                            s.BrojStudenata = Pomocno.UcitajRasponBroja("Unesite novi broj studenata (" + s.BrojStudenata + "):", 10, 60);
+                            break;
+                        case 4:
+                            break;
+                    }
+                    break;
+                case 3:
+                    break;
             }
         }
 
@@ -121,8 +128,16 @@ namespace UcenjeCS.ConsoleAppFakultet
         private void PregledSmjera()
         {
             PrikaziSmjerove();
-            var s = Smjerovi[Pomocno.UcitajRasponBroja("Odaberite redni broj smjera za prikaz: ", 1, Smjerovi.Count) - 1];
-            Console.WriteLine("naziv: " + s.Naziv + ", broj studenata: " + s.BrojStudenata);
+            var broj = Pomocno.UcitajRasponBroja("\nOdaberite redni broj smjera za prikaz ili 0 za povratak na izbornik", 0, Smjerovi.Count);
+            if (broj == 0)
+            {
+                return;
+            }
+            else
+            {
+                var s = Smjerovi[broj - 1];
+                Console.WriteLine("naziv: " + s.Naziv + ", broj studenata: " + s.BrojStudenata);
+            }           
         }
 
         public void PrikaziSmjerove()

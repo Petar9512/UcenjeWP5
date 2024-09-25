@@ -35,7 +35,9 @@ namespace UcenjeCS.ConsoleAppFakultet
 
         public void PrikaziIzbornik()
         {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine("\nIzbornik - studenti");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("1. Prikaži sve studente");
             Console.WriteLine("2. Pregled detalja studenta");
             Console.WriteLine("3. Dodaj novog studenta");
@@ -47,7 +49,7 @@ namespace UcenjeCS.ConsoleAppFakultet
 
         private void OdabirOpcijeIzbornika()
         {
-            switch(Pomocno.UcitajRasponBroja("Odaberite opciju izbornika", 1, 6))
+            switch(Pomocno.UcitajRasponBroja("\nOdaberite opciju izbornika", 1, 6))
             {
                 case 1:
                     PrikaziStudente();
@@ -77,7 +79,7 @@ namespace UcenjeCS.ConsoleAppFakultet
         private void ObrisiStudenta()
         {
             PrikaziStudente();
-            var s = Studenti[Pomocno.UcitajRasponBroja("Unesite redni broj studenta za brisanje", 1, Studenti.Count) - 1];
+            var s = Studenti[Pomocno.UcitajRasponBroja("\nUnesite redni broj studenta za brisanje", 1, Studenti.Count) - 1];
             if (Pomocno.UcitajRasponBroja("1 - obriši studenta\n2 - odustani", 1, 2) == 1)
             {
                 Studenti.Remove(s);
@@ -87,19 +89,20 @@ namespace UcenjeCS.ConsoleAppFakultet
         private void PromjenaStudenta()
         {
             PrikaziStudente();
-            var s = Studenti[Pomocno.UcitajRasponBroja("Unesite redni broj studenta za promjenu", 1, Studenti.Count) - 1];
-            if (Pomocno.UcitajRasponBroja("1 - promijeni sve parametre\n2 - promijeni pojedinačno", 1, 2) == 1)
+            var s = Studenti[Pomocno.UcitajRasponBroja("\nUnesite redni broj studenta za promjenu", 1, Studenti.Count) - 1];
+            switch (Pomocno.UcitajRasponBroja("1 - promijeni sve parametre\n2 - promijeni pojedinačno\n3 - odustani", 1, 3))
             {
+                case 1:
                 s.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + s.Sifra + ")", 1, int.MaxValue);
                 Izbornik.ObradaSmjer.PrikaziSmjerove();
                 s.Smjer = Izbornik.ObradaSmjer.Smjerovi[Pomocno.UcitajRasponBroja("Unesite redni broj novog smjera", 1, Izbornik.ObradaSmjer.Smjerovi.Count) - 1];
                 s.Ime = Pomocno.UcitajString(s.Ime, "Unesite novo ime studenta", 30, true);
                 s.Prezime = Pomocno.UcitajString(s.Prezime, "Unesite novo prezime studenta", 30, true);
                 s.Oib = Pomocno.UcitajString(s.Oib, "Unesite novi OIB", 11, true);
-            }
-            else
-            {
-                switch(Pomocno.UcitajRasponBroja("Unesite broj parametra za promjenu: \n1 - šifra\n2 - smjer\n3 - ime\n4 - prezime\n5 - OIB", 1, 5))
+                    break;
+
+                case 2:
+                switch(Pomocno.UcitajRasponBroja("Unesite broj parametra za promjenu: \n1 - šifra\n2 - smjer\n3 - ime\n4 - prezime\n5 - OIB\n6 - odustani", 1, 6))
                 {
                     case 1:
                         s.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + s.Sifra + ")", 1, int.MaxValue);
@@ -117,7 +120,13 @@ namespace UcenjeCS.ConsoleAppFakultet
                     case 5:
                         s.Oib = Pomocno.UcitajString(s.Oib, "Unesite novi OIB", 11, true);
                         break;
+                    case 6:
+                        break;
                 }
+                    break;
+
+                case 3:
+                    break;
             }
         }
 
@@ -135,8 +144,17 @@ namespace UcenjeCS.ConsoleAppFakultet
 
         private void PregledStudenta()
         {
-            var s = Studenti[Pomocno.UcitajRasponBroja("Unesite redni broj studenta za pregled", 1, Studenti.Count) - 1];
-            Console.WriteLine("student: " + s.Ime + " " + s.Prezime + ", OIB: " + s.Oib + ", smjer: " + s.Smjer.Naziv);
+            PrikaziStudente();
+            var broj = Pomocno.UcitajRasponBroja("\nUnesite redni broj studenta za pregled ili 0 za povratak na izbornik", 0, Studenti.Count);
+            if (broj == 0)
+            {
+                return;
+            }
+            else
+            {
+                var s = Studenti[broj - 1];
+                Console.WriteLine("student: " + s.Ime + " " + s.Prezime + ", OIB: " + s.Oib + ", smjer: " + s.Smjer.Naziv);
+            }        
         }
 
         public void PrikaziStudente()

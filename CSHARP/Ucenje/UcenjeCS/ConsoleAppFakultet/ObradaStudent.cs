@@ -26,11 +26,11 @@ namespace UcenjeCS.ConsoleAppFakultet
 
         private void UcitajTestnePodatke()
         {
-            Studenti.Add(new(1, Izbornik.ObradaSmjer.Smjerovi[3], "Ivan", "Ivić", "47457409385"));
-            Studenti.Add(new(2, Izbornik.ObradaSmjer.Smjerovi[3], "Hajdi", "Hajdić", "15797970162"));
-            Studenti.Add(new(3, Izbornik.ObradaSmjer.Smjerovi[0], "Goran", "Grkić", "20437329240"));
-            Studenti.Add(new(4, Izbornik.ObradaSmjer.Smjerovi[0], "Marko", "Markić", "22353796851"));
-            Studenti.Add(new(5, Izbornik.ObradaSmjer.Smjerovi[1], "Ivan", "Ivičević", "24088017749"));
+            Studenti.Add(new(1, Izbornik.ObradaSmjer.Smjerovi[3], "Ivan", "Ivić", 1, "47457409385"));
+            Studenti.Add(new(2, Izbornik.ObradaSmjer.Smjerovi[3], "Hajdi", "Hajdić", 1, "15797970162"));
+            Studenti.Add(new(3, Izbornik.ObradaSmjer.Smjerovi[0], "Goran", "Grkić", 1, "20437329240"));
+            Studenti.Add(new(4, Izbornik.ObradaSmjer.Smjerovi[0], "Marko", "Markić", 1, "22353796851"));
+            Studenti.Add(new(5, Izbornik.ObradaSmjer.Smjerovi[1], "Ivan", "Ivičević", 1, "24088017749"));
         }
 
         public void PrikaziIzbornik()
@@ -93,16 +93,17 @@ namespace UcenjeCS.ConsoleAppFakultet
             switch (Pomocno.UcitajRasponBroja("1 - promijeni sve parametre\n2 - promijeni pojedinačno\n3 - odustani", 1, 3))
             {
                 case 1:
-                s.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + s.Sifra + ")", 1, int.MaxValue);
-                Izbornik.ObradaSmjer.PrikaziSmjerove();
-                s.Smjer = Izbornik.ObradaSmjer.Smjerovi[Pomocno.UcitajRasponBroja("Unesite redni broj novog smjera", 1, Izbornik.ObradaSmjer.Smjerovi.Count) - 1];
-                s.Ime = Pomocno.UcitajString(s.Ime, "Unesite novo ime studenta", 30, true);
-                s.Prezime = Pomocno.UcitajString(s.Prezime, "Unesite novo prezime studenta", 30, true);
-                s.Oib = Pomocno.UcitajString(s.Oib, "Unesite novi OIB", 11, true);
+                    s.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + s.Sifra + ")", 1, int.MaxValue);
+                    Izbornik.ObradaSmjer.PrikaziSmjerove();
+                    s.Smjer = Izbornik.ObradaSmjer.Smjerovi[Pomocno.UcitajRasponBroja("Unesite redni broj novog smjera", 1, Izbornik.ObradaSmjer.Smjerovi.Count) - 1];
+                    s.Ime = Pomocno.UcitajString(s.Ime, "Unesite novo ime studenta", 30, true);
+                    s.Prezime = Pomocno.UcitajString(s.Prezime, "Unesite novo prezime studenta", 30, true);
+                    s.GodinaStudiranja = Pomocno.UcitajRasponBroja("Unesite godinu studiranja", 1, 10);
+                    s.Oib = Pomocno.UcitajString(s.Oib, "Unesite novi OIB", 11, true);
                     break;
 
                 case 2:
-                switch(Pomocno.UcitajRasponBroja("Unesite broj parametra za promjenu: \n1 - šifra\n2 - smjer\n3 - ime\n4 - prezime\n5 - OIB\n6 - odustani", 1, 6))
+                switch(Pomocno.UcitajRasponBroja("Unesite broj parametra za promjenu: \n1 - šifra\n2 - smjer\n3 - ime\n4 - prezime\n5 - godina studiranja\n6 - OIB\n7 - odustani", 1, 7))
                 {
                     case 1:
                         s.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + s.Sifra + ")", 1, int.MaxValue);
@@ -118,9 +119,12 @@ namespace UcenjeCS.ConsoleAppFakultet
                         s.Prezime = Pomocno.UcitajString(s.Prezime, "Unesite novo prezime studenta", 30, true);
                         break;
                     case 5:
-                        s.Oib = Pomocno.UcitajString(s.Oib, "Unesite novi OIB", 11, true);
+                        s.GodinaStudiranja = Pomocno.UcitajRasponBroja("Unesite godinu studiranja", 1, 10);
                         break;
                     case 6:
+                        s.Oib = Pomocno.UcitajString(s.Oib, "Unesite novi OIB", 11, true);
+                        break;
+                    case 7:
                         break;
                 }
                     break;
@@ -138,6 +142,7 @@ namespace UcenjeCS.ConsoleAppFakultet
             s.Smjer = Izbornik.ObradaSmjer.Smjerovi[Pomocno.UcitajRasponBroja("Unesite redni broj smjera", 1, Izbornik.ObradaSmjer.Smjerovi.Count) - 1];
             s.Ime = Pomocno.UcitajString("Unesite ime studenta", 30, true);
             s.Prezime = Pomocno.UcitajString("Unesite prezime studenta", 30, true);
+            s.GodinaStudiranja = Pomocno.UcitajRasponBroja("Unesite godinu studiranja", 1, 10);
             s.Oib = Pomocno.UcitajString("Unesite OIB studenta", 11, true);
             Studenti.Add(s);
         }
@@ -153,7 +158,7 @@ namespace UcenjeCS.ConsoleAppFakultet
             else
             {
                 var s = Studenti[broj - 1];
-                Console.WriteLine("student: " + s.Ime + " " + s.Prezime + ", OIB: " + s.Oib + ", smjer: " + s.Smjer.Naziv);
+                Console.WriteLine("student: " + s.Ime + " " + s.Prezime + ", godina: " + s.GodinaStudiranja + ", OIB: " + s.Oib + ", smjer: " + s.Smjer.Naziv);
             }        
         }
 

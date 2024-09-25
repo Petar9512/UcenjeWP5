@@ -17,7 +17,7 @@ namespace UcenjeCS.ConsoleAppFakultet
         public Izbornik() 
         {
             Pomocno.DEV = true;
-            ObradaSmjer = new ObradaSmjer();
+            ObradaSmjer = new ObradaSmjer(this);
             ObradaKolegij = new ObradaKolegij(this);
             ObradaStudent = new ObradaStudent(this);
             ObradaIspitniRok = new ObradaIspitniRok(this);

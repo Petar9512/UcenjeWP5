@@ -12,9 +12,11 @@ namespace UcenjeCS.ConsoleAppFakultet
     {
 
         public List<Smjer> Smjerovi { get; set; }
+        public Izbornik Izbornik { get; set; }
 
-        public ObradaSmjer()
+        public ObradaSmjer(Izbornik izbornik)
         {
+            this.Izbornik = izbornik;
             Smjerovi = new List<Smjer>();
             if (Pomocno.DEV)
             {
@@ -40,13 +42,14 @@ namespace UcenjeCS.ConsoleAppFakultet
             Console.WriteLine("3. Dodaj novi smjer");
             Console.WriteLine("4. Promijeni podatke smjera");
             Console.WriteLine("5. Brisanje smjera");
-            Console.WriteLine("6. Povratak na glavni izbornik");
+            Console.WriteLine("6. Dodaj / obriši studente");
+            Console.WriteLine("7. Povratak na glavni izbornik");
             OdabirOpcijeIzbornika();
         }
 
         private void OdabirOpcijeIzbornika()
         {
-            switch (Pomocno.UcitajRasponBroja("\nOdaberite opciju izbornika", 1, 6))
+            switch (Pomocno.UcitajRasponBroja("\nOdaberite opciju izbornika", 1, 7))
             {
                 case 1:
                     PrikaziSmjerove();
@@ -69,7 +72,81 @@ namespace UcenjeCS.ConsoleAppFakultet
                     PrikaziIzbornik();
                     break;
                 case 6:
+                    PrikaziSmjerove();
+                    var s = Smjerovi[Pomocno.UcitajRasponBroja("\nUnesite redni broj smjera za unos/brisanje studenata", 1, Smjerovi.Count) - 1];
+                    switch (Pomocno.UcitajRasponBroja("1 - dodati\n2 - obrisati\n3 - povratak na izbornik", 1, 3))
+                    {
+                        case 1:
+                            UcitajStudente(s, s.Studenti);
+                            break;
+                        case 2:
+                            ObrisiStudente(s, s.Studenti);
+                            break;
+                        case 3:
+                            break;
+                    }
+                    PrikaziIzbornik();
                     break;
+                case 7:
+                    break;
+            }
+        }
+
+        private void ObrisiStudente(Smjer s, List<Student> listaStudenata)
+        {
+            if (listaStudenata.Count != 0)
+            {
+                do
+                {
+                    var rbs = 1;
+                    foreach (var e in listaStudenata)
+                    {
+                        Console.WriteLine(rbs++ + ". " + e.Ime + " " + e.Prezime);
+                    }
+                    var stu = listaStudenata[Pomocno.UcitajRasponBroja("\nUnesite redni broj studenta za brisanje", 1, listaStudenata.Count) - 1];
+                    if (Pomocno.UcitajBool("Obrisati studenta " + stu.Ime + " " + stu.Prezime + "? (DA / NE)", "da"))
+                    {
+                        listaStudenata.Remove(stu);
+                    }
+                }
+                while (listaStudenata.Count != 0 && Pomocno.UcitajBool("Želite li obrisati još jednog studenta? (DA / NE)", "da"));
+            }
+
+            if (listaStudenata.Count == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Nema više studenata u ovom smjeru");
+                Console.WriteLine("Povratak na izbornik");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+        }
+
+        private void UcitajStudente(Smjer s, List<Student> listaStudenata)
+        {
+            if (listaStudenata.Count < s.BrojStudenata)
+            {
+                Izbornik.ObradaStudent.PrikaziStudente();
+                do
+                {
+                    var opcija = Pomocno.UcitajRasponBroja("\nIzaberite redni broj studenta za unos ili 0 za povratak na izbornik", 0, Izbornik.ObradaStudent.Studenti.Count);
+                    if (opcija == 0)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        listaStudenata.Add(Izbornik.ObradaStudent.Studenti[opcija - 1]);
+                    }
+                }
+                while (listaStudenata.Count < s.BrojStudenata && Pomocno.UcitajBool("Unos još jednog studenta? (DA / NE)", "da"));
+            }
+
+            if (listaStudenata.Count >= s.BrojStudenata)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Dosegnut je maksimalan broj studenata u ovom smjeru");
+                Console.WriteLine("Povratak na izbornik");
+                Console.ForegroundColor = ConsoleColor.White;
             }
         }
 
@@ -94,9 +171,17 @@ namespace UcenjeCS.ConsoleAppFakultet
                     s.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + s.Sifra + "):", 1, int.MaxValue);
                     s.Naziv = Pomocno.UcitajString(s.Naziv, "Unesite novi naziv smjera", 50, true);
                     s.BrojStudenata = Pomocno.UcitajRasponBroja("Unesite novi broj studenata (" + s.BrojStudenata + "):", 10, 60);
+                    if (Pomocno.UcitajBool("Želite li dodati studente u ovaj smjer? (DA / NE)", "da"))
+                    {
+                        UcitajStudente(s, s.Studenti);
+                    }
+                    if (Pomocno.UcitajBool("Želite li obrisati studente iz ovog smjera? (DA / NE)", "da"))
+                    {
+                        ObrisiStudente(s, s.Studenti);
+                    }
                     break;
                 case 2:
-                    switch (Pomocno.UcitajRasponBroja("\nUnesite broj parametra za promjenu: \n1 - šifra\n2 - naziv\n3 - broj studenata\n4 - odustani", 1, 4))
+                    switch (Pomocno.UcitajRasponBroja("\nUnesite broj parametra za promjenu: \n1 - šifra\n2 - naziv\n3 - broj studenata\n4 - dodaj/obriši studente\n5 - odustani", 1, 5))
                     {
                         case 1:
                             s.Sifra = Pomocno.UcitajRasponBroja("Unesite novu šifru (" + s.Sifra + "):", 1, int.MaxValue);
@@ -108,6 +193,16 @@ namespace UcenjeCS.ConsoleAppFakultet
                             s.BrojStudenata = Pomocno.UcitajRasponBroja("Unesite novi broj studenata (" + s.BrojStudenata + "):", 10, 60);
                             break;
                         case 4:
+                            if (Pomocno.UcitajBool("Želite li dodati studente u ovaj smjer? (DA / NE)", "da"))
+                            {
+                                UcitajStudente(s, s.Studenti);
+                            }
+                            if (Pomocno.UcitajBool("Želite li obrisati studente iz ovog smjera? (DA / NE)", "da"))
+                            {
+                                ObrisiStudente(s, s.Studenti);
+                            }
+                            break;
+                        case 5:
                             break;
                     }
                     break;
@@ -122,6 +217,10 @@ namespace UcenjeCS.ConsoleAppFakultet
             s.Sifra = Pomocno.UcitajRasponBroja("Unesite šifru smjera", 1, int.MaxValue);
             s.Naziv = Pomocno.UcitajString("Unesite naziv smjera", 50, true);
             s.BrojStudenata = Pomocno.UcitajRasponBroja("Unesite broj studenata", 10, 60);
+            if (Pomocno.UcitajBool("Želite li dodati studente u ovaj smjer? (DA / NE)", "da"))
+            {
+                UcitajStudente(s, s.Studenti);
+            }
             Smjerovi.Add(s);
         }
 
@@ -136,7 +235,20 @@ namespace UcenjeCS.ConsoleAppFakultet
             else
             {
                 var s = Smjerovi[broj - 1];
-                Console.WriteLine("naziv: " + s.Naziv + ", broj studenata: " + s.BrojStudenata);
+                Console.WriteLine("naziv: " + s.Naziv + "\nStudenti: ");
+                if (s.Studenti.Count != 0)
+                {
+                    foreach (var e in s.Studenti)
+                    {
+                        Console.WriteLine("šifra: " + e.Sifra + ", Oib: " + e.Oib);
+                    }
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("Još nema studenata u ovom smjeru");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
             }           
         }
 
@@ -145,7 +257,7 @@ namespace UcenjeCS.ConsoleAppFakultet
             var rbs = 1;
             foreach (var s in Smjerovi)
             {
-                Console.WriteLine(rbs++ + ". " + s.Naziv);
+                Console.WriteLine(rbs++ + ". " + s.Naziv + ", broj slobodnih mjesta: " + (s.BrojStudenata - s.Studenti.Count));
             }
         }
     }

@@ -10,7 +10,7 @@ namespace UcenjeCS.ConsoleAppFakultet.Model
     {
         public IspitniRok() 
         {
-            Studenti = new List<Student>();
+            Pristupnici = new List<Student>();
         }
 
         public IspitniRok(int sifra, Kolegij kolegij, string vrstaIspita, DateTime datum)
@@ -19,13 +19,13 @@ namespace UcenjeCS.ConsoleAppFakultet.Model
             this.Kolegij = kolegij;
             this.VrstaIspita = vrstaIspita;
             this.Datum = datum;
-            Studenti = new List<Student>();
+            Pristupnici = new List<Student>();
         }
 
         public Kolegij? Kolegij { get; set; }
         public string? VrstaIspita { get; set; }
         public DateTime? Datum { get; set; }
-        public List<Student> Studenti { get; set; }
+        public List<Student> Pristupnici { get; set; }
 
     }
 }

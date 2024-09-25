@@ -80,10 +80,10 @@ namespace UcenjeCS.ConsoleAppFakultet
                     switch (Pomocno.UcitajRasponBroja("1 - dodati \n2 - obrisati \n3 - povratak na izbornik", 1, 3))
                     {
                         case 1:
-                            UcitajPristupnike(r, r.Studenti);
+                            UcitajPristupnike(r, r.Pristupnici);
                             break;
                         case 2:
-                            ObrisiPristupnike(r, r.Studenti);
+                            ObrisiPristupnike(r, r.Pristupnici);
                             break;
                         case 3:
                             break;
@@ -165,11 +165,11 @@ namespace UcenjeCS.ConsoleAppFakultet
                 r.Datum = Pomocno.UcitajDatum(false);
                 if (Pomocno.UcitajBool("Želite li dodati pristupnike u ovaj ispitni rok? (DA / NE)", "da"))
                 {
-                    UcitajPristupnike(r, r.Studenti);
+                    UcitajPristupnike(r, r.Pristupnici);
                 }
                 if (Pomocno.UcitajBool("Želite li obrisati pristupnike iz ovog ispitnog roka? (DA / NE)", "da"))
                 {
-                    ObrisiPristupnike(r, r.Studenti);
+                    ObrisiPristupnike(r, r.Pristupnici);
                 }
                     break;
 
@@ -191,11 +191,11 @@ namespace UcenjeCS.ConsoleAppFakultet
                         case 5:
                             if (Pomocno.UcitajBool("Želite li dodati pristupnike u ovaj ispitni rok? (DA / NE)", "da"))
                             {
-                                UcitajPristupnike(r, r.Studenti);
+                                UcitajPristupnike(r, r.Pristupnici);
                             }
                             if (Pomocno.UcitajBool("Želite li obrisati pristupnike iz ovog ispitnog roka? (DA / NE)", "da"))
                             {
-                                ObrisiPristupnike(r, r.Studenti);
+                                ObrisiPristupnike(r, r.Pristupnici);
                             }
                             break;
                         case 6:
@@ -217,7 +217,7 @@ namespace UcenjeCS.ConsoleAppFakultet
             r.Datum = Pomocno.UcitajDatum(false);
             if (Pomocno.UcitajBool("Želite li dodati pristupnike u ovaj ispitni rok? (DA / NE)", "da"))
             {
-                UcitajPristupnike(r, r.Studenti);
+                UcitajPristupnike(r, r.Pristupnici);
             }
             Rokovi.Add(r);
         }
@@ -234,9 +234,9 @@ namespace UcenjeCS.ConsoleAppFakultet
             {
                 var r = Rokovi[broj - 1];
                 Console.WriteLine(r.Kolegij.Naziv + " - " + r.Datum + ", " + r.VrstaIspita + "\nPrijavljeni: ");
-                if (r.Studenti.Count != 0)
+                if (r.Pristupnici.Count != 0)
                 {
-                    foreach (var p in r.Studenti)
+                    foreach (var p in r.Pristupnici)
                     {
                         Console.WriteLine(p.Ime + " " + p.Prezime);
                     }

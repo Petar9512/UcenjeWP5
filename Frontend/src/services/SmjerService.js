@@ -3,7 +3,6 @@ import { HttpService } from "./HttpService";
 async function get() {
     return await HttpService.get('/Smjer')
     .then((odgovor)=>{
-        console.log(odgovor.data)
         console.table(odgovor.data)
         return {greska: false, poruka: odgovor.data}
     })
@@ -13,7 +12,18 @@ async function get() {
     })
 }
 
+async function brisanje(sifra) {
+    return await HttpService.delete('/Smjer/' + sifra)
+    .then(()=>{
+        return {greska: false, poruka: 'Obrisano'}
+    })
+    .catch(()=>{
+        return {greska: true, poruka: 'Problem kod brisanja smjera'}
+    })
+}
+
 
 export default {
-    get
+    get,
+    brisanje
 }

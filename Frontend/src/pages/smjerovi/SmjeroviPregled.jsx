@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import SmjerService from "../../services/SmjerService"
-import { Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import moment from "moment/moment";
 
 export default function SmjeroviPregled() {
@@ -34,6 +34,22 @@ function pristupio(p) {
     return 'red'
 }
 
+function obrisi(sifra) {
+    if (!confirm('Sigurno obrisati?')) {
+        return;
+    }
+brisanjeSmjera(sifra)
+}
+
+async function brisanjeSmjera(sifra) {
+const odgovor = await SmjerService.brisanje(sifra);
+if (odgovor.greska) {
+    alert(odgovor.poruka)
+    return
+}
+dohvatiSmjerove();
+}
+
 
     return(
         <>
@@ -54,7 +70,9 @@ function pristupio(p) {
                         <td className={smjer.brojStudenata==null ? 'sredina' : 'desno'}>
                             {smjer.brojStudenata==null ? 'Nije definirano' : smjer.brojStudenata}
                         </td>
-                        <td>Akcija</td>
+                        <td>
+                        <Button variant="danger" onClick={()=>obrisi(smjer.sifra)}>Obriši</Button>
+                        </td>
                     </tr>
                 ))}
             </tbody>

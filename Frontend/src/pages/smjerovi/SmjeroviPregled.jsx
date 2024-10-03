@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import SmjerService from "../../services/SmjerService"
 import { Button, Table } from "react-bootstrap";
 import moment from "moment/moment";
+import { Link } from "react-router-dom";
+import { RouteNames } from "../../constants";
 
 export default function SmjeroviPregled() {
 
@@ -53,6 +55,7 @@ dohvatiSmjerove();
 
     return(
         <>
+        <Link to={RouteNames.SMJER_NOVI} className="btn btn-success siroko">Dodaj novi smjer</Link>
         <Table striped bordered hover responsive>
             <thead>
                 <tr>

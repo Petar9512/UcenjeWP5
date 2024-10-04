@@ -32,9 +32,31 @@ async function dodaj(smjer) {
     })
 }
 
+async function promjena(sifra, smjer) {
+    return await HttpService.put('/Smjer/' + sifra, smjer)
+    .then(()=>{
+        return {greska: false, poruka: "Promjena uspješna"}
+    })
+    .catch(()=>{
+        return {greska: true, poruka: "Problem kod promjene smjera"}
+    })
+}
+
+async function getBySifra(sifra) {
+    return await HttpService.get('/Smjer/' + sifra)
+    .then((odgovor)=>{
+        return {greska: false, poruka: odgovor.data}
+    })
+    .catch((e)=>{
+        return {greska: true, poruka: "Problem kod dohvaćanja smjera sa šifrom" + sifra}
+    })
+}
+
 
 export default {
     get,
     brisanje,
-    dodaj
+    dodaj,
+    getBySifra,
+    promjena
 }

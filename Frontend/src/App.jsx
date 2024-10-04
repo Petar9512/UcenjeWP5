@@ -7,6 +7,7 @@ import { RouteNames } from './constants';
 import Pocetna from './pages/Pocetna';
 import SmjeroviPregled from './pages/smjerovi/SmjeroviPregled';
 import SmjeroviDodaj from './pages/smjerovi/SmjeroviDodaj';
+import SmjeroviPromjena from './pages/smjerovi/SmjeroviPromjena';
 
 function App() {
   
@@ -19,7 +20,7 @@ function App() {
         <Route path={RouteNames.HOME} element={<Pocetna />} />
         <Route path={RouteNames.SMJER_PREGLED} element={<SmjeroviPregled />} />
         <Route path={RouteNames.SMJER_NOVI} element={<SmjeroviDodaj />} />
-
+        <Route path={RouteNames.SMJER_PROMJENA} element={<SmjeroviPromjena />} />
 
       </Routes>
       <hr />

@@ -2,12 +2,13 @@ import { useEffect, useState } from "react"
 import SmjerService from "../../services/SmjerService"
 import { Button, Table } from "react-bootstrap";
 import moment from "moment/moment";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RouteNames } from "../../constants";
 
 export default function SmjeroviPregled() {
 
-    const[smjerovi, setSmjerovi] = useState();
+    const navigate = useNavigate()
+    const[smjerovi, setSmjerovi] = useState()
 
 async function dohvatiSmjerove(){
 const odgovor = await SmjerService.get();
@@ -75,6 +76,8 @@ dohvatiSmjerove();
                         </td>
                         <td>
                         <Button variant="danger" onClick={()=>obrisi(smjer.sifra)}>Obriši</Button>
+                        &nbsp;&nbsp;&nbsp;
+                        <Button onClick={()=> navigate(`/smjerovi/${smjer.sifra}`) }>Promjena smjera</Button>
                         </td>
                     </tr>
                 ))}

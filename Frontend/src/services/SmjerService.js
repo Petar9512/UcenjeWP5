@@ -3,7 +3,7 @@ import { HttpService } from "./HttpService";
 async function get() {
     return await HttpService.get('/Smjer')
     .then((odgovor)=>{
-        console.table(odgovor.data)
+        //console.table(odgovor.data)
         return {greska: false, poruka: odgovor.data}
     })
     .catch((e)=>{
@@ -22,8 +22,19 @@ async function brisanje(sifra) {
     })
 }
 
+async function dodaj(smjer) {
+    return await HttpService.post('/Smjer', smjer)
+    .then(()=>{
+        return {greska: false, poruka: "Smjer dodan"}
+    })
+    .catch(()=>{
+        return {greska: true, poruka: "Problem kod dodavanja smjera"}
+    })
+}
+
 
 export default {
     get,
-    brisanje
+    brisanje,
+    dodaj
 }

@@ -8,8 +8,24 @@ export default function SmjeroviDodaj() {
 
     const navigate = useNavigate()
 
+    async function dodaj(smjer) {
+        console.log(JSON.stringify(smjer))
+        const odgovor = await SmjerService.dodaj(smjer)
+        if (odgovor.greska) {
+            alert (odgovor.poruka)
+            return;
+        }
+        navigate(RouteNames.SMJER_PREGLED)
+    }
+
     function obradiSubmit(e) {
         e.preventDefault();
+        let podatci = new FormData(e.target)
+
+        dodaj ({
+            naziv: podatci.get('naziv'),
+            brojStudenata: parseInt(podatci.get('brojStudenata'))
+        })
     }
 
     return(
